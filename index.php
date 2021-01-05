@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">  
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
     <title>CA PintF</title>
-    
+
 <!--
 Mini Profile Template
 https://templatemo.com/tm-530-mini-profile
@@ -19,7 +20,7 @@ https://templatemo.com/tm-530-mini-profile
   </head>
   <body>
     <!-- Welcome Section -->
-   <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Third navbar example">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,24 +34,24 @@ https://templatemo.com/tm-530-mini-profile
           <li class="nav-item">
             <a class="nav-link active" href="cardsprojetos.php">Projetos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#" tabindex="-1" aria-disabled="false">Documentos_CentroAcadêmico</a>
-          </li>
           <li class="nav-item dropdown">
-             <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Documentos_Curso</a>
+             <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Documentos</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown03">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">PPC</a></li>
+              <li><a class="dropdown-item" href="#">RegulamentoEstagio</a></li>
+              <li><a class="dropdown-item" href="#">RegulamentoHorasComplementares</a></li>
+              <li><a class="dropdown-item" href="#">AtasReunião</a></li>
             </ul>
           </li>
-        </ul>
-        <form>
-          <!--<input class="form-control" type="text" placeholder="Search" aria-label="Search">-->
-        </form>
+        </ul> 
       </div>
     </div>
-  </nav>
+      <a class="nav-link active dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">MenuInicial</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown03">
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              <li><a class="dropdown-item" href="#">Sair</a></li>
+          </div> 
+     </nav>
     <section id="tmWelcome" class="parallax-window" data-parallax="scroll" data-image-src="img/mini-profile-bg-01.jpg">
       <div class="container-fluid tm-brand-container-outer">
         <div class="row">
@@ -229,7 +230,7 @@ https://templatemo.com/tm-530-mini-profile
         });
       });
     </script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </body>
 </html>
