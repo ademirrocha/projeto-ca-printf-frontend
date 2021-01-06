@@ -29,5 +29,13 @@
     <a href="#" class="card-link">Another link</a>
   </div>
 </div>
+
+  <div class="card text-center" style="width: 18rem; left:18rem; padding-top:5rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
  <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
