@@ -1,5 +1,5 @@
 const api = axios.create({
-    baseURL: "https://project-ca-printf.herokuapp.com/api/"
+	baseURL: "https://project-ca-printf-backend.herokuapp.com/api/"
     //baseURL: "http://localhost:8000/api/"
 });
 
@@ -11,8 +11,23 @@ var config = {
 		"Access-Control-Allow-Headers": "Authorization", 
 		"Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
 		"Content-Type": "application/json;charset=UTF-8"
+
 	}
 };
+
+//config.headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
+//config.headers.append('Access-Control-Allow-Credentials', 'true');
+
+
+api.defaults.headers.common = {
+	...api.defaults.headers.common, 
+	'Accept': 'application/json',
+	'Content-Type':'application/x-www-form-urlencoded',
+	"Access-Control-Allow-Origin": "*",
+	"Access-Control-Allow-Headers": "Authorization", 
+	"Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+	"Content-Type": "application/json;charset=UTF-8"
+}
 
 
 async function login($this){
@@ -21,10 +36,11 @@ async function login($this){
 	$('#message_login').attr('hidden', 'hidden')
 	$('#message_login').removeClass('error')
 
+
+
 	await api.post('auth/login', {
 		email: $('#email').val(),
-		password: $('#password').val(),
-		config
+		password: $('#password').val()
 	})
 	.then(
 		function(response){
@@ -41,7 +57,7 @@ async function login($this){
 				closeModal();
 				closeLoginForm();
 			}
-			
+
 			$($this).html("Entrar")
 
 		})
@@ -55,7 +71,7 @@ async function login($this){
 		}
 
 		console.log(error.response)
-		
+
 	}); 
 
 	$($this).html("Entrar")
@@ -96,9 +112,9 @@ async function logout(){
 		}
 
 		console.log(error.response)
-		
+
 	}); 
-	
+
 	Swal.close(); 
 
 }
@@ -141,7 +157,7 @@ async function AuthRegister($this){
 				closeModal();
 				closeLoginForm();
 			}
-			
+
 			$($this).html("Cadastrar")
 
 		})
@@ -158,7 +174,7 @@ async function AuthRegister($this){
 
 
 		console.log(error.response)
-		
+
 	}); 
 
 	$($this).html("Cadastrar")
