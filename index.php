@@ -66,7 +66,7 @@ https://templatemo.com/tm-530-mini-profile
       </div>
     </div>
   </div>
-  <div class="container-fluid tm-brand-container-outer" style="width:50rem;">
+  <div class="container-fluid tm-brand-container-outer if" style="width:50rem;">
     <div class="row">
      <div class="col-md-12">
       <div class=" ml-auto mr-0 tm-welcome-right tm-brand-container-inner rounded float-start">

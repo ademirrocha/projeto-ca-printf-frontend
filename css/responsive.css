@@ -25,7 +25,9 @@
 
 @media (max-width: 760px) {
 	
-
+	.if{
+		display: none;
+	}
 }
 
 
