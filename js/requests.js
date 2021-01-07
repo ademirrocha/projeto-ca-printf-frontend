@@ -99,6 +99,7 @@ async function logout(){
 				localStorage.removeItem('id');
 
 				menuUser();
+				closeModal()
 			}
 
 		})
