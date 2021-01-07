@@ -181,7 +181,7 @@ https://templatemo.com/tm-530-mini-profile
         </div>
       </form>
     </div>
-    <div class="tm-portfolio-item position-absolute top-350 start-50">
+    <div class="tm-portfolio-item container px-5 position-absolute top-350 start-50">
               <div class="tm-portfolio-name text-white tm-bg-blue">
                 Sede
               </div>
@@ -196,9 +196,6 @@ https://templatemo.com/tm-530-mini-profile
               </div>
             </div>
     </div>
-    
-  
-   
   <!-- row -->
   <div class="row">
     <footer class="col-12">
