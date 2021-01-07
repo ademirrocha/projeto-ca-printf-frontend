@@ -100,7 +100,66 @@ async function logout(){
 	}); 
 	
 	Swal.close(); 
-	
 
-	
+}
+
+function clearErrors(field){
+	$("#" + field + "_error").attr('hidden', 'hidden')
+	$("#" + field + "_error").removeClass('error-text')
+	$("#" + field + "_error").html('');
+}
+
+async function AuthRegister($this){
+
+	clearErrors('email')
+	clearErrors('name')
+	clearErrors('password')
+
+	$($this).html("Cadastrar " +'<img src="img/loading.gif" class="loading-button">')
+	$('#message_register').attr('hidden', 'hidden')
+	$('#message_register').removeClass('error')
+
+	await api.post('auth/register', {
+		name: $('#name').val(),
+		email: $('#email').val(),
+		password: $('#password').val(),
+		password_confirmation: $('#password_confirmation').val(),
+		config
+	})
+	.then(
+		function(response){
+
+			console.log(response)
+
+			if(response.status == 201){
+				localStorage.setItem('accessToken', response.data.meta.token);
+				localStorage.setItem('name', response.data.data.name);
+				localStorage.setItem('email', response.data.data.email);
+				localStorage.setItem('id', response.data.data.id);
+
+				menuUser();
+				closeModal();
+				closeLoginForm();
+			}
+			
+			$($this).html("Cadastrar")
+
+		})
+	.catch(error => {
+		console.log(error.response.data)
+
+		for (var property in error.response.data.errors){
+			console.log(property + " = " + error.response.data.errors[property]);
+			$("#"+ property + "_error").removeAttr('hidden')
+			$("#"+ property + "_error").addClass('error-text')
+			$("#"+ property + "_error").html(error.response.data.errors[property]);
+		}
+
+
+
+		console.log(error.response)
+		
+	}); 
+
+	$($this).html("Cadastrar")
 }

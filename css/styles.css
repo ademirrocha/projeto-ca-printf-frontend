@@ -8,9 +8,19 @@
 	font-weight: bold;
 }
 
+.message-text{
+	font-weight: bold;
+	margin-left: 20px;
+}
+
 .error{
 	background: #F75858;
 	color: #fff;
+}
+
+.error-text{
+	font-size: 70%;
+	color: #DC0D0D;
 }
 
 .loading-button{
