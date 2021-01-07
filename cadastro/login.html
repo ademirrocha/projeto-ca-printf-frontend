@@ -7,13 +7,15 @@
         <img style="width: 100px;" src="img/default-user.png" id="icon" alt="User Icon" />
       </div>
 
+      <div class="message" id="message_login" hidden="hidden"></div>
+
       <!-- Login Form -->
-      <form method="POST" action="#">
+      <form action="#">
         <label class="form-text">Email:</label> 
         <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail">
         <label class="form-text">Senha:</label> 
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha">
-        <input type="submit" class="fadeIn fourth" value="Entrar">
+        <button type="button" class="fadeIn fourth" onclick="return login(this);">Entrar</button>
       </form>
 
       <!-- Remind Passowrd -->

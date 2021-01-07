@@ -1,0 +1,18 @@
+.message{
+	width: 90%;
+	left: 5%;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.error{
+	background: #F75858;
+	color: #fff;
+}
+
+.loading-button{
+	width: 30px;
+}

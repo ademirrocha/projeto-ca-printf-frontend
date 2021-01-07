@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="css/menu.css">
   <link rel="stylesheet" type="text/css" href="css/signup.css">
   <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <title>CA PintF</title>
 
 <!--
@@ -198,7 +199,9 @@ https://templatemo.com/tm-530-mini-profile
 <!-- section -->
 <script src="js/jquery.min.js"></script>
 <script src="js/parallax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/requests.js"></script>
 
 <script>
 

@@ -31,12 +31,13 @@ function menuUser(){
 	
 	xmlreq = CriaRequest();
 
+	if(localStorage.getItem('accessToken') != 'null'){
 
-	if(1 == 0){
 		xmlreq.open("GET", "user-menu.html", true);
 	}else{
 		xmlreq.open("GET", "sing-up-menu.html", true);
 	}
+
 
 	xmlreq.onreadystatechange = function(){
 		if (xmlreq.readyState == 4) {
@@ -48,9 +49,18 @@ function menuUser(){
 			}
 
 			$('.navbar-collapse').append(result)
+
+			if(localStorage.getItem('accessToken') != 'null'){
+
+				$('#nameUser_menu').html('Olá ' + localStorage.getItem('name'))
+
+			}
+
+
 		}
 	};
 	xmlreq.send(null);
+
 }
 
 
@@ -137,3 +147,4 @@ $(".navbar-toggler").click(function(){
 
 
 });
+
