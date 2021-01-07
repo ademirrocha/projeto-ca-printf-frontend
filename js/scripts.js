@@ -163,9 +163,9 @@ function closeNavbarTogglere(){
 $(".navbar-toggler").click(function(){
 
 	if(! $( ".navbar-toggler" ).hasClass("collapsed")){
-		openModal()
+		openBackgrounModal()
 	}else{
-		closeModal()
+		closeBackgrounModal()
 	}
 
 
