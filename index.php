@@ -139,7 +139,7 @@ https://templatemo.com/tm-530-mini-profile
     </div>
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-6">
         <form action="index.html"method="POST" id="tmContactForm"              class="tm-bg-white-transparent">
           <div class="form-group">
             <input
@@ -181,14 +181,30 @@ https://templatemo.com/tm-530-mini-profile
         </div>
       </form>
     </div>
-  </div>
+    <div class="tm-portfolio-item position-absolute top-350 start-50">
+              <div class="tm-portfolio-name text-white tm-bg-blue">
+                Sede
+              </div>
+              <div class="tm-portfolio-description">
+                <h3 class="tm-text-blue">
+                  IFNMG
+                  <span class="tm-title-small">Campus Arinos-MG</span>
+                </h3>
+                <p class="mb-0">
+                  Rodovia MG 202, Km 407, s/n Zona Rural, Arinos - MG, 38680-000
+                </p>
+              </div>
+            </div>
+    </div>
+    
+  
+   
   <!-- row -->
   <div class="row">
     <footer class="col-12">
       <p class="text-center tm-copyright-text">
-        Copyright 2020 Mini Profile Page 
-
-      - Design: Template Mo</p>
+        &nbps;Projeto-Fabrica-2020 
+      </p>
     </footer>
   </div>
 </div>
