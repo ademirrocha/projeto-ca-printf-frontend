@@ -1,6 +1,6 @@
 const api = axios.create({
-    //baseURL: "https://project-ca-printf.herokuapp.com/api/"
-    baseURL: "http://localhost:8000/api/"
+    baseURL: "https://project-ca-printf.herokuapp.com/api/"
+    //baseURL: "http://localhost:8000/api/"
 });
 
 var config = {
