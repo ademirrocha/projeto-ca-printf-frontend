@@ -103,6 +103,7 @@ function closeBackgrounModal(){
 function openBackgrounModal(){
 	$('#cc').attr('class', 'cc');
 	$('#cc').show();
+	$('#cc').html('');
 }
 
 function loading(){
