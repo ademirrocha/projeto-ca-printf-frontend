@@ -31,11 +31,15 @@ function menuUser(){
 	
 	xmlreq = CriaRequest();
 
-	if(localStorage.getItem('accessToken') != 'null'){
+	console.log(localStorage.getItem('accessToken'))
 
+	if(localStorage.getItem('accessToken') != 'null' && localStorage.getItem('accessToken') != null){
+		$('#signUpMenu').remove()
 		xmlreq.open("GET", "user-menu.html", true);
 	}else{
+		$('#dataUserMenu').remove()
 		xmlreq.open("GET", "sing-up-menu.html", true);
+		
 	}
 
 
@@ -90,17 +94,41 @@ function openLogin(){
 	xmlreq.send(null);
 }
 
+function closeBackgrounModal(){
+	$('#cc').removeAttr('class', 'cc');
+	$('#cc').hide();
+	$('#cc').html('');
+}
 
+function openBackgrounModal(){
+	$('#cc').attr('class', 'cc');
+	$('#cc').show();
+}
+
+function loading(){
+	//openBackgrounModal()
+	//$('#cc').html('<img src="img/loading.gif">')
+	Swal.showLoading()
+
+}
+
+function closeModal(){
+	closeBackgrounModal()
+	$('#form-modal').hide()
+}
+
+function openModal(){
+	$('#form-modal').show()
+	openBackgrounModal()
+}
 
 
 
 function openSignUp(){
 
 	closeNavbarTogglere();
-
-	$('#form-modal').show()
-	$('#cc').attr('class', 'cc');
-	$('#cc').show();
+	openModal();
+	
 
 	xmlreq = CriaRequest();
 	xmlreq.open("GET", "cadastro/cadastro.php", true);
@@ -128,21 +156,16 @@ function closeNavbarTogglere(){
 		$(".navbar-toggler").click()
 	}	
 
-	$('#cc').removeAttr('class', 'cc');
-	$('#cc').hide();
-
-	$('#form-modal').hide()
+	closeModal()
 }
 
 
 $(".navbar-toggler").click(function(){
 
 	if(! $( ".navbar-toggler" ).hasClass("collapsed")){
-		$('#cc').attr('class', 'cc');
-		$('#cc').show();
+		openModal()
 	}else{
-		$('#cc').removeAttr('class', 'cc');
-		$('#cc').hide();
+		closeModal()
 	}
 
 

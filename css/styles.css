@@ -16,3 +16,10 @@
 .loading-button{
 	width: 30px;
 }
+
+#cc{
+	position: fixed;
+	text-align: center;
+	vertical-align:middle;
+	padding-top: 20%;
+}

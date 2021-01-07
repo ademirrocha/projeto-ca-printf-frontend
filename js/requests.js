@@ -36,6 +36,10 @@ async function login($this){
 				localStorage.setItem('name', response.data.data.name);
 				localStorage.setItem('email', response.data.data.email);
 				localStorage.setItem('id', response.data.data.id);
+
+				menuUser();
+				closeModal();
+				closeLoginForm();
 			}
 			
 			$($this).html("Entrar")
@@ -58,3 +62,45 @@ async function login($this){
 }
 
 
+async function logout(){
+
+	loading()
+
+	api.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken');
+	await api.post('auth/logout', {
+		config
+	})
+	.then(
+		function(response){
+
+			console.log(response)
+
+			if(response.status == 200){
+
+				localStorage.removeItem('accessToken');
+				localStorage.removeItem('name');
+				localStorage.removeItem('email');
+				localStorage.removeItem('id');
+
+				menuUser();
+			}
+
+		})
+	.catch(error => {
+		console.log(error)
+		if(error.response.data != 'undefined'){
+			$('#message_login').removeAttr('hidden')
+			$('#message_login').addClass('error')
+
+			$("#message_login").html(error.response.data.meta.errors);
+		}
+
+		console.log(error.response)
+		
+	}); 
+	
+	Swal.close(); 
+	
+
+	
+}

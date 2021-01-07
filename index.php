@@ -200,8 +200,10 @@ https://templatemo.com/tm-530-mini-profile
 <script src="js/jquery.min.js"></script>
 <script src="js/parallax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="js/scripts.js"></script>
 <script src="js/requests.js"></script>
+
 
 <script>
 
