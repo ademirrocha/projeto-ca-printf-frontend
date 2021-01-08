@@ -181,7 +181,7 @@ https://templatemo.com/tm-530-mini-profile
         </div>
       </form>
     </div>
-    <div class="tm-portfolio-item container px-5 position-absolute top-350 start-50">
+    <div class="tm-portfolio-item container px-5 offset-md position-absolute top-350 start-50">
               <div class="tm-portfolio-name text-white tm-bg-blue">
                 Sede
               </div>
@@ -200,7 +200,7 @@ https://templatemo.com/tm-530-mini-profile
   <div class="row">
     <footer class="col-12">
       <p class="text-center tm-copyright-text">
-        &nbps;Projeto-Fabrica-2020 
+        &copy;Projeto-Fabrica-2020 
       </p>
     </footer>
   </div>
