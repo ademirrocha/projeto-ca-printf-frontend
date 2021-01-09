@@ -23,15 +23,30 @@ function CriaRequest() {
 
 
 function onLoads(){
+
+	loading()
+
 	menuUser()
+
+	view()
+
+}
+
+function requiredLogin(){
+	localStorage.removeItem('accessToken');
+	localStorage.removeItem('name');
+	localStorage.removeItem('email');
+	localStorage.removeItem('id');
+
+	menuUser()
+	
+	openLogin()
 }
 
 
 function menuUser(){
 	
 	xmlreq = CriaRequest();
-
-	console.log(localStorage.getItem('accessToken'))
 
 	if(localStorage.getItem('accessToken') != 'null' && localStorage.getItem('accessToken') != null){
 		$('#signUpMenu').remove()

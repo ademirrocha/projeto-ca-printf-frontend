@@ -1,6 +1,6 @@
 const api = axios.create({
 	baseURL: "https://project-ca-printf-backend.herokuapp.com/api/"
-    //baseURL: "http://localhost:8000/api/"
+	//baseURL: "http://localhost:8000/api/"
 });
 
 var config = {
@@ -45,7 +45,6 @@ async function login($this){
 	.then(
 		function(response){
 
-			console.log(response)
 
 			if(response.status == 200){
 				localStorage.setItem('accessToken', response.data.meta.token);
@@ -62,7 +61,8 @@ async function login($this){
 
 		})
 	.catch(error => {
-		console.log(error)
+		
+
 		if(error.response.data != 'undefined'){
 			$('#message_login').removeAttr('hidden')
 			$('#message_login').addClass('error')
@@ -70,7 +70,7 @@ async function login($this){
 			$("#message_login").html(error.response.data.meta.errors);
 		}
 
-		console.log(error.response)
+		
 
 	}); 
 
@@ -89,7 +89,7 @@ async function logout(){
 	.then(
 		function(response){
 
-			console.log(response)
+			
 
 			if(response.status == 200){
 
@@ -104,7 +104,13 @@ async function logout(){
 
 		})
 	.catch(error => {
-		console.log(error)
+
+		
+
+		if(error.response.data.message != 'undefined' && error.response.data.message == 'Unauthenticated.'){
+			requiredLogin();
+		}
+
 		if(error.response.data != 'undefined'){
 			$('#message_login').removeAttr('hidden')
 			$('#message_login').addClass('error')
@@ -112,7 +118,7 @@ async function logout(){
 			$("#message_login").html(error.response.data.meta.errors);
 		}
 
-		console.log(error.response)
+		
 
 	}); 
 
@@ -146,7 +152,7 @@ async function AuthRegister($this){
 	.then(
 		function(response){
 
-			console.log(response)
+			
 
 			if(response.status == 201){
 				localStorage.setItem('accessToken', response.data.meta.token);
@@ -163,10 +169,11 @@ async function AuthRegister($this){
 
 		})
 	.catch(error => {
-		console.log(error.response.data)
+		
 
 		for (var property in error.response.data.errors){
-			console.log(property + " = " + error.response.data.errors[property]);
+			
+
 			$("#"+ property + "_error").removeAttr('hidden')
 			$("#"+ property + "_error").addClass('error-text')
 			$("#"+ property + "_error").html(error.response.data.errors[property]);
@@ -174,9 +181,70 @@ async function AuthRegister($this){
 
 
 
-		console.log(error.response)
+		
 
 	}); 
 
 	$($this).html("Cadastrar")
+}
+
+
+
+async function UpdateUser($this){
+
+	clearErrors('email')
+	clearErrors('name')
+	clearErrors('password')
+	clearErrors('password_old')
+
+	$($this).html("Salvar " + '<img src="img/loading.gif" class="loading-button">')
+	$('#message_register').attr('hidden', 'hidden')
+	$('#message_register').removeClass('error')
+
+	api.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken');
+	await api.post('users/edit', {
+		name: $('#name').val(),
+		email: $('#email').val(),
+		password: $('#password').val(),
+		password_confirmation: $('#password_confirmation').val(),
+		password_old: $('#password_old').val(),
+		config
+	})
+	.then(
+		function(response){
+
+			
+
+			if(response.status == 200){
+
+				localStorage.setItem('name', response.data.data.name);
+				localStorage.setItem('email', response.data.data.email);
+				localStorage.setItem('id', response.data.data.id);
+
+				redirect('perfil');
+			}
+
+			$($this).html("Salvar")
+
+		})
+	.catch(error => {
+		
+
+		if(error.response.data.message != 'undefined' && error.response.data.message == 'Unauthenticated.'){
+			requiredLogin();
+		}
+
+
+		for (var property in error.response.data.errors){
+			
+			$("#"+ property + "_error").removeAttr('hidden')
+			$("#"+ property + "_error").addClass('error-text')
+			$("#"+ property + "_error").html(error.response.data.errors[property]);
+		}
+
+
+	}); 
+
+	$($this).html("Salvar")
+
 }
