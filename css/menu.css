@@ -123,3 +123,7 @@
 	}
 
 }
+.tm-portfolio-item{
+	display:inline-block;
+	position:absolute;	
+}

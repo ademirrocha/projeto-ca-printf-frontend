@@ -39,20 +39,7 @@
               </div>
             </div>
 
-            <div class="tm-portfolio-item">
-              <div class="tm-portfolio-name text-white tm-bg-blue">
-                Sede
-              </div>
-              <div class="tm-portfolio-description">
-                <h3 class="tm-text-blue">
-                  IFNMG
-                  <span class="tm-title-small">Campus Arinos-MG</span>
-                </h3>
-                <p class="mb-0">
-                  Rodovia MG 202, Km 407, s/n Zona Rural, Arinos - MG, 38680-000
-                </p>
-              </div>
-            </div>
+           
 
             <div class="tm-portfolio-item">
               <div class="tm-portfolio-name text-white tm-bg-dark-gray">

@@ -136,15 +136,72 @@
 
     <!-- row -->
     <div class="row">
-      <footer class="col-12">
-        <p class="text-center tm-copyright-text">
-          Copyright 2020 Mini Profile Page 
 
-        - Design: Template Mo</p>
-      </footer>
+      <div class="col-6">
+        <form action="index.html"method="POST" id="tmContactForm"              class="tm-bg-white-transparent">
+          <div class="form-group">
+            <input
+            type="text"
+            id="contact_name"
+            name="contact_name"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="Name"
+            required
+            />
+          </div>
+          <div class="form-group">
+            <input
+            type="email"
+            id="contact_email"
+            name="contact_email"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="Email"
+            required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+            rows="4"
+            id="contact_message"
+            name="contact_message"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="Message"
+            required
+            ></textarea>
+          </div>
+          <div class="text-center">
+            <button
+            type="submit"
+            class="btn tm-btn-submit rounded-0 text-white"
+            >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="tm-portfolio-item container px-5 offset-md position-absolute top-350 start-50">
+      <div class="tm-portfolio-name text-white tm-bg-blue">
+        Sede
+      </div>
+      <div class="tm-portfolio-description">
+        <h3 class="tm-text-blue">
+          IFNMG
+          <span class="tm-title-small">Campus Arinos-MG</span>
+        </h3>
+        <p class="mb-0">
+          Rodovia MG 202, Km 407, s/n Zona Rural, Arinos - MG, 38680-000
+        </p>
+      </div>
     </div>
   </div>
-
+  <!-- row -->
+  <div class="row">
+    <footer class="col-12">
+      <p class="text-center tm-copyright-text">
+        &copy;Projeto-Fabrica-2020 
+      </p>
+    </footer>
+  </div>
 
 </div>
 
