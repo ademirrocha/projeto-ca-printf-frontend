@@ -1,3 +1,13 @@
+const loader = document.querySelector(".loader");
+window.onload = function(){
+	setTimeout(function(){
+		loader.style.opacity = "0";
+		setTimeout(function(){
+			loader.style.display = "none";
+		}, 500);
+	},500);
+}
+
 function CriaRequest() {
 	try{
 		request = new XMLHttpRequest();        
@@ -24,11 +34,17 @@ function CriaRequest() {
 
 function onLoads(){
 
-	loading()
+	authPages = AuthPages()
+
+
+	if( authPages.includes(window.location.pathname) && (localStorage.getItem('accessToken') == 'null' || localStorage.getItem('accessToken') == null)){
+		redirect('login')
+	}
+
 
 	menuUser()
 
-	view()
+	setDataInPages()
 
 }
 
@@ -50,35 +66,11 @@ function menuUser(){
 
 	if(localStorage.getItem('accessToken') != 'null' && localStorage.getItem('accessToken') != null){
 		$('#signUpMenu').remove()
-		xmlreq.open("GET", "user-menu.html", true);
+		$('#nameUser_menu').html(localStorage.getItem('name'))
 	}else{
 		$('#dataUserMenu').remove()
-		xmlreq.open("GET", "sing-up-menu.html", true);
 		
 	}
-
-
-	xmlreq.onreadystatechange = function(){
-		if (xmlreq.readyState == 4) {
-			if (xmlreq.status == 200) {
-				result = xmlreq.responseText;
-
-			}else{
-				result = "Erro: " + xmlreq.statusText;     
-			}
-
-			$('.navbar-collapse').append(result)
-
-			if(localStorage.getItem('accessToken') != 'null'){
-
-				$('#nameUser_menu').html('Olá ' + localStorage.getItem('name'))
-
-			}
-
-
-		}
-	};
-	xmlreq.send(null);
 
 }
 

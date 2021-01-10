@@ -1,5 +1,21 @@
+#app{
+  min-height: 100%;
+}
+.footer{
+  position: relative;
+  border-top: 20px solid #889399;
+  background: #32202d2b;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+footer{
+  bottom: 0;
+  border-top: 1px solid;
+}
+
 #form-modal{
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column; 
@@ -13,7 +29,9 @@
   left: 30%;
   top: 20%;
   border-radius: 20px;
-  display: none;
+  display: block;
+  margin: 20px;
+
 }
 
 .form-text{
@@ -198,7 +216,7 @@ input[type=text]:placeholder, input[type=email]:placeholder, input[type=password
 /* OTHERS */
 
 *:focus {
-    outline: none;
+  outline: none;
 } 
 
 #icon {

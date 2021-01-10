@@ -36,8 +36,6 @@ async function login($this){
 	$('#message_login').attr('hidden', 'hidden')
 	$('#message_login').removeClass('error')
 
-
-
 	await api.post('auth/login', {
 		email: $('#email').val(),
 		password: $('#password').val()
@@ -52,25 +50,27 @@ async function login($this){
 				localStorage.setItem('email', response.data.data.email);
 				localStorage.setItem('id', response.data.data.id);
 
-				menuUser();
-				closeModal();
-				closeLoginForm();
+				redirect()
 			}
 
-			$($this).html("Entrar")
+			
 
 		})
 	.catch(error => {
 		
+		console.log(error.response)
 
-		if(error.response.data != 'undefined'){
-			$('#message_login').removeAttr('hidden')
-			$('#message_login').addClass('error')
+		if(error.response != undefined && error.response != 'undefined'){
+			for (var property in error.response.data.errors){
 
-			$("#message_login").html(error.response.data.meta.errors);
+				$('#message_login').removeAttr('hidden')
+				$('#message_login').addClass('error')
+
+				$("#message_login").html(error.response.data.errors[property]);
+			}
+
+
 		}
-
-		
 
 	}); 
 
@@ -98,27 +98,34 @@ async function logout(){
 				localStorage.removeItem('email');
 				localStorage.removeItem('id');
 
-				menuUser();
-				closeModal()
+				redirect('login')
+
 			}
 
 		})
 	.catch(error => {
 
-		
+		if(error.response != undefined && error.response != 'undefined'){
 
-		if(error.response.data.message != 'undefined' && error.response.data.message == 'Unauthenticated.'){
-			requiredLogin();
+			for (var property in error.response.data.message){
+				console.log(property)
+				if(property == 'Unauthenticated.'){
+					redirect('login')
+				}
+			}
+
+
+
+			for (var property in error.response.data.errors){
+
+				$('#message_login').removeAttr('hidden')
+				$('#message_login').addClass('error')
+
+				$("#message_login").html(error.response.data.errors[property]);
+			}
+
 		}
 
-		if(error.response.data != 'undefined'){
-			$('#message_login').removeAttr('hidden')
-			$('#message_login').addClass('error')
-
-			$("#message_login").html(error.response.data.meta.errors);
-		}
-
-		
 
 	}); 
 
@@ -160,9 +167,7 @@ async function AuthRegister($this){
 				localStorage.setItem('email', response.data.data.email);
 				localStorage.setItem('id', response.data.data.id);
 
-				menuUser();
-				closeModal();
-				closeLoginForm();
+				redirect()
 			}
 
 			$($this).html("Cadastrar")

@@ -1,0 +1,100 @@
+.loader{
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	transition: all 0.5s;
+	z-index: 9999;
+}
+.loader .ring{
+	height: 45px;
+	width: 45px;
+	border: 5px solid #ddd;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.loader .ring:after{
+	position: absolute;
+	content: "";
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 5px solid #ff3d00;
+	border-top-color: transparent;
+	animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+.message{
+	width: 90%;
+	left: 5%;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.form-mail{
+	background: #afafb5 !important;
+}
+
+.left15{
+	margin-left: 15px;
+}
+
+.bg-gray{
+	background: #808693;
+}
+
+.message-text{
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.error{
+	background: #F75858;
+	color: #fff;
+}
+
+.error-text{
+	font-size: 70%;
+	color: #DC0D0D;
+}
+
+.loading-button{
+	width: 30px;
+}
+
+#cc{
+	position: fixed;
+	text-align: center;
+	vertical-align:middle;
+	padding-top: 20%;
+}
+
+.default-page{
+	position: relative;
+	opacity: 0.9;
+	background: #fff;
+	width: 90%;
+	left: 5%;
+	border-radius: 20px;
+	text-align: center;
+	padding: 10px;
+}
+
+
+.card-user-profile{
+	display: inline-block;
+}

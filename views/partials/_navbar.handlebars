@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Third navbar example">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+      <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+        <li class="nav-item active">
+          <a class="nav-link active" aria-current="page" href="eventos.php">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="cardsprojetos.php">Projetos</a>
+        </li>
+        <li class="nav-item dropdown">
+         <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Documentos</a>
+         <ul class="dropdown-menu" aria-labelledby="dropdown03">
+          <li><a class="dropdown-item" href="#">PPC</a></li>
+          <li><a class="dropdown-item" href="#">RegulamentoEstagio</a></li>
+          <li><a class="dropdown-item" href="#">RegulamentoHorasComplementares</a></li>
+          <li><a class="dropdown-item" href="#">AtasReunião</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right" id="dataUserMenu">
+      <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><span id='nameUser_menu'></span> <img id='imageUser_menu' src="img/default-user.png" ></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+          <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
+          <li><a class="dropdown-item" href="#" onclick="logout();">Sair</a></li>
+        </ul> 
+      </li>
+    </ul> 
+
+    <ul class="nav navbar-nav navbar-right ul-butons-menu" id="signUpMenu">
+      <li><a class="dropdown-item menu-buttons login" href="/login">LOGIN</a></li>
+      <li><a class="dropdown-item menu-buttons register" href="/cadastro">CADASTRO</a></li>
+
+    </ul>
+
+  </div>
+</div>
+</nav>
