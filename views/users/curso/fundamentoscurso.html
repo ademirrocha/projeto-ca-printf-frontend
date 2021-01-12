@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>FundamentosDoCurso</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+	<link rel="stylesheet" href="css/templatemo-style.css">
+	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/signup.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<div id="tmContact" class="parallax-window" data-parallax="scroll" data-image-src="img/mini-profile-bg-02.jpg">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="tm-contact-items-container">
+						<div class="tm-contact-item">
+							<i class="fas fa-5x fa-briefcase tm-contact-item-icon"></i>
+							<p class="mb-0">
+								A linguagem de programação é um método padronizado, formado por um conjunto de regras sintáticas e semânticas, de implementação de um código fonte - que pode ser compilado e transformado em um programa de computador, ou usado como script interpretado - que informará instruções de processamento ao computador. 
+							</p>
+						</div>
+						<div class="tm-contact-item">
+							<i class="fas fa-5x fa-building tm-contact-item-icon"></i>
+							<p class="mb-0">
+								As organizações contemporâneas têm na tecnologia da informação um elemento estratégico, na medida em que as soluções tecnológicas automatizam processos organizacionais e são fonte de vantagens competitivas através da análise de cenários, apoio ao processo decisório e definição e implementação de novas estratégias organizacionais. Assim, cresce a preocupação com a coleta, armazenamento, processamento e transmissão da informação à medida que a disponibilidade da informação certa, no momento certo, para o tomador de decisão certo, é requisito fundamental para a melhoria contínua da qualidade e competitividade organizacionais, o que implica em considerar a crescente relevância dos Sistemas de informação baseados em computador.
+							</p>
+						</div>
+
+						<div class="tm-contact-item">
+							<i class="fas fa-5x fa-balance-scale tm-contact-item-icon"></i>
+							<p class="mb-0">
+								Entre em contato com os responsáveis pelo gerenciamento das atividades do Centro Acadêmico.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/requests.js"></script>
+
+
+	<script>
+
+		function detectMsBrowser() {
+			using_ms_browser =
+			navigator.appName == "Microsoft Internet Explorer" ||
+			(navigator.appName == "Netscape" &&
+				navigator.appVersion.indexOf("Edge") > -1) ||
+			(navigator.appName == "Netscape" &&
+				navigator.appVersion.indexOf("Trident") > -1);
+
+			if (using_ms_browser == true) {
+				alert(
+					"Please use Chrome or Firefox for the best browsing experience!"
+					);
+			}
+		}
+		function setBrandMarginTop() {
+			var bottomContainerHeight = $(".tm-welcome-container").height();
+
+			$(".tm-brand-container-outer").css({
+				"margin-top": -bottomContainerHeight + "px"
+			});
+		}
+
+		$(function() {
+			setBrandMarginTop();
+			detectMsBrowser();
+
+        // Handle window resize event
+        $(window).resize(function() {
+        	setBrandMarginTop();
+        });
+    });
+		
+
+		$( document ).ready(function() {
+			onLoads();
+		});
+		
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
