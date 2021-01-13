@@ -3,6 +3,7 @@ const router = express.Router()
 const { guest } = require('../helpers/guest')
 const { auth } = require('../helpers/auth')
 const AuthServices = require('../services/auth/authServices')
+const UserServices = require('../services/user/userServices')
 
 const passport = require('passport')
 
@@ -15,26 +16,19 @@ router.get('/login', guest, (req, res) => {
 	res.render('users/auth/login')
 })
 
-router.post('/logout', async (req, res, next) => {
+router.post('/logout', auth, async (req, res, next) => {
 
-	if(req.user){
-
-		const service = new AuthServices
-		const api = res.locals.api
-		var logout = await service.logout(api, req)
-		if(logout.status == 200){
-			req.body.user = null
-			req.logout()
-			res.redirect('/login')
-
-		}else{
-			res.render('/', {errors: logar.errors})
-		}
+	const service = new AuthServices
+	const api = res.locals.api
+	var logout = await service.logout(api, req)
+	if(logout.status == 200){
+		req.body.user = null
+		req.logout()
+		res.redirect('/login')
 
 	}else{
 		res.redirect('/')
 	}
-
 
 })
 
@@ -65,6 +59,27 @@ router.get('/cadastro', (req, res) => {
 
 router.get('/perfil', auth, (req, res) => {
 	res.render('users/user/profile')
+})
+
+router.post('/profile/edit', auth, async (req, res, next) => {
+
+	const api = res.locals.api
+
+	const serviceUser = new UserServices
+
+	console.log(serviceUser)
+
+	var updadeUser = await serviceUser.updadeUser(api, req, res)
+	if(updadeUser.status == 200){
+		
+		res.redirect('/perfil')
+
+	}else{
+		req.flash('error_msg', updadeUser.errors)
+		res.redirect('/perfil')
+	}
+
+
 })
 
 router.get('/documentos', (req, res) => {

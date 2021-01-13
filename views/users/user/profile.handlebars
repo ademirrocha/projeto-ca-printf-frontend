@@ -1,6 +1,6 @@
 
 <div id="edit-profile" class="default-page row">
-	<div class="card-user-profile">
+	<div class="card-user-profile  {{#if error_msg}} card col-sm-6 {{/if}}">
 		<div class="page-header header-filter" data-parallax="true" style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
 		<div class="main main-raised">
 			<div class="profile-content">
@@ -8,7 +8,7 @@
 					<div class=" ml-auto mr-auto">
 						<div class="profile">
 							<div class="avatar">
-								<img src="img/default-user.png" width="200px" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+								<img src="/img/default-user.png" width="200px" alt="Circle Image" class="img-raised rounded-circle img-fluid">
 							</div>
 							<div class="name">
 								<h3 class="title" id="user-profile-name" >{{user.name}}</h3>
@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<div id="card-update-profile" class="card-user-profile" hidden="hidden">
+	<div id="card-update-profile" class="card-user-profile {{#if error_msg}} card col-sm-6 {{/if}} " {{#if error_msg }}  {{else}} hidden="hidden" {{/if}}>
 		<div class="page-header header-filter" data-parallax="true" style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
 		<div class="main main-raised">
 			<div class="profile-content">
@@ -36,7 +36,14 @@
 					<div class=" ml-auto mr-auto">
 
 
-						<form action="#">
+						<form action="/profile/edit" method="POST">
+
+							{{#each error_msg }}
+							<div class="alert alert-danger" role="alert"> 
+								{{this}}
+							</div>
+
+							{{/each}}
 
 							<label class="form-text">
 								Nome: 
@@ -65,7 +72,7 @@
 							<input type="password" id="password_old" class="fadeIn second" name="password_old" placeholder="Senha Atual">
 
 							
-							<button type="button" class="fadeIn fourth" onclick="return UpdateUser(this);">Salvar</button>
+							<button type="submit" class="fadeIn fourth" >Salvar</button>
 						</form>
 						<button type="button" class="fadeIn fourth btn btn-default" onclick="return CancelEditUser(this);">Cancelar</button>
 					</div>
@@ -80,4 +87,4 @@
 
 </div>
 
-<script src="js/update.js"></script>
+<script src="/js/update.js"></script>

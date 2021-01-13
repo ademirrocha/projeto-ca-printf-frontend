@@ -63,22 +63,15 @@ module.exports = class AuthServices {
 
 		var result = {}
 		api.defaults.headers.common['Authorization'] = 'Bearer ' + req.user.accessToken;
-		await api.post('auth/logout', {
-			
-		})
+		await api.post('auth/logout')
 		.then(
 			function(response){
 
 				if(response.status == 200){
 					result.status = response.status
 				}
-
-				console.log(response)
-
 			})
 		.catch(error => {
-
-			console.log(error.response)
 
 			if(error.response.status != 200){
 				result.status = error.response.status
