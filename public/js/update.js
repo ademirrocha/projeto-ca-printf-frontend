@@ -6,8 +6,6 @@ function editUser(){
 
 	$('#card-update-profile').addClass(' bg-gray')
 
-	$('#name').val(localStorage.getItem('name'))
-	$('#email').val(localStorage.getItem('email'))
 	$('#password').val('')
 	$('#password_confirmation').val('')
 	$('#password_old').val('')

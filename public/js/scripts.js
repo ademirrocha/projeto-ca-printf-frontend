@@ -26,27 +26,14 @@ function CriaRequest() {
 
 function onLoads(){
 
-	authPages = AuthPages()
-
-
-	if( authPages.includes(window.location.pathname) && (localStorage.getItem('accessToken') == 'null' || localStorage.getItem('accessToken') == null)){
-		redirect('login')
-	}
-
 
 	menuUser()
 
-	setDataInPages()
 
 }
 
 function requiredLogin(){
-	localStorage.removeItem('accessToken');
-	localStorage.removeItem('name');
-	localStorage.removeItem('email');
-	localStorage.removeItem('id');
-
-	menuUser()
+	
 	
 	openLogin()
 }
@@ -54,15 +41,6 @@ function requiredLogin(){
 
 function menuUser(){
 	
-	xmlreq = CriaRequest();
-
-	if(localStorage.getItem('accessToken') != 'null' && localStorage.getItem('accessToken') != null){
-		$('#signUpMenu').remove()
-		$('#nameUser_menu').html(localStorage.getItem('name'))
-	}else{
-		$('#dataUserMenu').remove()
-		
-	}
 
 }
 

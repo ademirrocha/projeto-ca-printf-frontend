@@ -1,9 +1,3 @@
-function AuthPages(){
-	return [
-	'/perfil',
-	'/perfil/',
-	];
-}
 
 
 function getParameter(theParameter) {
@@ -65,14 +59,6 @@ function redirect(page = ""){
 }
 
 
-function setDataInPages(){
-
-	$('#user-profile-name').html("Nome: " +localStorage.getItem('name'))
-	$('#user-profile-email').html("Email: " +localStorage.getItem('email'))
-
-	Swal.close();
-}
-
 
 function openPage(page){
 	
@@ -106,8 +92,6 @@ function openPage(page){
 			}
 
 			menuUser()
-
-			setDataUserProfile()
 
 
 		}

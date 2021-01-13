@@ -11,8 +11,8 @@
 								<img src="img/default-user.png" width="200px" alt="Circle Image" class="img-raised rounded-circle img-fluid">
 							</div>
 							<div class="name">
-								<h3 class="title" id="user-profile-name" >Christian Louboutin</h3>
-								<h6 id="user-profile-email">Designer</h6>
+								<h3 class="title" id="user-profile-name" >{{user.name}}</h3>
+								<h6 id="user-profile-email">{{user.email}}</h6>
 								<a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
 								<a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
 								<a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
@@ -42,13 +42,13 @@
 								Nome: 
 								<span class="message-text" id="name_error" hidden="hidden"></span>
 							</label> 
-							<input type="text" id="name" class="fadeIn second" name="name" placeholder="Nome Completo">
+							<input type="text" id="name" class="fadeIn second" name="name" value="{{user.name}}" placeholder="Nome Completo">
 
 							<label class="form-text">
 								Email:
 								<span class="message-text" id="email_error" hidden="hidden"></span>
 							</label> 
-							<input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail">
+							<input type="email" id="email" class="fadeIn second" value="{{user.email}}" name="email" placeholder="E-mail">
 
 							<label class="form-text">
 								Senha:
