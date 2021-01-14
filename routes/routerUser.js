@@ -136,6 +136,10 @@ router.get('/curso',function(req,res){
 router.get('/projeto',function(req,res){
 	res.render('users/projects/cardsproject');
 })
-
-
+router.get('/project',function(req,res){
+	res.render('users/projects/project');
+})
+router.get('/ppc',function(req,res){
+	res.render('users/documents/ppc');
+})
 module.exports = router
