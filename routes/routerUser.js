@@ -142,4 +142,13 @@ router.get('/project',function(req,res){
 router.get('/ppc',function(req,res){
 	res.render('users/documents/ppc');
 })
-module.exports = router
+router.get('/regulamentos',function(req,res){
+	res.render('users/documents/regulamentoestagio');
+})
+router.get('/regulamento',function(req,res){
+	res.render('users/documents/complementaryhours');
+})
+router.get('/atas',function(req,res){
+	res.render('users/documents/atasreuniao');
+})
+module.exports = router;
