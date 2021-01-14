@@ -160,5 +160,7 @@ router.get('/cadastroprojeto',function(req,res){
 router.get('/cadastroregulamentoestagio',function(req,res){
 	res.render('users/forms/formregulamentoestagio');
 })
-	
+router.get('/cadastroregulamentohoras',function(req,res){
+	res.render('users/forms/formregulamentohorascomplementares');
+})
 module.exports = router;
