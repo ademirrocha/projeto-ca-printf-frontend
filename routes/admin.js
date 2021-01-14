@@ -1,15 +1,17 @@
 const express = require('express')
 const router = express.Router()
+const { isAdmin } = require('../helpers/isAdmin')
+const { auth } = require('../helpers/auth')
 
-router.get('/', (req, res) => {
+router.get('/', auth, isAdmin, (req, res) => {
 	res.send('Page Principal Adimin')
 })
 
-router.get('/documentos/novo', (req, res) => {
+router.get('/documentos/novo', auth, isAdmin, (req, res) => {
 	res.send('Page Cadastro documentos')
 })
 
-router.get('/documentos/editar', (req, res) => {
+router.get('/documentos/editar', auth, isAdmin, (req, res) => {
 	res.send('Page Editar Documentos')
 })
 

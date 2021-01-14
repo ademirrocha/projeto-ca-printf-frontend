@@ -1,3 +1,9 @@
+button.btn-logout {
+    background: white;
+    color: #67671a;
+    box-shadow: none;
+}
+
 .loader{
 	position: fixed;
 	height: 100vh;

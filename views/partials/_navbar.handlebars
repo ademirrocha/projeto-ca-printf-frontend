@@ -24,21 +24,31 @@
 
     </ul>
 
+    {{#if user}}
+
     <ul class="nav navbar-nav navbar-right" id="dataUserMenu">
       <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><span id='nameUser_menu'></span> <img id='imageUser_menu' src="img/default-user.png" ></a>
+        <a class="nav-link active dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><span id='nameUser_menu'>{{user.name}}</span> <img id='imageUser_menu' src="img/default-user.png" ></a>
         <ul class="dropdown-menu" aria-labelledby="dropdown03">
           <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
-          <li><a class="dropdown-item" href="#" onclick="logout();">Sair</a></li>
+          <form action="/logout" method="POST">
+            <li><a class="dropdown-item" href="#"><button class="btn-logout" type="submit">Sair</button></a></li>
+          </form>
         </ul> 
       </li>
     </ul> 
+
+    {{else}}
 
     <ul class="nav navbar-nav navbar-right ul-butons-menu" id="signUpMenu">
       <li><a class="dropdown-item menu-buttons login" href="/login">LOGIN</a></li>
       <li><a class="dropdown-item menu-buttons register" href="/cadastro">CADASTRO</a></li>
 
     </ul>
+
+    {{/if}}
+
+    
 
   </div>
 </div>
