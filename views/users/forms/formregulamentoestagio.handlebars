@@ -1,0 +1,64 @@
+<section  style="background-image:url('/img/mini-profile-bg-01.jpg');">
+	<div class="jumbotron">
+		<h1 class="h1 text-center text-white">Formulario De Regulamento De Estagio</h1>
+		<hr class="my-4">
+		<div class="container">
+			<div class="row row-cols-4">
+				<a class="btn btn-primary d-grid gap-2 col-2 mx-auto btn-lg " href="/" role="button">Voltar Menu Inicial</a>
+				<a class="btn btn-primary d-grid gap-2 col-2 mx-auto btn-lg" style="width:200px;" href="/projeto" role="button">Acessar Pagina De Projeto</a>
+			</div>	
+		</div>
+	</div>
+</section>
+<form action="" method="post">
+	<main role="main" class="accordion" id="accordionExample">
+		<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-7 mt-4"id="headingOne">
+			<div class="col-12">
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label for="nomeregulamento">NomeRegulamento</label>
+						<input type="text" class="form-control" id="nomeregulamento" name="nomeregulamento" required="">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label for="descricaoregulamento">DescriçãoRegulamento</label>
+						<input type="text" class="form-control" id="descricaoregulamento" name="descricaoregulamento" required="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">	
+						<label for="turmavalida">Turma Válida</label>
+						<select class="form-select" id="turmavalida" name="turmavalida" aria-label="Default select example" required="">
+							<option selected="" value="" disabled="">Escolha qual turma esse regulamento de estagio é valido</option>
+							<option value="1">Turma 2019</option>
+							<option value="2">Turma 2020</option>
+							<option value="3">Turma 2021</option>
+							<option value="4">Turma 2022</option>
+						</select>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label for="statusregulamento">StatusRegulamentoEstagio</label>
+						<select class="form-select" id="turmavalida" name="turmavalida" aria-label="Default select example" required="">
+							<option selected="" value="" disabled="">Status_Regulamento</option>
+							<option value="1">Ativo</option>
+							<option value="2">Inativo</option>
+							<option value="3">Cancelado</option>
+						</select>
+					</div>
+				</div>
+				<label for="enviarregulamento">EnviarRegulamento</label>
+				<div class="input-group">
+					<input type="file" class="form-control" id="enviarregulamento" name="enviarregulamento" required="">
+				</div>
+				<hr class="md-4">
+				<div class="row">
+					<div class="col-md-6 mb-1">
+						<button class="btn btn-outline-primary col-12 btn-lg">Salvar</button>
+					</div>
+					<div class="col-md-6 mb-1">
+						<button class="btn btn-outline-danger col-11 btn-lg">Cancelar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</form>

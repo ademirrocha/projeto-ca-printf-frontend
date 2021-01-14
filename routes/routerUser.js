@@ -154,4 +154,11 @@ router.get('/atas',function(req,res){
 router.get('/cadas_evento',function(req,res){
 	res.render('users/forms/formevents');
 })
+router.get('/cadastroprojeto',function(req,res){
+	res.render('users/forms/formproject');
+})
+router.get('/cadastroregulamentoestagio',function(req,res){
+	res.render('users/forms/formregulamentoestagio');
+})
+	
 module.exports = router;
