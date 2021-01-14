@@ -1,5 +1,3 @@
-
-
 function CriaRequest() {
 	try{
 		request = new XMLHttpRequest();        
@@ -24,128 +22,25 @@ function CriaRequest() {
 }
 
 
-function onLoads(){
 
-
-	menuUser()
-
-
-}
-
-function requiredLogin(){
+function editUser(){
 	
-	
-	openLogin()
-}
+	$('.card-user-profile').addClass('card col-sm-6')
 
+	$('#card-update-profile').removeAttr('hidden')
 
-function menuUser(){
-	
+	$('#card-update-profile').addClass(' bg-gray')
 
-}
-
-
-
-function openLogin(){
-
-	closeNavbarTogglere();
-
-	$('#form-modal').show()
-	$('#cc').attr('class', 'cc');
-	$('#cc').show();
-
-	xmlreq = CriaRequest();
-	xmlreq.open("GET", "cadastro/login.html", true);
-	xmlreq.onreadystatechange = function(){
-		if (xmlreq.readyState == 4) {
-			if (xmlreq.status == 200) {
-				result = xmlreq.responseText;
-
-			}else{
-				result = "Erro: " + xmlreq.statusText;     
-			}
-
-			$('#form-modal').html(result)
-		}
-	};
-	xmlreq.send(null);
-}
-
-function closeBackgrounModal(){
-	$('#cc').removeAttr('class', 'cc');
-	$('#cc').hide();
-	$('#cc').html('');
-}
-
-function openBackgrounModal(){
-	$('#cc').attr('class', 'cc');
-	$('#cc').show();
-	$('#cc').html('');
-}
-
-function loading(){
-	//openBackgrounModal()
-	//$('#cc').html('<img src="img/loading.gif">')
-	Swal.showLoading()
+	$('#password').val('')
+	$('#password_confirmation').val('')
+	$('#password_old').val('')
 
 }
 
-function closeModal(){
-	closeBackgrounModal()
-	$('#form-modal').hide()
+function CancelEditUser(){
+	$('.card-user-profile').removeClass('card col-sm-6')
+
+	$('#card-update-profile').attr('hidden', 'hidden')
+
+	$('#card-update-profile').removeClass(' bg-gray')
 }
-
-function openModal(){
-	$('#form-modal').show()
-	openBackgrounModal()
-}
-
-
-
-function openSignUp(){
-
-	closeNavbarTogglere();
-	openModal();
-	
-
-	xmlreq = CriaRequest();
-	xmlreq.open("GET", "cadastro/cadastro.php", true);
-	xmlreq.onreadystatechange = function(){
-		if (xmlreq.readyState == 4) {
-			if (xmlreq.status == 200) {
-				result = xmlreq.responseText;
-
-			}else{
-				result = "Erro: " + xmlreq.statusText;     
-			}
-
-			$('#form-modal').html(result)
-		}
-	};
-	xmlreq.send(null);
-}
-
-
-
-
-
-function closeNavbarTogglere(){
-	if(!$( ".navbar-toggler" ).hasClass("collapsed")){
-		$(".navbar-toggler").click()
-	}	
-
-	closeModal()
-}
-
-
-$(".navbar-toggler").click(function(){
-
-	if(! $( ".navbar-toggler" ).hasClass("collapsed")){
-		openBackgrounModal()
-	}else{
-		closeBackgrounModal()
-	}
-
-
-});
-
