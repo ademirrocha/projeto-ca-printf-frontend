@@ -151,4 +151,7 @@ router.get('/regulamento',function(req,res){
 router.get('/atas',function(req,res){
 	res.render('users/documents/atasreuniao');
 })
+router.get('/cadas_evento',function(req,res){
+	res.render('users/forms/formevents');
+})
 module.exports = router;
