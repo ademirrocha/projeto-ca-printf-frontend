@@ -48,7 +48,9 @@ router.post('/auth/login', async (req, res, next) => {
 		})(req, res, next)
 
 	}else{
-		res.render('users/auth/login', {errors: logar.errors})
+		req.flash('email', req.body.email)
+		req.flash('errors', logar.errors)
+		res.redirect('/login')
 	}
 
 })

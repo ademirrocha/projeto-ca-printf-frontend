@@ -7,21 +7,31 @@
       <div class="fadeIn first">
         <img style="width: 100px;" src="img/default-user.png" id="icon" alt="User Icon" />
       </div>
-
-      <div class="message" id="message_login" hidden="hidden"></div>
-
       <!-- Login Form -->
       <form action="/auth/login" method="POST">
         {{#each errors }}
-        <div class="alert alert-danger" role="alert"> 
-          {{this}}
-        </div>
 
+          {{#each this }}
+
+            {{#if (equals @key 'errors')}} 
+              <div class="alert alert-danger" role="alert"> 
+                {{this}}
+              </div>
+            {{/if}} 
+
+          {{/each}}
+        
         {{/each}}
 
+        <label class="form-text">
+          Email:
+          {{#each errors }}
+            <span class="message-text error-text" id="email_error">
+              {{#each this }} {{#if (equals @key 'email')}} {{this}} {{/if}} {{/each}}
+            </span>
+          {{/each}}
+        </label> 
         
-
-        <label class="form-text">Email:</label> 
         <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail">
         <label class="form-text">Senha:</label> 
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha">

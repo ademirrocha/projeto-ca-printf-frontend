@@ -30,22 +30,21 @@ module.exports = class AuthServices {
 
 			})
 		.catch(error => {
-
 			
 			if(error.response.status != 200){
 				result.status = error.response.status
 				
-				var errors = []
+				var errors = {}
 				
 				for(var prop in error.response.data.meta){
 					if(prop == 'errors'){
-						errors.push(error.response.data.meta.errors);
+						errors[prop] = error.response.data.meta.errors;
 					}
 				}
 
 				for(var prop in error.response.data.errors){
 					
-						errors.push(error.response.data.errors[prop]);
+						errors[prop] = error.response.data.errors[prop];
 			
 				}
 				
@@ -93,14 +92,12 @@ module.exports = class AuthServices {
 				
 				for(var prop in error.response.data.meta){
 					if(prop == 'errors'){
-						errors.push(error.response.data.meta.errors);
+						errors[prop] = error.response.data.meta.errors;
 					}
 				}
 
 				for(var prop in error.response.data.errors){
-					
 						errors[prop] = error.response.data.errors[prop];
-			
 				}
 				
 				result.errors = errors
