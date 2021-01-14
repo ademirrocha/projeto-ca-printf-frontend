@@ -24,5 +24,14 @@ router.get('/documentos', (req, res) => {
 router.get('/documentos/ver', (req, res) => {
 	res.send('Page Editar Documentos')
 })
+router.get('/eventos',function(req,res){
+	res.render('users/events/cardsevents');
+})
+router.get('/events',function(req,res){
+	res.render('users/events/events');
+})
+router.get('/curso',function(req,res){
+	res.render('users/course/course');
+})
 
 module.exports = router
