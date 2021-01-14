@@ -7,8 +7,7 @@ module.exports = class AuthServices {
 
     }
 
-
-	async login(api, email, password){
+    async login(api, email, password){
 
 		var result = {}
 
@@ -51,6 +50,62 @@ module.exports = class AuthServices {
 				}
 				
 				result.errors = errors
+			}
+		}); 
+
+		return result
+
+	}
+
+	async register(api, req, res){
+
+		var result = {}
+
+		await api.post('auth/register', {
+			name: req.body.name,
+			email: req.body.email,
+			password: req.body.password,
+			password_confirmation: req.body.password_confirmation
+		})
+		.then(
+			function(response){
+
+				if(response.status == 201){
+					result.status = response.status
+					result.user = {
+						id: response.data.data.id,
+						name: response.data.data.name,
+						email: response.data.data.email,
+						accessToken: response.data.meta.token
+					}
+				}
+
+			})
+		.catch(error => {
+
+			
+			if(error.response.status != 201){
+				result.status = error.response.status
+				
+
+
+				var errors = {}
+				
+				for(var prop in error.response.data.meta){
+					if(prop == 'errors'){
+						errors.push(error.response.data.meta.errors);
+					}
+				}
+
+				for(var prop in error.response.data.errors){
+					
+						errors[prop] = error.response.data.errors[prop];
+			
+				}
+				
+				result.errors = errors
+
+				
 			}
 		}); 
 

@@ -11,13 +11,13 @@
       <div class="message" id="message_login" hidden="hidden"></div>
 
       <!-- Login Form -->
-      <form action="/login" method="POST">
+      <form action="/auth/login" method="POST">
         {{#each errors }}
         <div class="alert alert-danger" role="alert"> 
-        {{this}}
-      </div>
+          {{this}}
+        </div>
 
-      {{/each}}
+        {{/each}}
 
         
 

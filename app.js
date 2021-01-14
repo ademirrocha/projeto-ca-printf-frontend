@@ -13,6 +13,9 @@ const session = require('express-session')
 const flash = require('connect-flash')
 
 const passport = require('passport')
+const {reqFlash} = require('./helpers/middleware')
+
+const {handlebarsHelpres} = require('./helpers/handlebarsHelpers')
 
 require('./config/auth')(passport)
 
@@ -28,15 +31,17 @@ app.use(passport.session())
 
 app.use(flash())
 
+app.use(handlebarsHelpres)
+
 //Meddleware
 app.use((req, res, next) => {
 	res.locals.api = api
-	res.locals.success_msg = req.flash('success_msg')
-	res.locals.error_msg = req.flash('error_msg')
 	res.locals.user = req.user || null
 	res.locals.error = req.flash('error')
 	next()
 })
+
+app.use(reqFlash)
 
 //Settings
 //**Body Parser

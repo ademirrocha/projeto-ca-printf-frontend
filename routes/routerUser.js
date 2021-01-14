@@ -32,7 +32,7 @@ router.post('/logout', auth, async (req, res, next) => {
 
 })
 
-router.post('/login', async (req, res, next) => {
+router.post('/auth/login', async (req, res, next) => {
 
 	const service = new AuthServices
 	const api = res.locals.api
@@ -49,6 +49,36 @@ router.post('/login', async (req, res, next) => {
 
 	}else{
 		res.render('users/auth/login', {errors: logar.errors})
+	}
+
+})
+
+
+router.post('/auth/register', async (req, res, next) => {
+
+	const service = new AuthServices
+	const api = res.locals.api
+
+	var register = await service.register(api, req, res)
+
+	console.log(register)
+
+	if(register.status == 201){
+		req.body.user = {id: register.user.id, name: register.user.name, email: register.user.email, accessToken: register.user.accessToken }
+
+		passport.authenticate('local', {
+			successRedirect: '/',
+			//failureRedirect: '/login',
+			failureFlash: true
+		})(req, res, next)
+
+	}else{
+		
+
+		req.flash('name', req.body.name)
+		req.flash('email', req.body.email)
+		req.flash('errors', register.errors)
+		res.redirect('/cadastro')
 	}
 
 })
