@@ -127,8 +127,15 @@ router.get('/eventos',function(req,res){
 router.get('/events',function(req,res){
 	res.render('users/events/events');
 })
+router.get('/fundamentos',function(req,res){
+	res.render('users/course/fundaments');
+})
 router.get('/curso',function(req,res){
 	res.render('users/course/course');
 })
+router.get('/projeto',function(req,res){
+	res.render('users/projects/cardsproject');
+})
+
 
 module.exports = router
