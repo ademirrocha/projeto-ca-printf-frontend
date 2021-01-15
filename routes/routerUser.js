@@ -152,7 +152,7 @@ router.get('/atas',function(req,res){
 	res.render('users/documents/atasreuniao');
 })
 
-router.get('/cadastroprojeto',function(req,res){
+router.get('/admin/forms/cadastroprojeto',function(req,res){
 	res.render('users/forms/formproject');
 })
 router.get('/cadastroregulamentoestagio',function(req,res){

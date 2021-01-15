@@ -20,13 +20,14 @@ router.get('/documentos/editar', auth, isAdmin, (req, res) => {
 router.get('/eventos/novo', auth, isAdmin, function(req,res){
 	res.render('users/forms/create_event');
 })
-
+router.get('/forms/cadastroprojeto',auth,isAdmin,function(req,res){
+	res.render('/users/forms/formproject');
+})
 
 router.post('/events/create', auth, isAdmin, async function(req,res){
 
 	const service = new EventServices
 	var register = await service.create(req, res)
-
 	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
 		res.redirect('/login')
 
@@ -48,7 +49,29 @@ router.post('/events/create', auth, isAdmin, async function(req,res){
 	}
 
 })
+router.post('/project/create', auth, isAdmin, async function(req,res){
 
+	const service = new EventServices
+	var register = await service.create(req, res)
+	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		res.redirect('/login')
 
+	}else if(register.status == 201){
 
+		req.flash('success_msg', 'Projeto cadastrado com sucesso!')
+		res.redirect('/admin/forms/cadastroprojeto')	
+		
+	}else{
+
+		req.flash('title', req.body.title)
+		req.flash('description', req.body.description)
+		req.flash('initial_date', req.body.initial_date)
+		req.flash('final_date', req.body.final_date)
+		req.flash('state', req.body.state)
+		req.flash('errors', register.errors)
+		req.flash('error_msg', 'Projeto não cadastrado!')
+		res.redirect('/admin/forms/cadastroprojeto')
+	}
+
+})
 module.exports = router

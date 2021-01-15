@@ -11,7 +11,7 @@
 		</div>
 	</section>
 
-	<form action="/admin/events/create" method="post">
+	<form class="needs-validation novalidate"  action="/admin/events/create" method="post">
 		<main role="main" class="accordion" id="accordionExample">
 			<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-12 mt-4"id="headingOne">
 				{{#if success_msg}} <div class="alert alert-success center" role="alert"> 
@@ -100,3 +100,4 @@
 	</form>
 
 </div>
+<script src="/js/validacaoformevents.js"></script>
