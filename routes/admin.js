@@ -17,17 +17,15 @@ router.get('/documentos/editar', auth, isAdmin, (req, res) => {
 })
 
 
-router.get('/eventos/novo',function(req,res){
+router.get('/eventos/novo', auth, isAdmin, function(req,res){
 	res.render('users/forms/create_event');
 })
 
 
-router.post('/events/create',async function(req,res){
+router.post('/events/create', auth, isAdmin, async function(req,res){
 
 	const service = new EventServices
 	var register = await service.create(req, res)
-
-	console.log(register)
 
 	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
 		res.redirect('/login')
