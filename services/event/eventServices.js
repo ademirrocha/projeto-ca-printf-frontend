@@ -1,16 +1,15 @@
 module.exports = class EventServices {
 
 	constructor (async_param = 'undefined') {
-        if (typeof async_param === 'undefined') {
-            throw new Error('Cannot be called directly');
-        }
+		if (typeof async_param === 'undefined') {
+			throw new Error('Cannot be called directly');
+		}
 
-    }
+	}
 
-    async create(req, res){
+	async create(req, res){
 
 		var result = {}
-
 		const api = res.locals.api
 
 		await api.post('events/new', {
@@ -23,7 +22,7 @@ module.exports = class EventServices {
 		.then(
 			function(response){
 
-		
+
 
 				if(response.status == 201){
 					result.status = response.status
@@ -60,8 +59,54 @@ module.exports = class EventServices {
 
 				for(var prop in error.response.data.errors){
 					
-						errors[prop] = error.response.data.errors[prop];
-			
+					errors[prop] = error.response.data.errors[prop];
+				}
+				
+				result.errors = errors
+			}
+		}); 
+
+		return result
+	}
+
+
+	async all(req, res){
+
+		var result = {}
+		const api = res.locals.api
+
+		var page = req.query.page ? '?page=' + req.query.page : ''
+		var pathName = 'events' + page
+
+		await api.get(pathName,{
+		})
+		.then(
+			function(response){
+
+				if(response.status == 200){
+
+					result.status = response.status
+					result.data = response.data.data
+					result.links = response.data.links
+					result.meta = response.data.meta
+				}
+
+			})
+		.catch(error => {
+
+			if(error.response  && error.response.status != 200){
+
+				result.status = error.response.status
+				var errors = {}
+				
+				for(var prop in error.response.data.meta){
+					if(prop == 'errors'){
+						errors[prop] = error.response.data.meta.errors;
+					}
+				}
+
+				for(var prop in error.response.data.errors){
+					errors[prop] = error.response.data.errors[prop];
 				}
 				
 				result.errors = errors
@@ -71,7 +116,6 @@ module.exports = class EventServices {
 		return result
 
 	}
-
 	
 
 

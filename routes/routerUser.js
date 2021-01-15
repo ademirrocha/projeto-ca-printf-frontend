@@ -4,6 +4,7 @@ const { guest } = require('../helpers/guest')
 const { auth } = require('../helpers/auth')
 const AuthServices = require('../services/auth/authServices')
 const UserServices = require('../services/user/userServices')
+const EventServices = require('../services/event/eventServices')
 
 const passport = require('passport')
 
@@ -99,8 +100,6 @@ router.post('/profile/edit', auth, async (req, res, next) => {
 
 	const serviceUser = new UserServices
 
-	console.log(serviceUser)
-
 	var updadeUser = await serviceUser.updadeUser(api, req, res)
 	if(updadeUser.status == 200){
 		
@@ -121,8 +120,13 @@ router.get('/documentos', (req, res) => {
 router.get('/documentos/ver', (req, res) => {
 	res.send('Page Editar Documentos')
 })
-router.get('/eventos',function(req,res){
-	res.render('users/events/events', {f: 3});
+router.get('/eventos', async function(req,res){
+	const serviceEvent = new EventServices
+	
+	var events = await serviceEvent.all(req, res)
+	console.log(events)
+	
+	res.render('users/events/events', {events: events});
 })
 router.get('/events',function(req,res){
 	res.render('users/events/events');
