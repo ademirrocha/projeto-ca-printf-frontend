@@ -10,73 +10,80 @@
 			</div>
 		</div>
 	</section>
-	{{#if success_msg}} 
-	<div class="alert alert-success" role="alert"> 
-		{{success_msg}}
-	</div>
-	{{/if}} 
+
 	<form action="/admin/events/create" method="post">
 		<main role="main" class="accordion" id="accordionExample">
 			<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-12 mt-4"id="headingOne">
+				{{#if success_msg}} <div class="alert alert-success center" role="alert"> 
+					{{success_msg}}
+				</div> {{/if}} 
+
+				{{#if error_msg}} <div class="alert alert-danger center" role="alert"> 
+					{{error_msg}}
+				</div> {{/if}} 
 				<div class="col-12">
 					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="title">
+						<div class="col-md-6">
+							<label class="col-12" for="title">
 								Título
 								{{#each errors }}
-									<span class="message-text error-text" id="title_error">
-										{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
-									</span>
+								<span class="message-text error-text" id="title_error">
+									{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
+								</span>
 								{{/each}}
 							</label>
-							<input type="text" class="form-control" id="title" name="title" required="">
+							<input type="text" class="form-control" id="title" name="title" value="{{title}}" required="">
 						</div>
-						<div class="col-md-6 mb-3">
-							<label for="description">
-							Descrição
-							{{#each errors }}
+						<div class="col-md-6">
+							<label  class="col-12" for="description">
+								Descrição
+								{{#each errors }}
 								<span class="message-text error-text" id="description_error">
 									{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}
 								</span>
-							{{/each}}
-						</label>
-							<input type="text" class="form-control" id="description" name="description" required="">
+								{{/each}}
+							</label>
+							<input type="text" class="form-control" id="description" value="{{description}}" name="description" required="">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<label for="initial_date">
+							<label class="col-12"  for="initial_date">
 								Data Inicio
 								{{#each errors }}
-									<span class="message-text error-text" id="initial_date_error">
-										{{#each this }} {{#if (equals @key 'initial_date')}} {{this}} {{/if}} {{/each}}
-									</span>
+								<span class="message-text error-text" id="initial_date_error">
+									{{#each this }} {{#if (equals @key 'initial_date')}} {{this}} {{/if}} {{/each}}
+								</span>
 								{{/each}}
 							</label>
-							<input type="date" class="form-control" id="initial_date" name="initial_date" required="">
+							<input type="date" class="form-control" id="initial_date" name="initial_date" value="{{initial_date}}" required="">
 						</div>
 						<div class="col-md-6 mb-3">
-							<label for="final_date">
+							<label class="col-12" for="final_date">
 								Data Final
 								{{#each errors }}
-									<span class="message-text error-text" id="final_date_error">
-										{{#each this }} {{#if (equals @key 'final_date')}} {{this}} {{/if}} {{/each}}
-									</span>
+								<span class="message-text error-text" id="final_date_error">
+									{{#each this }} {{#if (equals @key 'final_date')}} {{this}} {{/if}} {{/each}}
+								</span>
 								{{/each}}
 							</label>
-							<input type="date" class="form-control" id="final_date" name="final_date" required="">
+							<input type="date" class="form-control" id="final_date" name="final_date" value="{{final_date}}" required="">
 						</div>
 					</div>
-					<label for="state">
+					<label  class="col-12" for="state">
 						Status
 						{{#each errors }}
-									<span class="message-text error-text" id="state_error">
-										{{#each this }} {{#if (equals @key 'state')}} {{this}} {{/if}} {{/each}}
-									</span>
-								{{/each}}
+						<span class="message-text error-text" id="state_error">
+							{{#each this }} {{#if (equals @key 'state')}} {{this}} {{/if}} {{/each}}
+						</span>
+						{{/each}}
 					</label>
-					<select class="form-select" id="state" name="state" aria-label="Default select example" required="">
-						<option value="" selected="" disabled="">Selecione o status do evento</option>
+					<select class="form-select" id="state" name="state" aria-label="Default select example" >
+						{{#if state}}
+						<option value="{{state}}">{{state}}</option>
+						{{else}}
+						<option>Selecione o status do evento</option>
+						{{/if}}
 						<option value="Ativo">Ativo</option>
 						<option value="Inativo">Inativo</option>
 						<option value="Cancelado">Cancelado</option>
