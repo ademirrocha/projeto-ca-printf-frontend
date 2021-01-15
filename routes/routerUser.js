@@ -122,7 +122,7 @@ router.get('/documentos/ver', (req, res) => {
 	res.send('Page Editar Documentos')
 })
 router.get('/eventos',function(req,res){
-	res.render('users/events/cardsevents');
+	res.render('users/events/events', {f: 3});
 })
 router.get('/events',function(req,res){
 	res.render('users/events/events');
@@ -151,9 +151,7 @@ router.get('/regulamento',function(req,res){
 router.get('/atas',function(req,res){
 	res.render('users/documents/atasreuniao');
 })
-router.get('/cadas_evento',function(req,res){
-	res.render('users/forms/formevents');
-})
+
 router.get('/cadastroprojeto',function(req,res){
 	res.render('users/forms/formproject');
 })
@@ -166,4 +164,7 @@ router.get('/cadastroregulamentohoras',function(req,res){
 router.get('/cadastroatasreuniao',function(req,res){
 	res.render('users/forms/formatasreuniao');
 })
+
+
+
 module.exports = router;

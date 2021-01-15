@@ -1,7 +1,60 @@
+#app{
+	position: relative;
+	min-height: 100%;
+	display: flex;
+	padding-bottom: 20px;
+}
+
+
+.footer{
+	position: relative;
+	border-top: 20px solid #889399;
+	background: #32202d2b;
+	margin-top: 20px;
+	padding: 10px;
+	bottom: 0;
+}
+
+footer{
+	position: relative;
+	bottom: 0;
+	border-top: 1px solid;
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	background: #000;
+}
+
+.center{
+	width: 100%;
+	text-align: center;
+}
+
+#form-modal{
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column; 
+	justify-content: center;
+	width: 40%;
+	min-height: 50%;
+	padding: 20px;
+	z-index: 900;
+	background: #6C7870;
+	text-align: center;
+	left: 30%;
+	top: 20%;
+	border-radius: 20px;
+	display: block;
+	margin: 20px;
+
+}
+
 button.btn-logout {
-    background: white;
-    color: #67671a;
-    box-shadow: none;
+	background: white;
+	color: #67671a;
+	box-shadow: none;
 }
 
 .loader{

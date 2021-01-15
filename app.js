@@ -35,6 +35,10 @@ app.use(handlebarsHelpres)
 
 //Meddleware
 app.use((req, res, next) => {
+	
+	if(req.user){
+		api.defaults.headers.common['Authorization'] = 'Bearer ' + req.user.accessToken;
+	}
 	res.locals.api = api
 	res.locals.user = req.user || null
 	res.locals.error = req.flash('error')

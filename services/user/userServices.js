@@ -11,7 +11,6 @@ module.exports = class UserServices {
 
 		var result = {}
 
-		api.defaults.headers.common['Authorization'] = 'Bearer ' + req.user.accessToken;
 		await api.post('users/edit', {
 			name: req.body.name,
 			email: req.body.email,
