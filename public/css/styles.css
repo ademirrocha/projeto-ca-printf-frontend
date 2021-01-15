@@ -6,6 +6,11 @@
 }
 
 
+button a{
+	color: #fff;
+	text-decoration: none;
+}
+
 .footer{
 	position: relative;
 	border-top: 20px solid #889399;
@@ -38,13 +43,12 @@ footer{
 	flex-direction: column; 
 	justify-content: center;
 	width: 40%;
+	left: 30%;
 	min-height: 50%;
 	padding: 20px;
 	z-index: 900;
 	background: #6C7870;
 	text-align: center;
-	left: 30%;
-	top: 20%;
 	border-radius: 20px;
 	display: block;
 	margin: 20px;
