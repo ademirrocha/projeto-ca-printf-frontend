@@ -34,7 +34,7 @@
 					</div>
 					<div class="col-md-6">
 						<label class="col-12" for="description">
-							Descrição_Projeto
+							Descrição
 							{{#each errors}}
 							<span class="message-text error-text" id="description_error">
 								{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}
@@ -70,7 +70,7 @@
 				</div>
 				<label class="col-12" for="state">
 					Status_Projeto
-					{{#each errors}}
+					{{#each errors }}
 					<span class="message-text error-text" id="state_error">
 						{{#each this }} {{#if (equals @key 'state')}} {{this}} {{/if}} {{/each}}
 					</span>
