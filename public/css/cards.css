@@ -1,7 +1,27 @@
-.card{
-	display:inline-block;
-	width:18rem; 
-	left:18rem;
-	top:410px;
-	position:absolute;	
+@media (min-width: 576px) { 
+	.card{
+		display:inline-block;
+		width:18rem; 
+		left:18rem;
+		top:410px;
+		position:absolute;	
+	} 
+}
+@media (min-width: 768px) {
+	.card{
+		display:inline-block;
+		width:18rem; 
+		left:18rem;
+		top:410px;
+		position:absolute;	
+	} 
+}
+@media (min-width: 992px) { 
+	.card{
+		display:inline-block;
+		width:18rem; 
+		left:18rem;
+		top:410px;
+		position:absolute;	
+	} 
 }

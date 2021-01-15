@@ -1,12 +1,13 @@
-
    <link rel="stylesheet" type="text/css" href="/css/events.css">
  </head>
  <!-- Portfolio section -->
- <section id="tmPortfolio" style="background-image:url('img/mini-profile-bg-01.jpg');">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <a class="btn btn-outline-primary " href="/curso">Pagina De Curso</a>
+ <section style="background-image: url('img/mini-profile-bg-02.jpg');">
+  <div class="container-fluid mt-4">
+    <div class="tm-portfolio-name  text-white tm-bg-orange mx-auto" style="width:320px; ">
+      <h1 class="card-title h1">Eventos</h1>
+    </div> 
+  </div>
+</section>
             <!--
             <div class="tm-portfolio-item">
               <div class="tm-portfolio-name text-white tm-bg-green">
@@ -23,11 +24,11 @@
               </div>
             </div>
           -->
-          <div class="tm-portfolio-item">
-            <div class="tm-portfolio-name text-white tm-bg-orange">
-              Eventos
+          <div class="tm-portfolio-item ">
+            <div class="tm-portfolio-name">
+             
             </div>
-            <div class="tm-portfolio-description">
+            <div class="tm-portfolio-description d-inline-block text-start position-absolute  top-50 start-100" style="width:50rem; left:100rem; ">
               <h3 class="tm-text-orange">
                 Hackaton
                 <span class="tm-title-small">2020</span>
@@ -58,57 +59,3 @@
         </div>
       </div>
     -->
-  </section>
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/parallax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script src="/js/scripts.js"></script>
-
-
-  <script>
-
-  function detectMsBrowser() {
-    using_ms_browser =
-    navigator.appName == "Microsoft Internet Explorer" ||
-    (navigator.appName == "Netscape" &&
-      navigator.appVersion.indexOf("Edge") > -1) ||
-    (navigator.appName == "Netscape" &&
-      navigator.appVersion.indexOf("Trident") > -1);
-
-    if (using_ms_browser == true) {
-      alert(
-        "Please use Chrome or Firefox for the best browsing experience!"
-        );
-    }
-  }
-  function setBrandMarginTop() {
-    var bottomContainerHeight = $(".tm-welcome-container").height();
-
-    $(".tm-brand-container-outer").css({
-      "margin-top": -bottomContainerHeight + "px"
-    });
-  }
-
-  $(function() {
-    setBrandMarginTop();
-    detectMsBrowser();
-
-        // Handle window resize event
-        $(window).resize(function() {
-          setBrandMarginTop();
-        });
-      });
-
-
-  $( document ).ready(function() {
-    onLoads();
-  });
-
-
-
-  </script>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
