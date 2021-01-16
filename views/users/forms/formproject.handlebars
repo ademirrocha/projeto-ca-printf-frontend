@@ -1,18 +1,20 @@
 <section  style="background-image:url('/img/mini-profile-bg-01.jpg');">
-	<div class="jumbotron">
-		<h1 class="h1 text-center text-white">Formulario De Cadastro De Eventos</h1>
-		<hr class="my-4">
-		<div class="container">
-			<div class="row row-cols-4">
-				<a class="btn btn-primary d-grid gap-2 col-2 mx-auto btn-lg " href="/" role="button">Voltar Menu Inicial</a>
-				<a class="btn btn-primary d-grid gap-2 col-2 mx-auto btn-lg" style="width:200px;" href="/projeto" role="button">Acessar Pagina De Projeto</a>
-			</div>	
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="h1 text-center text-white">Formulario De Cadastro De Eventos</h1>
+			<hr class="my-4">
+			<div class="container">
+				<div class="row row-cols-4">
+					<a class="btn btn-primary d-grid gap-2 col-2 mx-auto btn-lg " href="/" role="button">Voltar Menu Inicial</a>
+					<a class="btn btn-primary d-grid gap-2 col-2 mx-auto btn-lg" style="width:200px;" href="/projeto" role="button">Acessar Pagina De Projeto</a>
+				</div>	
+			</div>
 		</div>
 	</div>
 </section>
 <form action="/admin/project/create" method="post">
 	<main role="main" class="accordion" id="accordionExample">
-		<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-7 mt-4"id="headingOne">
+		<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-12 mt-4"id="headingOne">
 			{{#if success_msg}} <div class="alert alert-success center" role="alert">
 				{{success_msg}}
 			</div>{{/if}}

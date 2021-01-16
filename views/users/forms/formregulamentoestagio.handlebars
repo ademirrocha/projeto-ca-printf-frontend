@@ -30,18 +30,18 @@
 							</span>
 							{{/each}}
 						</label>
-						<input type="text" class="form-control" id="title" name="title" value="{{title}}">
+						<input type="text" class="form-control" id="title" name="title" value="{{title}}" required="">
 					</div>
 					<div class="col-md-6">
 						<label class="col-12" for="descripton">
-							DescriçãoRegulamento
+							Descrição
 							{{#each errors}}
 							<span class="message-text error-text" id="description_error">
 								{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}
 							</span>
 							{{/each}}
 						</label>
-						<input type="text" class="form-control" id="descripton" name="descripton" value="{{descripton}}">
+						<input type="text" class="form-control" id="descripton" name="descripton" value="{{descripton}}" required="">
 					</div>
 				</div>
 				<div class="row">
@@ -54,7 +54,7 @@
 							</span>
 							{{/each}}
 						</label>
-						<select class="form-select" id="turm" name="turm" aria-label="Default select example">
+						<select class="form-select" id="turm" name="turm" aria-label="Default select example" required="">
 							{{#if turm}}
 							<option value="{{turm}}">{{turm}}</option>
 							{{else}}
@@ -68,14 +68,14 @@
 					</div>
 					<div class="col-md-6">
 						<label class="col-12" for="state">
-							StatusRegulamentoEstagio
+							Status
 							{{#each errors }}
 							<span class="message-text error-text" id="state_error">
 								{{#each this }} {{#if (equals @key 'state')}} {{this}} {{/if}} {{/each}}
 							</span>
 							{{/each}}
 						</label>
-						<select class="form-select" id="state" name="state" aria-label="Default select example">
+						<select class="form-select" id="state" name="state" aria-label="Default select example" required="">
 							{{#if state}}
 							<option value="{{state}}">{{state}}</option>
 							{{else}}
@@ -96,7 +96,7 @@
 					{{/each}}
 				</label>
 				<div class="input-group">
-					<input type="file" class="form-control" id="envio" name="envio" value="{{envio}}">
+					<input type="file" class="form-control" id="envio" name="envio" value="{{envio}}"required="">
 				</div>
 				<hr class="md-4">
 				<div class="row">
