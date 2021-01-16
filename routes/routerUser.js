@@ -168,6 +168,9 @@ router.get('/admin/forms/formregulamentohorascomplementares',function(req,res){
 router.get('/admin/forms/formatasreuniao',function(req,res){
 	res.render('users/forms/formatasreuniao');
 })
+router.get('/descriptionca',function(req,res){
+	res.render('users/course/descriptionca');
+})
 
 
 
