@@ -32,6 +32,9 @@ router.get('/forms/formregulamentohorascomplementares',auth,isAdmin,function(req
 router.get('/forms/formatasreuniao',auth,isAdmin,function(req,res){
 	res.render('/users/forms/formatasreuniao');
 })
+router.get('/forms/formppc',auth,isAdmin,function(req,res){
+	res.render('/users/forms/formppc');
+})
 router.post('/events/create', auth, isAdmin, async function(req,res){
 
 	const service = new EventServices

@@ -171,7 +171,9 @@ router.get('/admin/forms/formatasreuniao',function(req,res){
 router.get('/descriptionca',function(req,res){
 	res.render('users/course/descriptionca');
 })
-
+router.get('/admin/form/formppc',function(req,res){
+	res.render('/users/forms/formppc');
+})
 
 
 module.exports = router;
