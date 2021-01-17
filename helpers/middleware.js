@@ -12,6 +12,7 @@ module.exports = {
 		res.locals.initial_date = req.flash('initial_date')
 		res.locals.final_date = req.flash('final_date')
 		res.locals.state = req.flash('state')
+		res.locals.image = req.flash('image')
 		
 
 		next()

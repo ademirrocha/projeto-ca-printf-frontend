@@ -5,6 +5,7 @@ const { auth } = require('../helpers/auth')
 const AuthServices = require('../services/auth/authServices')
 const UserServices = require('../services/user/userServices')
 const EventServices = require('../services/event/eventServices')
+const ProjectServices = require('../services/project/projectServices')
 
 const passport = require('passport')
 
@@ -113,6 +114,36 @@ router.post('/profile/edit', auth, async (req, res, next) => {
 
 })
 
+router.get('/eventos', async function(req,res){
+	const serviceEvent = new EventServices
+	
+	var events = await serviceEvent.all(req, res)
+	res.render('users/events/events', {events: events});
+})
+router.get('/events',function(req,res){
+	res.render('users/events/events');
+})
+
+router.get('/projetos', async function(req,res){
+	const serviceProject = new ProjectServices
+	
+	var projects = await serviceProject.all(req, res)
+
+	console.log(projects)
+	
+	res.render('users/projects/projects', {projects: projects});
+})
+
+
+router.get('/fundamentos',function(req,res){
+	res.render('users/course/fundaments');
+})
+router.get('/curso',function(req,res){
+	res.render('users/course/course');
+})
+
+
+
 router.get('/documentos', (req, res) => {
 	res.send('Page Cadastro documentos')
 })
@@ -120,29 +151,9 @@ router.get('/documentos', (req, res) => {
 router.get('/documentos/ver', (req, res) => {
 	res.send('Page Editar Documentos')
 })
-router.get('/eventos', async function(req,res){
-	const serviceEvent = new EventServices
-	
-	var events = await serviceEvent.all(req, res)
-	console.log(events)
-	
-	res.render('users/events/events', {events: events});
-})
-router.get('/events',function(req,res){
-	res.render('users/events/events');
-})
-router.get('/fundamentos',function(req,res){
-	res.render('users/course/fundaments');
-})
-router.get('/curso',function(req,res){
-	res.render('users/course/course');
-})
-router.get('/projeto',function(req,res){
-	res.render('users/projects/cardsproject');
-})
-router.get('/project',function(req,res){
-	res.render('users/projects/project');
-})
+
+
+
 router.get('/ppc',function(req,res){
 	res.render('users/documents/ppc');
 })

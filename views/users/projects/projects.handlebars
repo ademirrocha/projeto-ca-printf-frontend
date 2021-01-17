@@ -2,48 +2,38 @@
   <section style="background-image: url('img/mini-profile-bg-02.jpg');">
     <div class="container-fluid mt-4">
       <div class="tm-portfolio-name  text-white tm-bg-green mx-auto" style="width:320px; ">
-        <h1 class="card-title h1">Eventos</h1>
+        <h1 class="card-title h1">Projetos</h1>
       </div> 
-      <p class="lead">Eventos do CA-Printf</p>
-      <!--<a class="btn btn-primary d-grid gap-2 col-2 mx-auto" href="/events" role="button">VoltarInicio</a>-->
+      <p class="lead">O Centro Academico Precisa armazenar seus projetos em lugares que possam divulgar e fortalecer o Campus-Arinos</p>
+      <p class="lead">Prejetos realizados em parceria com o Centro Academico e Fábrica de software</p>
+      
     </div>
   </section>
   <br>
 
   <div class="row">
-    {{#each events.data}}
+    {{#each projects.data}}
 
 
     <div class="col-sm-6 mb-4">
       <div class="card">
+        <img src="{{#if image.url}} {{image.url}} {{else}} /img/a_fundotransparentero.png {{/if}}" class="card-img-top" alt="...">
         <div class="card-body bg-light ">
           <div class="card-header">
             {{title}}
-
-            {{#if (equals state "Ativo")}}
-            <div class="alert alert-success" role="alert"> 
-              {{state}}
-            </div>
-            {{/if}}
-            {{#if (equals state "Inativo")}}
-            <div class="alert alert-warning" role="alert"> 
-              {{state}}
-            </div>
-            {{/if}}
-            {{#if (equals state "Cancelado")}}
-            <div class="alert alert-dander" role="alert"> 
-              {{state}}
-            </div>
-            {{/if}}
-
           </div>
           <div class="card-body text-success">
-            <h4 class="card-title">{{format_date initial_date 'DD/MM/YYYY'}} a {{format_date final_date 'DD/MM/YYYY'}}</h4>
             <p class="card-text">{{trimString description 150}}...</p>
           </div>
           <div class="card-footer"><button class="btn btn-primary text-white"><a href="/events" >Mais Detalhes</a></button></div>
         </div>
       </div>
+    </div>
+
+    {{else}}
+    
+    <div class="alert alert-danger center" role="alert"> 
+      Desculpe. Nenhum projeto encontrado!
     </div>
 
     {{/each}}

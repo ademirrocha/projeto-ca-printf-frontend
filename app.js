@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 //Loading modules
 const express = require('express');
 const app = express()
@@ -6,6 +8,7 @@ const bodyParser = require('body-parser')
 const admin = require('./routes/admin')
 const routerUser = require('./routes/routerUser')
 const path = require('path')
+const morgan = require('morgan')
 
 const api = require('./config/api')
 
@@ -30,6 +33,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
+app.use(morgan('dev'))
 
 app.use(handlebarsHelpres)
 
@@ -51,12 +55,17 @@ app.use(reqFlash)
 //**Body Parser
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }));
 //**Handlebars
 app.engine('handlebars', handlebars({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 //Public
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  "/images",
+  express.static(path.join(__dirname, "public/uploads"))
+);
 
 
 //Routes
