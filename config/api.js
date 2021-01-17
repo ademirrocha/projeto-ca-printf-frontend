@@ -2,8 +2,7 @@ const axios = require('axios')
 
 
 const api = axios.create({
-	//baseURL: "https://project-ca-printf-backend.herokuapp.com/api/"
-	baseURL: "http://localhost:8000/api/"
+	baseURL: process.env.API_URL
 });
 
 
