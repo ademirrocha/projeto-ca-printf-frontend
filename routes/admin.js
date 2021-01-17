@@ -64,14 +64,14 @@ router.post('/project/create', auth, isAdmin, multer(multerConfig).single('image
 
 	if(req.file != undefined ){
 
-		const { originalname: originalname, mimetype, size, key, url } = req.file;
+		const { originalname: originalname, mimetype, size, key } = req.file;
 
 		image = {
 			originalname,
 			mimetype,
 			size,
 			key,
-			url
+			url: req.file.url || req.file.location 
 		}
 	}
 

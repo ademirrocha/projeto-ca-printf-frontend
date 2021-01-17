@@ -51,7 +51,7 @@
 								Imagem
 								{{#each errors }}
 								<span class="message-text error-text" id="image_error">
-									{{#each this }} {{#if (equals @key 'image')}} {{this}} {{/if}} {{/each}}
+									{{#each this }} {{#if (equals @key 'image.url')}} {{this}} {{/if}} {{/each}}
 								</span>
 								{{/each}}
 							</label>
