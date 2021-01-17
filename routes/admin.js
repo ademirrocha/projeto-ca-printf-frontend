@@ -36,6 +36,7 @@ router.post('/events/create', auth, isAdmin, async function(req,res){
 	const service = new EventServices
 	var register = await service.create(req, res)
 	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		req.logout()
 		res.redirect('/login')
 
 	}else if(register.status == 201){
@@ -72,11 +73,9 @@ router.post('/project/create', auth, isAdmin, multer(multerConfig).single('image
 			key,
 			url
 		}
-
 	}
 
 	if(req.flash('errors').length == 0){
-
 
 		const service = new ProjectServices
 
@@ -88,9 +87,8 @@ router.post('/project/create', auth, isAdmin, multer(multerConfig).single('image
 
 		var register = await service.create(data)
 
-		console.log(register)
-
 		if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+			req.logout()
 			res.redirect('/login')
 
 		}else if(register.status == 201){
@@ -137,6 +135,7 @@ router.post('/formregulamnetoestagio/create', auth, isAdmin, async function(req,
 	const service = new EventServices
 	var register = await service.create(req, res)
 	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		req.logout()
 		res.redirect('/login')
 
 	}else if(register.status == 201){
@@ -164,6 +163,7 @@ router.post('/formregulamentohorascomplementares/create', auth, isAdmin, async f
 	const service = new EventServices
 	var register = await service.create(req, res)
 	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		req.logout()
 		res.redirect('/login')
 
 	}else if(register.status == 201){

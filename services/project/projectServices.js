@@ -23,8 +23,6 @@ module.exports = class ProjectServices {
 		.then(
 			function(response){
 
-				console.log(response)
-
 				if(response.status == 201){
 					result.status = response.status
 					result.event = {
@@ -37,8 +35,6 @@ module.exports = class ProjectServices {
 
 			})
 		.catch(error => {
-
-			console.log(error.response)
 
 			if(error.response  && error.response.status != 201){
 
