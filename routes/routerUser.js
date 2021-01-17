@@ -170,16 +170,21 @@ router.get('/atas',function(req,res){
 router.get('/admin/forms/cadastroprojeto',function(req,res){
 	res.render('users/forms/formproject');
 })
-router.get('/cadastroregulamentoestagio',function(req,res){
+router.get('/admin/forms/formregulamnetoestagio',function(req,res){
 	res.render('users/forms/formregulamentoestagio');
 })
-router.get('/cadastroregulamentohoras',function(req,res){
+router.get('/admin/forms/formregulamentohorascomplementares',function(req,res){
 	res.render('users/forms/formregulamentohorascomplementares');
 })
-router.get('/cadastroatasreuniao',function(req,res){
+router.get('/admin/forms/formatasreuniao',function(req,res){
 	res.render('users/forms/formatasreuniao');
 })
-
+router.get('/descriptionca',function(req,res){
+	res.render('users/course/descriptionca');
+})
+router.get('/admin/form/formppc',function(req,res){
+	res.render('/users/forms/formppc');
+})
 
 
 module.exports = router;

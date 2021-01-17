@@ -19,7 +19,18 @@ router.get('/eventos/novo', auth, isAdmin, function(req,res){
 router.get('/projetos/novo', auth, isAdmin, function(req,res){
 	res.render('users/forms/create_project');
 })
-
+router.get('/forms/formregulamnetoestagio',auth,isAdmin,function(req,res){
+	res.render('/users/forms/formregulamnetoestagio');
+})
+router.get('/forms/formregulamentohorascomplementares',auth,isAdmin,function(req,res){
+	res.render('/users/forms/formregulamentohorascomplementares');
+})
+router.get('/forms/formatasreuniao',auth,isAdmin,function(req,res){
+	res.render('/users/forms/formatasreuniao');
+})
+router.get('/forms/formppc',auth,isAdmin,function(req,res){
+	res.render('/users/forms/formppc');
+})
 router.post('/events/create', auth, isAdmin, async function(req,res){
 
 	const service = new EventServices
@@ -116,12 +127,86 @@ router.get('/documentos/novo', auth, isAdmin, (req, res) => {
 	res.send('Page Cadastro documentos')
 })
 
+
 router.get('/documentos/editar', auth, isAdmin, (req, res) => {
 	res.send('Page Editar Documentos')
 })
 
+router.post('/formregulamnetoestagio/create', auth, isAdmin, async function(req,res){
+
+	const service = new EventServices
+	var register = await service.create(req, res)
+	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		res.redirect('/login')
+
+	}else if(register.status == 201){
+
+		req.flash('success_msg', 'Regulamento De Estagio cadastrado com sucesso!')
+		res.redirect('/admin/forms/formregulamnetoestagio')	
+		
+	}else{
+
+		req.flash('title', req.body.title)
+		req.flash('description', req.body.description)
+		req.flash('turm', req.body.turm)
+		req.flash('state', req.body.state)
+		req.flash('envio', req.body.envio)
+		req.flash('errors', register.errors)
+		req.flash('error_msg', 'Regulamento De Estagio não cadastrado!')
+		res.redirect('/admin/forms/formregulamnetoestagio')
+	}
+
+})
 
 
+router.post('/formregulamentohorascomplementares/create', auth, isAdmin, async function(req,res){
+
+	const service = new EventServices
+	var register = await service.create(req, res)
+	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		res.redirect('/login')
+
+	}else if(register.status == 201){
+
+		req.flash('success_msg', 'Regulamento De Horas cadastrado com sucesso!')
+		res.redirect('/admin/forms/formregulamentohorascomplementares')	
+		
+	}else{
+
+		req.flash('title', req.body.title)
+		req.flash('description', req.body.description)
+		req.flash('turm', req.body.turm)
+		req.flash('state', req.body.state)
+		req.flash('file', req.body.file)
+		req.flash('errors', register.errors)
+		req.flash('error_msg', 'Regulamento De Horas não cadastrado!')
+		res.redirect('/admin/forms/formregulamentohorascomplementares')
+	}
+
+})
+router.post('/formatasreuniao/create', auth, isAdmin, async function(req,res){
+
+	const service = new EventServices
+	var register = await service.create(req, res)
+	if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+		res.redirect('/login')
+
+	}else if(register.status == 201){
+
+		req.flash('success_msg', 'Atas de reunião cadastrado com sucesso!')
+		res.redirect('/admin/forms/formatasreuniao')	
+		
+	}else{
+
+		req.flash('title', req.body.title)
+		req.flash('description', req.body.description)
+		req.flash('errors', register.errors)
+		req.flash('error_msg', 'Atas de reunião não cadastrado!')
+		res.redirect('/admin/forms/formatasreuniao')
+	}
+
+})
 
 
-module.exports = router
+module.exports = router;
+
