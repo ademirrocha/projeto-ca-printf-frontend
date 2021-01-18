@@ -5,3 +5,5 @@
 /vendor
 .env
 .env.backup
+/public/uploads/documents/*
+/public/uploads/images/*

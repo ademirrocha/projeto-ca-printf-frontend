@@ -1,25 +1,26 @@
 const express = require('express')
 const router = express.Router()
-const { isAdmin } = require('../helpers/isAdmin')
+const { isAdmin, isModerator } = require('../helpers/isAdmin')
 const { auth } = require('../helpers/auth')
 const EventServices = require('../services/event/eventServices')
 const ProjectServices = require('../services/project/projectServices')
+const DocumentServices = require('../services/document/documentServices')
 var path = require('path')
 const multer = require('multer')
 const multerConfig = require("../config/multer");
 
 
 
-router.get('/eventos/novo', auth, isAdmin, function(req,res){
+router.get('/eventos/novo', auth, isModerator, function(req,res){
 	res.render('users/forms/create_event');
 })
 
-router.get('/projetos/novo', auth, isAdmin, function(req,res){
+router.get('/projetos/novo', auth, isModerator, function(req,res){
 	res.render('users/forms/create_project');
 })
 
 
-router.post('/events/create', auth, isAdmin, async function(req,res){
+router.post('/events/create', auth, isModerator, async function(req,res){
 
 	const service = new EventServices
 	var register = await service.create(req, res)
@@ -46,7 +47,7 @@ router.post('/events/create', auth, isAdmin, async function(req,res){
 
 })
 
-router.post('/project/create', auth, isAdmin, multer(multerConfig).single('image'), async (req,res) => {
+router.post('/project/create', auth, isModerator, multer(multerConfig).single('image'), async (req,res) => {
 
 	var image = null
 
@@ -109,25 +110,89 @@ router.post('/project/create', auth, isAdmin, multer(multerConfig).single('image
 })
 
 
-
-
-
-router.get('/documentos/novo', isAdmin, (req, res) => {
+router.get('/documentos/novo', isModerator, (req, res) => {
 	res.render('users/forms/create_document');
 })
 
 
+router.post('/documents/create', isModerator, multer(multerConfig).single('file'), async (req,res) => {
 
-router.get('/', auth, isAdmin, (req, res) => {
+	var file = null
+
+	if(req.file != undefined ){
+
+		const { originalname: originalname, mimetype, size, key } = req.file;
+
+		file = {
+			originalname,
+			mimetype,
+			size,
+			key,
+			url: req.file.url || req.file.location 
+		}
+
+	}
+
+	if(req.flash('errors').length == 0){
+
+		const service = new DocumentServices
+
+		const data = {
+			req,
+			res,
+			file: file
+		}
+
+		var register = await service.create(data)
+
+		if(register.status == 401 && register.errors.message == 'Unauthenticated.'){
+			req.logout()
+			res.redirect('/login')
+
+		}else if(register.status == 201){
+
+			req.flash('success_msg', 'Projeto cadastrado com sucesso!')
+			return res.redirect('/admin/documentos/novo')	
+
+		}else{
+
+			req.flash('title', req.body.title)
+			req.flash('description', req.body.description)
+			req.flash('type', req.body.type)
+			req.flash('state', req.body.state)
+			req.flash('errors', register.errors)
+			req.flash('error_msg', 'Projeto não cadastrado!')
+			return res.redirect('/admin/documentos/novo')
+
+		}
+
+	}else{
+
+
+		req.flash('title', req.body.title)
+		req.flash('description', req.body.description)
+		req.flash('type', req.body.type)
+		req.flash('state', req.body.state)
+		req.flash('error_msg', 'Não Registrado')
+		req.flash('errors', {file:'Formato inválido'})
+		return res.redirect('/admin/documentos/novo')
+	}
+
+
+})
+
+
+
+router.get('/', auth, isModerator, (req, res) => {
 	res.send('Page Principal Adimin')
 })
 
 
-router.get('/documentos/editar', auth, isAdmin, (req, res) => {
+router.get('/documentos/editar', auth, isModerator, (req, res) => {
 	res.send('Page Editar Documentos')
 })
 
-router.post('/formregulamnetoestagio/create', isAdmin, async function(req,res){
+router.post('/formregulamnetoestagio/create', isModerator, async function(req,res){
 
 	const service = new EventServices
 	var register = await service.create(req, res)
@@ -155,7 +220,7 @@ router.post('/formregulamnetoestagio/create', isAdmin, async function(req,res){
 })
 
 
-router.post('/formregulamentohorascomplementares/create', isAdmin, async function(req,res){
+router.post('/formregulamentohorascomplementares/create', isModerator, async function(req,res){
 
 	const service = new EventServices
 	var register = await service.create(req, res)
@@ -181,7 +246,7 @@ router.post('/formregulamentohorascomplementares/create', isAdmin, async functio
 	}
 
 })
-router.post('/formatasreuniao/create', isAdmin, async function(req,res){
+router.post('/formatasreuniao/create', isModerator, async function(req,res){
 
 	const service = new EventServices
 	var register = await service.create(req, res)

@@ -1,5 +1,4 @@
-
-module.exports = class ProjectServices {
+module.exports = class DocumentServices {
 
 	constructor (async_param = 'undefined') {
 		if (typeof async_param === 'undefined') {
@@ -9,17 +8,19 @@ module.exports = class ProjectServices {
 	}
 
 	async create(data){
-		const { req, res, image } = data
+		const { req, res, file } = data
 		var result = {}
 		const api = res.locals.api
 		
-		await api.post('projects/new', {
+		await api.post('documents/new', {
 			title: req.body.title,
 			description: req.body.description,
-			image: image
+			file: file
 		})
 		.then(
 			function(response){
+
+				console.log(response)
 
 				if(response.status == 201){
 					result.status = response.status
@@ -33,7 +34,7 @@ module.exports = class ProjectServices {
 
 			})
 		.catch(error => {
-
+			console.log(error.response)
 			if(error.response  && error.response.status != 201){
 
 				result.status = error.response.status
@@ -71,14 +72,16 @@ module.exports = class ProjectServices {
 		const api = res.locals.api
 
 		var page = req.query.page ? '?page=' + req.query.page : ''
-		var pathName = 'projects' + page
+		var pathName = 'documents' + page
+
+		let params = req.params
 
 		await api.get(pathName,{
+			params: params
 		})
 		.then(
 			function(response){
 
-				
 				if(response.status == 200){
 
 					result.status = response.status
@@ -90,6 +93,7 @@ module.exports = class ProjectServices {
 			})
 		.catch(error => {
 
+			
 			if(error.response  && error.response.status != 200){
 
 				result.status = error.response.status

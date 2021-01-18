@@ -15,10 +15,12 @@
         <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Documentos</a>
          <ul class="dropdown-menu" aria-labelledby="dropdown03">
-          <li><a class="dropdown-item" href="/ppc">PPC</a></li>
-          <li><a class="dropdown-item" href="/regulamentos">RegulamentoEstagio</a></li>
-          <li><a class="dropdown-item" href="/regulamento">RegulamentoHorasComplementares</a></li>
-          <li><a class="dropdown-item" href="/atas">AtasReunião</a></li>
+          <li><a class="dropdown-item" href="/documentos">Todos os documentos</a></li>
+          <div class="dropdown-divider"></div>
+          <li><a class="dropdown-item" href="/documentos/ppc">PPC</a></li>
+          <li><a class="dropdown-item" href="/documentos/regulamentos">Regulamento de Estagio</a></li>
+          <li><a class="dropdown-item" href="/documentos/regulamentos">Regulamentos de Horas Complementares</a></li>
+          <li><a class="dropdown-item" href="/documentos/atas">Atas das Reuniões</a></li>
         </ul>
       </li>
       <li class="nav-item">
@@ -26,7 +28,6 @@
       </li>
 
     </ul>
-
     {{#if user}}
 
     <ul class="nav navbar-nav navbar-right" id="dataUserMenu">
@@ -57,16 +58,27 @@
 </div>
 </nav>
 
-{{#if true}}
 
 <div class="container">
-  <div class="row center">
-    <hr>
-    <a href="/admin/eventos/novo" class=" col-sm-4"><button class="btn btn-primary">Cadastrar Evento</button></a>
-    <a href="/admin/projetos/novo" class=" col-sm-4"><button class="btn btn-success">Cadastrar Projeto</button></a>
-    <a href="/admin/documentos/novo" class=" col-sm-4"><button class="btn btn-info">Cadastrar Documento</button></a>
-    
+  <div class="input-group my-4 col-6 mx-auto">
+    <input class="form-control py-2 border-right-0 border" type="search" placeholder="Pesquisar..." id="example-search-input">
+    <span class="input-group-append">
+      <button class="btn btn-outline-primary rounded-right" type="button">
+        <i class="fas fa-search"></i>
+      </button>
+    </span>
   </div>
+  <hr>
+  {{#if user}}
+
+
+  <a href="/admin/eventos/novo" class=" col-sm-4"><button class="btn btn-primary">Cadastrar Evento</button></a>
+  <a href="/admin/projetos/novo" class=" col-sm-4"><button class="btn btn-success">Cadastrar Projeto</button></a>
+  <a href="/admin/documentos/novo" class=" col-sm-4"><button class="btn btn-info">Cadastrar Documento</button></a>
+
+
+  {{/if}}
+
+
 </div>
-<hr>
-{{/if}}
+</div>

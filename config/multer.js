@@ -9,18 +9,30 @@ const MAX_SIZE_TWO_MEGABYTES = 2 * 1024 * 1024;
 const storageTypes = {
   local: multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, path.resolve(__dirname, "..", "public", "uploads"));
+      if(file.fieldname == 'file'){
+        cb(null, path.resolve(__dirname, "..", "public", "uploads", "documents"));
+      }else{
+        cb(null, path.resolve(__dirname, "..", "public", "uploads", "images"));
+      }
+
     },
     filename: (req, file, cb) => {
       crypto.randomBytes(16, (err, hash) => {
         if (err) cb(err);
 
-        file.key = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
-        file.url = `${process.env.APP_URL}/images/${file.key}`;
+        if(file.fieldname == 'file'){
+          file.key = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
+          file.url = `${process.env.APP_URL}/documents/${file.key}`;
+        }else{
+          file.key = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
+          file.url = `${process.env.APP_URL}/images/${file.key}`;
+        }
+        
 
         cb(null, file.key);
       });
     },
+
   }),
   
   s3: multerS3({
@@ -33,8 +45,11 @@ const storageTypes = {
         if (err) cb(err);
 
         const fileName = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
-
-        cb(null, 'images/' + fileName);
+        if(file.fieldname == 'file'){
+          cb(null, 'documents/' + fileName);
+        }else{
+          cb(null, 'images/' + fileName);
+        }
       });
     },
   }),
@@ -47,20 +62,31 @@ module.exports = {
     fileSize: MAX_SIZE_TWO_MEGABYTES,
   },
   fileFilter: (req, file, cb) => {
-    const allowedMimes = [
-    "image/jpeg",
-    "image/pjpeg",
-    "image/png",
-    "image/gif",
-    ];
 
-    if (allowedMimes.includes(file.mimetype)) {
-      cb(null, true);
-    } else {
+    let allowedMimes = []
 
-      req.flash('errors', {image:'Formato inválido'})
+    if(file.fieldname == 'file'){
+     allowedMimes = [
+     "application/pdf",
+     ];
 
-      cb( null, false);
-    }
-  },
+   }else{
+     allowedMimes = [
+     "image/jpeg",
+     "image/pjpeg",
+     "image/png",
+     "image/gif",
+     ];
+   }
+
+   if (allowedMimes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+
+    req.flash('errors', {image:'Formato inválido'})
+    req.flash('errors', {file:'Formato inválido'})
+
+    cb( null, false);
+  }
+},
 };

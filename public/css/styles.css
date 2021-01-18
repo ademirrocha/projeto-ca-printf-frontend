@@ -5,6 +5,11 @@
 	padding-bottom: 20px;
 }
 
+.default-link{
+	cursor: pointer;
+	text-decoration: all;
+}
+
 
 button a{
 	color: #fff;

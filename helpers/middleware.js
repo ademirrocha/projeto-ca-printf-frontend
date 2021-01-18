@@ -13,6 +13,9 @@ module.exports = {
 		res.locals.final_date = req.flash('final_date')
 		res.locals.state = req.flash('state')
 		res.locals.image = req.flash('image')
+		res.locals.type = req.flash('type')
+		res.locals.error_search = req.flash('error_search')
+		res.locals.success_search = req.flash('success_search')
 		
 
 		next()

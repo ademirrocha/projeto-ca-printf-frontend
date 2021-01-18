@@ -33,7 +33,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
-app.use(morgan('dev'))
+//app.use(morgan('dev'))
 
 app.use(handlebarsHelpres)
 
@@ -64,7 +64,12 @@ app.set('view engine', 'handlebars')
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
   "/images",
-  express.static(path.join(__dirname, "public/uploads"))
+  express.static(path.join(__dirname, "public/uploads/images"))
+);
+
+app.use(
+  "/documents",
+  express.static(path.join(__dirname, "public/uploads/documents"))
 );
 
 

@@ -149,7 +149,7 @@ a:hover {
 */
 
 #tmPortfolio {
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .tm-portfolio-item {
@@ -159,10 +159,9 @@ a:hover {
 }
 
 .tm-portfolio-name {
-  width: 330px;
-  height: 220px;
+  width: 80%;
   font-size: 2rem;
-  padding: 70px 95px;
+  padding: 20px 60px;
   display: flex;
   align-items: center;
   text-align: center;
