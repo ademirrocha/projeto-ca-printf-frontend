@@ -2,7 +2,7 @@ const axios = require('axios')
 
 
 const api = axios.create({
-	baseURL: process.env.API_URL
+	baseURL: process.env.LOCAL_API
 });
 
 

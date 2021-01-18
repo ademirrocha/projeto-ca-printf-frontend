@@ -1,0 +1,129 @@
+<div class="container">
+	<section  style="background-image:url('/img/mini-profile-bg-02.jpg');">
+		<div class="jumbotron">
+			<h1 class="h1 text-center text-white">Cadastrar Documentos</h1>
+			<hr class="my-4">
+			<div class="container">
+				<div class="row row-cols-4">
+					<a class="btn btn-outline-primary col-6 mx-auto btn-lg" href="/documentos" role="button">Voltar para documentos</a>
+				</div>	
+			</div>
+		</div>
+	</section>
+	<form action="/admin/formregulamnetoestagio/create" method="post">
+		<main role="main" class="accordion" id="accordionExample">
+			<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-10 mt-4"id="headingOne">
+				{{#if success_msg}} <div class="alert alert-success center" role="alert">
+					{{success_msg}}
+				</div>{{/if}}
+				{{#if error_msg}}<div class="alert alert-danger center" role="alert">
+					{{error_msg}}
+				</div>{{/if}}
+				<div class="col-12">
+					<div class="row">
+						<div class="col-md-12">
+							<label class="col-12" for="title">
+								Título do Documento
+								{{#each errors }}
+								<span class="message-text error-text" id="title_error">
+									{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
+								</span>
+								{{/each}}
+							</label>
+							<input type="text" class="form-control" id="title" name="title" placeholder="Digite um título que identifique este documento" value="{{title}}" required="">
+						</div>
+						<div class="col-md-12" >
+							<label class="col-12" for="descripton">
+								Descrição
+								{{#each errors}}
+								<span class="message-text error-text" id="description_error">
+									{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}
+								</span>
+								{{/each}}
+							</label>
+							<textarea type="text" class="form-control" id="descripton" name="descripton" value="{{descripton}}" rows="10" placeholder="Aqui você pode fazer uma breve descrição sobre este documento"></textarea>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12">	
+							<label class="col-12" for="school_class">
+								Turma
+								{{#each errors }}
+								<span class="message-text error-text" id="school_class_error">
+									{{#each this }} {{#if (equals @key 'school_class')}} {{this}} {{/if}} {{/each}}
+								</span>
+								{{/each}}
+							</label>
+							<select class="form-select" id="school_class" name="school_class" aria-label="Default select example" required="">
+								{{#if school_class}}
+								<option value="{{school_class}}">{{school_class}}</option>
+								{{else}}
+								<option value="" selected="">Selecione somente se este documento é referente a uma turma específica</option>
+								{{/if}}
+
+								{{#each school_classes}}
+								<option value="{{name}}">{{name}}</option>
+								{{else}}
+
+								<option value="BSI 2016">BSI 2016</option>
+								<option value="BSI 2017">BSI 2017</option>
+								<option value="BSI 2018">BSI 2018</option>
+								<option value="BSI 2019">BSI 2019</option>
+								<option value="BSI 2020">BSI 2020</option>
+								<option value="BSI 2021">BSI 2021</option>
+								<option value="BSI 2022">BSI 2022</option>
+
+								{{/each}}
+
+
+							</select>
+						</div>
+					</div>
+					<hr>
+					<div class="col-md-12">
+						<label class="col-12" for="state">
+							Status
+							{{#each errors }}
+							<span class="message-text error-text" id="state_error">
+								{{#each this }} {{#if (equals @key 'state')}} {{this}} {{/if}} {{/each}}
+							</span>
+							{{/each}}
+						</label>
+						<select class="form-select" id="state" name="state" aria-label="Default select example" required="">
+							{{#if state}}
+							<option value="{{state}}">{{state}}</option>
+							{{else}}
+							<option>Selecione o status que se encontra este documento</option>
+							{{/if}}
+							<option value="Ativo">Ativo</option>
+							<option value="Inativo">Inativo</option>
+							<option value="Cancelado">Cancelado</option>
+						</select>
+					</div>
+					<br>
+					<hr>
+					<br>
+					<label class="col-12" for="envio">
+						Anexar Documento
+						{{#each errors}}
+						<span class="message-text error-text" id="envio_error">
+							{{#each this }} {{#if (equals @key 'envio')}} {{this}} {{/if}} {{/each}}
+						</span>
+						{{/each}}
+					</label>
+					<div class="input-group">
+						<input type="file" class="form-control" id="envio" name="envio" value="{{envio}}"required="">
+					</div>
+					<hr class="md-4">
+					<div class="row">
+						<div class="col-md-20 mb-1 center">
+							<button class="btn btn-primary col-6 btn-lg">Salvar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</form>
+
+</div>

@@ -145,7 +145,7 @@ router.get('/curso',function(req,res){
 
 
 router.get('/documentos', (req, res) => {
-	res.send('Page Cadastro documentos')
+	res.render('users/documents/documents');
 })
 
 router.get('/documentos/ver', (req, res) => {
