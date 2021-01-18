@@ -30,6 +30,8 @@ module.exports = class AuthServices {
 
 			})
 		.catch(error => {
+
+			console.log(error.response)
 			
 			if(error.response.status != 200){
 				result.status = error.response.status

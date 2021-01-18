@@ -161,7 +161,7 @@ router.get('/documentos/:search', async (req, res) => {
 			return res.render('users/documents/documents', {documents: documents, error_search: 'Lamentamos, mas não temos nenhum resultado para "'+ req.params.search +'"'} );
 		
 		}else{
-			return res.render('users/documents/documents', {documents: documents, success_search: "Encontramos "+ documents.meta.total + ' para "'+ req.params.search +'"'} );
+			return res.render('users/documents/documents', {documents: documents, success_search: "Encontramos "+ documents.meta.total + ' resultado para "'+ req.params.search +'"'} );
 		}
 	}
 
