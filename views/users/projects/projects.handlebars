@@ -1,5 +1,5 @@
 <div class="container">
-  <section style="background-image: url('img/mini-profile-bg-02.jpg');">
+  <section style="background-image: url('/img/mini-profile-bg-02.jpg');">
     <div class="container-fluid mt-4">
       <div class="tm-portfolio-name  text-white tm-bg-green mx-auto">
         <h1 class="card-title h1">Projetos</h1>
@@ -15,9 +15,8 @@
     {{#each projects.data}}
 
 
-    <div class="col-sm-6 mb-4">
-      <div class="card">
-        <img src="{{#if image.url}} {{image.url}} {{else}} /img/a_fundotransparentero.png {{/if}}" class="card-img-top" alt="...">
+    <div class="col-sm-12 mb-4">
+      <div class=" card center">
         <div class="card-body bg-light ">
           <div class="card-header">
             {{title}}
@@ -25,7 +24,12 @@
           <div class="card-body text-success">
             <p class="card-text">{{trimString description 150}}...</p>
           </div>
-          <div class="card-footer"><button class="btn btn-primary text-white"><a href="/events" >Mais Detalhes</a></button></div>
+          <hr>
+          <img src="{{#if image.url}} {{image.url}} {{else}} /img/a_fundotransparentero.png {{/if}}" class=" col-4 clip" alt="...">
+          <hr>
+          <div class="card-footer">
+            <button class="btn btn-primary text-white"><a href="/events" >Mais Detalhes</a></button>
+          </div>
         </div>
       </div>
     </div>
