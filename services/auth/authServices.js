@@ -24,7 +24,8 @@ module.exports = class AuthServices {
 						id: response.data.data.id,
 						name: response.data.data.name,
 						email: response.data.data.email,
-						accessToken: response.data.meta.token
+						accessToken: response.data.meta.token,
+						roles: response.data.data.roles
 					}
 				}
 

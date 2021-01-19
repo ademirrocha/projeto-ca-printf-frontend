@@ -10,7 +10,6 @@ const multer = require('multer')
 const multerConfig = require("../config/multer");
 
 
-
 router.get('/eventos/novo', auth, isModerator, function(req,res){
 	res.render('users/forms/create_event');
 })
@@ -116,7 +115,7 @@ router.get('/documentos/novo', auth, isModerator, (req, res) => {
 })
 
 
-router.post('/documents/create', isModerator, multer(multerConfig).single('file'), async (req,res) => {
+router.post('/documents/create', auth, isModerator, multer(multerConfig).single('file'), async (req,res) => {
 
 	var file = null
 

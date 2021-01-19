@@ -10,6 +10,7 @@ module.exports = function(passport){
 				name = req.body.user.name
 				email = email
 				accessToken = req.body.user.accessToken
+				roles = req.body.user.roles
 			}
 
 			if(!User.email){

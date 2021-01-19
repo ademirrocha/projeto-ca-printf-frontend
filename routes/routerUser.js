@@ -10,6 +10,8 @@ const DocumentServices = require('../services/document/documentServices')
 
 const passport = require('passport')
 
+
+
 router.get('/', (req, res) => {
 	res.render('users/index')
 })
@@ -42,7 +44,7 @@ router.post('/auth/login', async (req, res, next) => {
 
 	var logar = await service.login(api, req.body.email, req.body.password)
 	if(logar.status == 200){
-		req.body.user = {id: logar.user.id, name: logar.user.name, email: logar.user.email, accessToken: logar.user.accessToken }
+		req.body.user = {id: logar.user.id, name: logar.user.name, email: logar.user.email, accessToken: logar.user.accessToken, roles: logar.user.roles }
 
 		passport.authenticate('local', {
 			successRedirect: '/',
@@ -66,10 +68,8 @@ router.post('/auth/register', async (req, res, next) => {
 
 	var register = await service.register(api, req, res)
 
-	console.log(register)
-
 	if(register.status == 201){
-		req.body.user = {id: register.user.id, name: register.user.name, email: register.user.email, accessToken: register.user.accessToken }
+		req.body.user = {id: register.user.id, name: register.user.name, email: register.user.email, accessToken: register.user.accessToken, roles: register.user.roles }
 
 		passport.authenticate('local', {
 			successRedirect: '/',

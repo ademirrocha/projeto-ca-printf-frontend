@@ -63,7 +63,50 @@ module.exports = {
 			return decodeURIComponent(text.replace(index, replaced));
 		})
 
-		
+
+		Handlebars.registerHelper('moderatorPermission', function(){
+			let isAdmin = false
+			let isModerator = false
+			if(req.isAuthenticated()){
+
+				for (role in req.user.roles ){
+
+					if(req.user.roles[role].name == 'admin'){
+						isAdmin = true
+					}
+					if(req.user.roles[role].name == 'moderator'){
+						isModerator = true
+					}
+				}
+
+				if(isAdmin || isModerator){
+					return true
+				}else{
+					return false
+				}	
+			}
+			return false
+		})
+
+		Handlebars.registerHelper('adminPermission', function(){
+			let isAdmin = false
+			if(req.isAuthenticated()){
+				for (role in req.user.roles ){
+					if(req.user.roles[role].name == 'admin'){
+						isAdmin = true
+					}
+				}
+
+				if(isAdmin){
+					return true
+				}else{
+					return false
+				}	
+			}
+			return false
+		})
+
+
 
 		next()
 	}
