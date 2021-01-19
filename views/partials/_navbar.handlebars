@@ -37,6 +37,10 @@
           <form action="/logout" method="POST">
             <li><a class="dropdown-item" href="#"><button class="btn-logout" type="submit">Sair</button></a></li>
           </form>
+          {{#if (moderatorPermission)}}
+          <div class="dropdown-divider"></div>
+          <li><a class="dropdown-item" href="#">Você tem permissões de {{#each user.roles}} <br>*{{name}} {{/each}}</a></li>
+          {{/if}}
         </ul> 
       </li>
     </ul> 
