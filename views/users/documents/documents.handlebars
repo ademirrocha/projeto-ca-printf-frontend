@@ -10,8 +10,6 @@
   </section>
   <br>
 
-  
-
   <div class="row">
     {{#if success_search}} 
     <div class="alert alert-success center" role="alert"> 
@@ -22,7 +20,16 @@
     <div class="row">
       <h3> <i class="fas fa-file-pdf" style="font-size: 24px;"></i> <a class="default-link" href="{{file.url}}" target="_blank">{{title}}</a></h3> 
       <div>{{#if description}} {{trimString description 60}}... {{/if}}</div>
-      <div><a href="#">Baixar</a></div>
+      <div>
+        <form id="download-form_{{id}}" action="{{file.url_download}}" method="POST" style="display: none;" target="_blank">
+            <input type="hidden" name="file" value="{{file.key}}">
+        </form>
+        
+
+        <a class="aw-sair" href="#" onclick="event.preventDefault(); document.getElementById('download-form_{{id}}').submit();">Baixar <i class="fas fa-download"></i></a>
+
+
+      </div>
       <hr>
     </div>
 

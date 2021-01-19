@@ -53,14 +53,15 @@ router.post('/project/create', auth, isModerator, multer(multerConfig).single('i
 
 	if(req.file != undefined ){
 
-		const { originalname: originalname, mimetype, size, key } = req.file;
+		const { originalname: originalname, mimetype, size, key, local } = req.file;
 
 		image = {
 			originalname,
 			mimetype,
 			size,
 			key,
-			url: req.file.url || req.file.location 
+			url: req.file.url || req.file.location,
+			local: local
 		}
 	}
 
@@ -110,7 +111,7 @@ router.post('/project/create', auth, isModerator, multer(multerConfig).single('i
 })
 
 
-router.get('/documentos/novo', isModerator, (req, res) => {
+router.get('/documentos/novo', auth, isModerator, (req, res) => {
 	res.render('users/forms/create_document');
 })
 
@@ -121,14 +122,16 @@ router.post('/documents/create', isModerator, multer(multerConfig).single('file'
 
 	if(req.file != undefined ){
 
-		const { originalname: originalname, mimetype, size, key } = req.file;
+		const { originalname: originalname, mimetype, size, key, local } = req.file;
 
 		file = {
 			originalname,
 			mimetype,
 			size,
 			key,
-			url: req.file.url || req.file.location 
+			url: req.file.url || req.file.location,
+			url_download: req.file.url_download || null,
+			local: local
 		}
 
 	}

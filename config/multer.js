@@ -9,10 +9,11 @@ const MAX_SIZE_TWO_MEGABYTES = 2 * 1024 * 1024;
 const storageTypes = {
   local: multer.diskStorage({
     destination: (req, file, cb) => {
+      file.local = 'local'
       if(file.fieldname == 'file'){
-        cb(null, path.resolve(__dirname, "..", "public", "uploads", "documents"));
+        cb(null, path.resolve(process.env.DIR_STORAGE_LOCAL, "documents"));
       }else{
-        cb(null, path.resolve(__dirname, "..", "public", "uploads", "images"));
+        cb(null, path.resolve(process.env.DIR_STORAGE_LOCAL, "images"));
       }
 
     },
@@ -23,11 +24,11 @@ const storageTypes = {
         if(file.fieldname == 'file'){
           file.key = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
           file.url = `${process.env.APP_URL}/documents/${file.key}`;
+          file.url_download = `${process.env.API_URL}documents/download`;
         }else{
           file.key = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
           file.url = `${process.env.APP_URL}/images/${file.key}`;
         }
-        
 
         cb(null, file.key);
       });
@@ -41,16 +42,20 @@ const storageTypes = {
     contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: "public-read",
     key: (req, file, cb) => {
+      file.local = 's3'
       crypto.randomBytes(16, (err, hash) => {
         if (err) cb(err);
 
         const fileName = `${Date.now()}_${hash.toString("hex")}${path.extname(file.originalname)}`;
         if(file.fieldname == 'file'){
+          file.url_download = `${process.env.API_URL}documents/download`;
           cb(null, 'documents/' + fileName);
+
         }else{
           cb(null, 'images/' + fileName);
         }
       });
+
     },
   }),
 };

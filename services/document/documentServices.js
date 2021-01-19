@@ -1,3 +1,6 @@
+var http = require('http'),
+    fs = require('fs');
+
 module.exports = class DocumentServices {
 
 	constructor (async_param = 'undefined') {
@@ -20,8 +23,6 @@ module.exports = class DocumentServices {
 		.then(
 			function(response){
 
-				console.log(response)
-
 				if(response.status == 201){
 					result.status = response.status
 					result.event = {
@@ -34,7 +35,7 @@ module.exports = class DocumentServices {
 
 			})
 		.catch(error => {
-			console.log(error.response)
+			
 			if(error.response  && error.response.status != 201){
 
 				result.status = error.response.status
@@ -64,7 +65,6 @@ module.exports = class DocumentServices {
 
 		return result
 	}
-
 
 	async all(req, res){
 

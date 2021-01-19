@@ -168,11 +168,6 @@ router.get('/documentos/:search', async (req, res) => {
 	
 })
 
-router.get('/documentos/ver', (req, res) => {
-	res.send('Page Editar Documentos')
-})
-
-
 
 router.get('/ppc',function(req,res){
 	res.render('users/documents/ppc');
