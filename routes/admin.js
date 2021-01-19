@@ -118,7 +118,6 @@ router.get('/documentos/novo', auth, isModerator, (req, res) => {
 router.post('/documents/create', auth, isModerator, multer(multerConfig).single('file'), async (req,res) => {
 
 	var file = null
-
 	if(req.file != undefined ){
 
 		const { originalname: originalname, mimetype, size, key, local } = req.file;
