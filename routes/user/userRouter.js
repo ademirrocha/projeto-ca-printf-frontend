@@ -45,12 +45,11 @@ router.get('/curso',function(req,res){
 router.get('/descriptionca',function(req,res){
 	res.render('users/course/descriptionca');
 })
-router.get('/admin/form/formppc',function(req,res){
-	res.render('/users/forms/formppc');
+router.get('/descriptiondocentes',function(req,res){
+	res.render('users/course/descriptiondocourse');
 })
-router.get('/admin/projetos/novo',function(req,res){
-	res.render('/users/forms/projects');
-})
+
+
 
 
 module.exports = router;
