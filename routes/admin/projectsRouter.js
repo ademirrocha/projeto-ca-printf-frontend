@@ -11,7 +11,7 @@ router.get('/novo', auth, isModerator, function(req,res){
 	res.render('users/forms/create_project');
 })
 
-router.post('/project/create', auth, isModerator, multer(multerConfig).single('image'), async (req,res) => {
+router.post('/create', auth, isModerator, multer(multerConfig).single('image'), async (req,res) => {
 
 	var image = null
 

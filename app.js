@@ -86,9 +86,9 @@ app.use('/', userRouter)
 app.use('/', authRouter)
 app.use('/eventos', eventsRouter)
 app.use('/admin/eventos', adminEventsRouter)
-app.use('/projetos', eventsRouter)
+app.use('/projetos', projectsRouter)
 app.use('/admin/projetos', adminProjectsRouter)
-app.use('/documentos', eventsRouter)
+app.use('/documentos', documentsRouter)
 app.use('/admin/documentos', adminDocumentsRouter)
 
 
