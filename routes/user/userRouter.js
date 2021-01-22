@@ -48,6 +48,9 @@ router.get('/descriptionca',function(req,res){
 router.get('/admin/form/formppc',function(req,res){
 	res.render('/users/forms/formppc');
 })
+router.get('/admin/projetos/novo',function(req,res){
+	res.render('/users/forms/projects');
+})
 
 
 module.exports = router;

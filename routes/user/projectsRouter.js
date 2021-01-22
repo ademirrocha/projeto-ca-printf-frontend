@@ -3,6 +3,7 @@ const router = express.Router()
 const ProjectServices = require('../../services/project/projectServices')
 
 router.get('/', async function(req,res){
+
 	const serviceProject = new ProjectServices
 	
 	var projects = await serviceProject.all(req, res)
