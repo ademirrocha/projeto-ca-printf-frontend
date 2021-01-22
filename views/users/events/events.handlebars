@@ -11,6 +11,13 @@
   </section>
   <br>
 
+  {{#if error}}
+    <div class="alert alert-danger center">
+      {{error}}
+    </div>
+    {{/if}}
+
+
   <div class="row">
     {{#each events.data}}
 
@@ -42,7 +49,12 @@
             <h4 class="card-title">{{format_date initial_date 'DD/MM/YYYY'}} a {{format_date final_date 'DD/MM/YYYY'}}</h4>
             <p class="card-text">{{trimString description 150}}...</p>
           </div>
-          <div class="card-footer"><button class="btn btn-primary text-white"><a href="/events" >Mais Detalhes</a></button></div>
+          <div class="card-footer">
+            <button class="btn btn-primary text-white"><a href="/eventos" >Mais Detalhes</a></button>
+            {{#if (moderatorPermission)}}
+            <button class="btn btn-success text-white"><a href="/admin/eventos/editar/{{id}}" >Editar</a></button>
+            {{/if}}
+          </div>
         </div>
       </div>
     </div>

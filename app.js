@@ -5,8 +5,16 @@ const express = require('express');
 const app = express()
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
-const admin = require('./routes/admin')
-const routerUser = require('./routes/routerUser')
+
+const userRouter = require('./routes/user/userRouter')
+const authRouter = require('./routes/user/authRouter')
+const eventsRouter = require('./routes/user/eventsRouter')
+const adminEventsRouter = require('./routes/admin/eventsRouter')
+const projectsRouter = require('./routes/user/projectsRouter')
+const adminProjectsRouter = require('./routes/admin/projectsRouter')
+const documentsRouter = require('./routes/user/documentsRouter')
+const adminDocumentsRouter = require('./routes/admin/documentsRouter')
+
 const path = require('path')
 const morgan = require('morgan')
 
@@ -74,8 +82,15 @@ app.use(
 
 
 //Routes
-app.use('/', routerUser)
-app.use('/admin', admin)
+app.use('/', userRouter)
+app.use('/', authRouter)
+app.use('/eventos', eventsRouter)
+app.use('/admin/eventos', adminEventsRouter)
+app.use('/projetos', eventsRouter)
+app.use('/admin/projetos', adminProjectsRouter)
+app.use('/documentos', eventsRouter)
+app.use('/admin/documentos', adminDocumentsRouter)
+
 
 
 //Others
