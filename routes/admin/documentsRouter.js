@@ -8,11 +8,18 @@ const multer = require('multer')
 const multerConfig = require("../../config/multer");
 
 router.get('/novo', auth, isModerator, (req, res) => {
-	res.render('users/forms/create_document');
+	res.render('admin/documents/create');
 })
 
-router.get('/editar/:id', auth, isModerator, (req, res) => {
-	res.send('Page Editar Documentos')
+router.get('/editar/:id', auth, isModerator, async (req, res) => {
+	const service = new DocumentServices
+	var documentRes = await service.get(req, res)
+	if(documentRes.status == 200){
+		res.render('admin/documents/update', {document: documentRes.data});
+	}else{
+		req.flash('error', 'Documento não encontrado')
+		return res.redirect('/documentos')
+	}
 })
 
 
@@ -82,6 +89,49 @@ router.post('/create', auth, isModerator, multer(multerConfig).single('file'), a
 
 
 })
+
+
+router.post('/update', auth, isModerator, multer(multerConfig).single('file'), async (req, res) => {
+
+	var file = null
+	if(req.file != undefined ){
+
+		const { originalname: originalname, mimetype, size, key, local } = req.file;
+
+		file = {
+			originalname,
+			mimetype,
+			size,
+			key,
+			url: req.file.url || req.file.location,
+			url_download: req.file.url_download || null,
+			local: local
+		}
+
+	}
+
+	const service = new DocumentServices
+	var update = await service.update(req, res, file)
+	if(update.status == 401 && update.errors.message == 'Unauthenticated.'){
+		req.logout()
+		res.redirect('/login')
+
+	}else if(update.status == 200){
+
+		req.flash('success_msg', 'Alterações salvas com sucesso!')
+		res.redirect('/documentos')	
+		
+	}else{
+
+		req.flash('title', req.body.title)
+		req.flash('description', req.body.description)
+		req.flash('errors', update.errors)
+		req.flash('error_msg', 'As alterações não foram salvas!')
+		res.redirect('/admin/documentos/editar/' + req.body.id)
+	}
+
+})
+
 
 
 module.exports = router;

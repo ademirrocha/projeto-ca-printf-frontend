@@ -107,6 +107,20 @@ module.exports = {
 		})
 
 
+		Handlebars.registerHelper('valueOrOtherValue', function (value1, value2) {
+			let result = ''
+			
+			if((value1 != undefined && value1 != 'undefined' && value1 != null && value1 != 'null') || value1.lenght > 0 ){
+				result = value1
+			}else{
+				result = value2
+			}
+			
+
+			return result;
+		})
+
+
 
 		next()
 	}

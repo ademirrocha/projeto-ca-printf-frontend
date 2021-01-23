@@ -10,6 +10,15 @@
   </section>
   <br>
 
+  {{#if error}}
+  <div class="alert alert-danger center">
+    {{error}}
+  </div>
+  {{/if}}
+  {{#if success_msg}} <div class="alert alert-success center" role="alert">
+    {{success_msg}}
+  </div>{{/if}}
+
   <div class="row">
     {{#if success_search}} 
     <div class="alert alert-success center" role="alert"> 
@@ -27,6 +36,10 @@
         
 
         <a class="aw-sair" href="#" onclick="event.preventDefault(); document.getElementById('download-form_{{id}}').submit();">Baixar <i class="fas fa-download"></i></a>
+
+        {{#if (moderatorPermission)}}
+        <button class="btn btn-success text-white"><a href="/admin/documentos/editar/{{id}}" >Editar</a></button>
+        {{/if}}
 
 
       </div>

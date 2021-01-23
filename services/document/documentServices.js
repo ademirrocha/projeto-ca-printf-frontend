@@ -29,7 +29,7 @@ module.exports = class DocumentServices {
 						id: response.data.data.id,
 						title: response.data.data.title,
 						description: response.data.data.description,
-						image: response.data.data.image,
+						file: response.data.data.file,
 					}
 				}
 
@@ -118,5 +118,103 @@ module.exports = class DocumentServices {
 	}
 
 
+	async get(req, res){
+
+		var result = {}
+		const api = res.locals.api
+
+		await api.get('documents/get/'+ parseInt(req.params.id))
+		.then(
+			function(response){
+
+				if(response.status == 200){
+					result.status = response.status
+					result.data = response.data.data
+					
+				}
+
+			})
+		.catch(error => {
+
+			if(error.response  && error.response.status != 200){
+
+				result.status = error.response.status
+				var errors = {}
+
+				for(var prop in error.response.data.meta){
+					if(prop == 'errors'){
+						errors[prop] = error.response.data.meta.errors;
+					}
+				}
+
+				for(var prop in error.response.data.errors){
+					errors[prop] = error.response.data.errors[prop];
+				}
+
+				result.errors = errors
+			}
+		}); 
+
+		return result
+
+	}
+
+
+
+	async update(req, res, file){
+		var result = {}
+		const api = res.locals.api
+		
+		await api.post('documents/edit', {
+			id: req.body.id,
+			title: req.body.title,
+			description: req.body.description,
+			file: file
+		})
+		.then(
+			function(response){
+
+				if(response.status == 200){
+					result.status = response.status
+					result.event = {
+						id: response.data.data.id,
+						title: response.data.data.title,
+						description: response.data.data.description,
+						file: response.data.data.file,
+					}
+				}
+
+			})
+		.catch(error => {
+
+			if(error.response  && error.response.status != 200){
+
+				result.status = error.response.status
+
+				var errors = {}
+
+				for(var prop in error.response.data){
+					if(prop == 'message' && error.response.data.message == 'Unauthenticated.'){
+						errors[prop] = error.response.data.message;
+					}
+				}
+
+				for(var prop in error.response.data.meta){
+					if(prop == 'errors'){
+						errors[prop] = error.response.data.meta.errors;
+					}
+				}
+
+				for(var prop in error.response.data.errors){
+
+					errors[prop] = error.response.data.errors[prop];
+				}
+
+				result.errors = errors
+			}
+		}); 
+
+		return result
+	}
 
 }
