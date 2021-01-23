@@ -17,8 +17,6 @@ router.get('/editar/:id', auth, isModerator, async (req, res) => {
 		req.flash('error', 'Evento não encontrado')
 		res.redirect('/eventos')
 	}
-
-
 })
 
 

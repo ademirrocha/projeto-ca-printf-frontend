@@ -12,11 +12,13 @@
   <br>
 
   {{#if error}}
-    <div class="alert alert-danger center">
-      {{error}}
-    </div>
-    {{/if}}
-
+  <div class="alert alert-danger center">
+    {{error}}
+  </div>
+  {{/if}}
+  {{#if success_msg}} <div class="alert alert-success center" role="alert">
+    {{success_msg}}
+  </div>{{/if}}
 
   <div class="row">
     {{#each events.data}}

@@ -11,6 +11,4 @@ router.get('/', async function(req,res){
 	res.render('users/projects/projects', {projects: projects});
 })
 
-
-
 module.exports = router;

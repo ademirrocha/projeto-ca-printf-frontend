@@ -1,0 +1,76 @@
+<div class="container">
+	<section  style="background-image:url('/img/mini-profile-bg-02.jpg'); width:100%;">
+		<div class="jumbotron">
+			<h1 class="h1 text-center text-white">Editar Projeto</h1>
+			<hr class="my-4">
+			<div class="container">
+				<div class="row row-cols-4">	
+					<a class="btn btn-outline-primary col-6 mx-auto btn-lg" href="/projetos" role="button">Voltar para projetos</a>
+				</div>	
+			</div>
+		</div>
+	</section>
+	<form action="/admin/projetos/update" method="post" enctype='multipart/form-data'>
+		<main role="main" class="accordion" id="accordionExample">
+			<div class="shadow-none p-3 mb-5 bg-white rounded card mx-auto col-md-7 mt-4"id="headingOne">
+				{{#if success_msg}} <div class="alert alert-success center" role="alert">
+					{{success_msg}}
+				</div>{{/if}}
+				{{#if error_msg}}<div class="alert alert-danger center" role="alert">
+					{{error_msg}}
+				</div>{{/if}}
+
+				<input type="hidden" name="id" value="{{project.id}}">
+
+
+				<div class="col-12">
+					<div class="row">
+						<div class="col-md-6">
+							<label class="col-12" for="title">
+								Título
+								{{#each errors }}
+								<span class="message-text error-text" id="title_error">
+									{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
+								</span>
+								{{/each}}
+							</label>
+							<input type="text" class="form-control" id="title" name="title" value="{{title}}{{project.title}}">
+						</div>
+						<div class="col-md-6">
+							<label class="col-12" for="description">
+								Descrição
+								{{#each errors}}
+								<span class="message-text error-text" id="description_error">
+									{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}
+								</span>
+								{{/each}}
+							</label>
+							<input type="text" class="form-control" id="description" name="description" value="{{description}}{{project.description}}">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<label class="col-12" for="title">
+								Imagem
+								{{#each errors }}
+								<span class="message-text error-text" id="image_error">
+									{{#each this }} {{#if (equals @key 'image')}} {{this}} {{/if}} {{#if (equals @key 'image.url')}} {{this}} {{/if}} {{/each}}
+								</span>
+								{{/each}}
+							</label>
+							<input type="file" class="form-control" id="image" name="image" value="{{image}}">
+						</div>
+					</div>
+					
+					<hr class="mt-4">
+					<div class="row">
+						<div class="col-md-6 mb-1">
+							<button class="btn btn-outline-primary col-12 btn-lg shadow-none">Salvar Alterações</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</form>
+</div>

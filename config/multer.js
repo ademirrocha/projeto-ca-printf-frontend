@@ -13,7 +13,7 @@ const storageTypes = {
       if(file.fieldname == 'file'){
         cb(null, path.resolve(process.env.DIR_STORAGE_LOCAL, "documents"));
       }else{
-        cb(null, path.resolve(process.env.DIR_STORAGE_LOCAL, "images"));
+        cb(null, path.resolve(__dirname, "..", "public", "uploads", "images"));
       }
 
     },

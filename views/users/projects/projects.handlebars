@@ -11,6 +11,15 @@
   </section>
   <br>
 
+  {{#if error}}
+  <div class="alert alert-danger center">
+    {{error}}
+  </div>
+  {{/if}}
+  {{#if success_msg}} <div class="alert alert-success center" role="alert">
+    {{success_msg}}
+  </div>{{/if}}
+
   <div class="row">
     {{#each projects.data}}
 
@@ -24,11 +33,18 @@
           <div class="card-body text-success">
             <p class="card-text">{{trimString description 150}}...</p>
           </div>
+
+          {{#if image.url}}
           <hr>
-          <img src="{{#if image.url}} {{image.url}} {{else}} /img/a_fundotransparentero.png {{/if}}" class=" col-4 clip" alt="...">
+          <img src="{{image.url}}" class=" col-4 clip" alt="...">
+          {{/if}}
+
           <hr>
           <div class="card-footer">
             <button class="btn btn-primary text-white"><a href="/events" >Mais Detalhes</a></button>
+            {{#if (moderatorPermission)}}
+            <button class="btn btn-success text-white"><a href="/admin/projetos/editar/{{id}}" >Editar</a></button>
+            {{/if}}
           </div>
         </div>
       </div>
