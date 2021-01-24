@@ -75,6 +75,28 @@ router.post('/update', auth, isModerator, async function(req,res){
 
 })
 
+router.post('/delete', auth, isAdmin, async function(req,res){
+
+	const service = new EventServices
+	var deleteRes = await service.delete(req, res)
+	if(deleteRes.status == 401 && deleteRes.errors.message == 'Unauthenticated.'){
+		req.logout()
+		res.redirect('/login')
+
+	}else if(deleteRes.status == 200){
+
+		req.flash('success_msg', 'Evento removido com sucesso!')
+		res.redirect('/eventos')	
+		
+	}else{
+
+		req.flash('error', 'Erro ao excluir evento')
+		res.redirect('/eventos')
+	}
+
+
+})
+
 
 
 module.exports = router;

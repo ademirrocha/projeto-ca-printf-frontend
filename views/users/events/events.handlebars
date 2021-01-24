@@ -56,6 +56,14 @@
             {{#if (moderatorPermission)}}
             <button class="btn btn-success text-white"><a href="/admin/eventos/editar/{{id}}" >Editar</a></button>
             {{/if}}
+            {{#if (adminPermission)}}
+
+            <form id="delete-event-form_{{id}}" action="/admin/eventos/delete" method="POST" style="display: none;">
+              <input type="hidden" name="id" value="{{id}}">
+            </form>
+              
+              <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationEventDelete('{{title}}', '{{id}}');" >Excluir</a></button>
+            {{/if}}
           </div>
         </div>
       </div>

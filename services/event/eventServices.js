@@ -22,8 +22,6 @@ module.exports = class EventServices {
 		.then(
 			function(response){
 
-
-
 				if(response.status == 201){
 					result.status = response.status
 					result.event = {
@@ -190,6 +188,56 @@ module.exports = class EventServices {
 						final_date: response.data.meta.final_date,
 						state: response.data.meta.state,
 					}
+				}
+
+			})
+		.catch(error => {
+
+			if(error.response  && error.response.status != 200){
+
+				result.status = error.response.status
+				
+				var errors = {}
+
+				for(var prop in error.response.data){
+					if(prop == 'message' && error.response.data.message == 'Unauthenticated.'){
+						errors[prop] = error.response.data.message;
+					}
+				}
+				
+				for(var prop in error.response.data.meta){
+					if(prop == 'errors'){
+						errors[prop] = error.response.data.meta.errors;
+					}
+				}
+
+				for(var prop in error.response.data.errors){
+					
+					errors[prop] = error.response.data.errors[prop];
+				}
+				
+				result.errors = errors
+			}
+		}); 
+
+		return result
+	}
+
+
+	async delete(req, res){
+
+		var result = {}
+		const api = res.locals.api
+
+		await api.post('events/delete', {
+			id: req.body.id,
+		})
+		.then(
+			function(response){
+
+				if(response.status == 200){
+					result.status = response.status
+					
 				}
 
 			})
