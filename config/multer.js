@@ -11,7 +11,7 @@ const storageTypes = {
     destination: (req, file, cb) => {
       file.local = 'local'
       if(file.fieldname == 'file'){
-        cb(null, path.resolve(process.env.DIR_STORAGE_LOCAL, "documents"));
+        cb(null, path.resolve(__dirname, "..", "public", "uploads", "documents"));
       }else{
         cb(null, path.resolve(__dirname, "..", "public", "uploads", "images"));
       }

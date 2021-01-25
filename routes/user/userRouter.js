@@ -48,6 +48,9 @@ router.get('/descriptionca',function(req,res){
 router.get('/descriptiondocentes',function(req,res){
 	res.render('users/course/descriptiondocourse');
 })
+router.get('/membrosca',function(req,res){
+	res.render('users/course/memberca')
+});
 
 
 
