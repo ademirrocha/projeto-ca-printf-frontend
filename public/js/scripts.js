@@ -44,3 +44,58 @@ function CancelEditUser(){
 
 	$('#card-update-profile').removeClass(' bg-gray')
 }
+
+
+var originalFieldSchoolClass = document.getElementById('school_class')
+
+function changeFieldSchoolClass($this){
+
+	if($($this).hasClass('fa-plus-circle')){
+
+		$("#fieldSchoolClass").empty();
+		var html="<input type='text' class='form-control ' id='school_class' name='school_class'>";
+		/* preenche a div */
+		$("#fieldSchoolClass").html(html);
+
+		$($this).removeClass('fa-plus-circle')
+		$($this).addClass('fa-minus-circle')
+
+	}else{
+		$("#fieldSchoolClass").empty();
+		
+		/* preenche a div */
+		$("#fieldSchoolClass").html(originalFieldSchoolClass);
+
+		$($this).removeClass('fa-minus-circle')
+		$($this).addClass('fa-plus-circle')
+	}
+	
+}
+
+
+var originalFieldTypeDoc = document.getElementById('type')
+
+function changeFieldTypeDoc($this){
+
+	if($($this).hasClass('fa-plus-circle')){
+
+		$("#fieldTypeDoc").empty();
+		var html="<input type='text' class='form-control ' id='type' name='type'>";
+		/* preenche a div */
+		$("#fieldTypeDoc").html(html);
+
+		$($this).removeClass('fa-plus-circle')
+		$($this).addClass('fa-minus-circle')
+
+	}else{
+		$("#fieldTypeDoc").empty();
+		
+		/* preenche a div */
+		$("#fieldTypeDoc").html(originalFieldTypeDoc);
+
+		$($this).removeClass('fa-minus-circle')
+		$($this).addClass('fa-plus-circle')
+	}
+	
+}
+

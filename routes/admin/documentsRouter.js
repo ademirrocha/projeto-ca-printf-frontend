@@ -7,15 +7,20 @@ const DocumentServices = require('../../services/document/documentServices')
 const multer = require('multer')
 const multerConfig = require("../../config/multer");
 
-router.get('/novo', auth, isModerator, (req, res) => {
-	res.render('admin/documents/create');
+router.get('/novo', auth, isModerator, async (req, res) => {
+	const service = new DocumentServices
+	var getData = await service.getDataCreateUpdate(req, res)
+
+	res.render('admin/documents/create', {schoolClasses: getData.schoolClasses, typeDocuments: getData.typeDocuments});
 })
 
 router.get('/editar/:id', auth, isModerator, async (req, res) => {
 	const service = new DocumentServices
 	var documentRes = await service.get(req, res)
+	var getData = await service.getDataCreateUpdate(req, res)
+	
 	if(documentRes.status == 200){
-		res.render('admin/documents/update', {document: documentRes.data});
+		res.render('admin/documents/update', {document: documentRes.data, schoolClasses: getData.schoolClasses, typeDocuments: getData.typeDocuments});
 	}else{
 		req.flash('error', 'Documento não encontrado')
 		return res.redirect('/documentos')

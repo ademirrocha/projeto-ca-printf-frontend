@@ -18,6 +18,9 @@ module.exports = class DocumentServices {
 		await api.post('documents/new', {
 			title: req.body.title,
 			description: req.body.description,
+			school_class: req.body.school_class,
+			type: req.body.type,
+			state: req.body.state,
 			file: file
 		})
 		.then(
@@ -35,7 +38,7 @@ module.exports = class DocumentServices {
 
 			})
 		.catch(error => {
-			
+
 			if(error.response  && error.response.status != 201){
 
 				result.status = error.response.status
@@ -130,7 +133,6 @@ module.exports = class DocumentServices {
 				if(response.status == 200){
 					result.status = response.status
 					result.data = response.data.data
-					
 				}
 
 			})
@@ -169,11 +171,15 @@ module.exports = class DocumentServices {
 			id: req.body.id,
 			title: req.body.title,
 			description: req.body.description,
+			school_class: req.body.school_class,
+			type: req.body.type,
+			state: req.body.state,
 			file: file
 		})
 		.then(
 			function(response){
 
+				console.log(response)
 				if(response.status == 200){
 					result.status = response.status
 					result.event = {
@@ -186,6 +192,8 @@ module.exports = class DocumentServices {
 
 			})
 		.catch(error => {
+
+			console.log(error.response)
 
 			if(error.response  && error.response.status != 200){
 
@@ -248,6 +256,49 @@ module.exports = class DocumentServices {
 						errors[prop] = error.response.data.message;
 					}
 				}
+				
+				for(var prop in error.response.data.meta){
+					if(prop == 'errors'){
+						errors[prop] = error.response.data.meta.errors;
+					}
+				}
+
+				for(var prop in error.response.data.errors){
+					
+					errors[prop] = error.response.data.errors[prop];
+				}
+				
+				result.errors = errors
+			}
+		}); 
+
+		return result
+	}
+
+
+
+	async getDataCreateUpdate(req, res){
+		var result = {}
+		const api = res.locals.api
+
+		await api.get('school-classes')
+		.then(
+			function(response){
+
+				if(response.status == 200){
+					result.status = response.status
+					result.schoolClasses = response.data.data.schoolClasss
+					result.typeDocuments = response.data.data.typeDocuments
+				}
+
+			})
+		.catch(error => {
+
+			if(error.response  && error.response.status != 200){
+
+				result.status = error.response.status
+				
+				var errors = {}
 				
 				for(var prop in error.response.data.meta){
 					if(prop == 'errors'){

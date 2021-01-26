@@ -27,7 +27,15 @@
     {{/if}}
     {{#each documents.data}}
     <div class="row">
-      <h3> <i class="fas fa-file-pdf" style="font-size: 24px;"></i> <a class="default-link" href="{{file.url}}" target="_blank">{{title}}</a></h3> 
+      <h3> 
+        <i class="fas fa-file-pdf" style="font-size: 24px;"></i> 
+        <a class="default-link" href="{{file.url}}" target="_blank">{{title}}</a>
+        <span class="state 
+        {{#if (equals state 'Ativo')}}state-active{{/if}} 
+        {{#if (equals state 'Cancelado')}}state-cancel{{/if}}
+        {{#if (equals state 'Inativo')}}state-inactive{{/if}}
+        ">{{state}} </span>
+      </h3> 
       <div>{{#if description}} {{trimString description 60}}... {{/if}}</div>
       <div>
         <form id="download-form_{{id}}" action="{{file.url_download}}" method="POST" style="display: none;" target="_blank">
@@ -37,21 +45,25 @@
 
         <a class="aw-sair" href="#" onclick="event.preventDefault(); document.getElementById('download-form_{{id}}').submit();">Baixar <i class="fas fa-download"></i></a>
 
-        {{#if (moderatorPermission)}}
-        <button class="btn btn-success text-white"><a href="/admin/documentos/editar/{{id}}" >Editar</a></button>
-        {{/if}}
+        <div class="">
+
+          {{#if (moderatorPermission)}}
+          <button class="btn btn-success text-white"><a href="/admin/documentos/editar/{{id}}" >Editar</a></button>
+          {{/if}}
 
 
-        {{#if (adminPermission)}}
+          {{#if (adminPermission)}}
 
-        <form id="delete-document-form_{{id}}" action="/admin/documentos/delete" method="POST" style="display: none;">
-          <input type="hidden" name="id" value="{{id}}">
-        </form>
+          <form id="delete-document-form_{{id}}" action="/admin/documentos/delete" method="POST" style="display: none;">
+            <input type="hidden" name="id" value="{{id}}">
+          </form>
 
-        <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationDocumentDelete('{{title}}', '{{id}}');" >Excluir</a></button>
+          <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationDocumentDelete('{{title}}', '{{id}}');" >Excluir</a></button>
 
-        {{/if}}
-
+          {{/if}}
+           <br>
+           <br>
+        </div>
 
 
       </div>

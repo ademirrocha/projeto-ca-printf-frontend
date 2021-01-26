@@ -57,26 +57,31 @@
 							</span>
 							{{/each}}
 						</label>
+						<div id="fieldSchoolClass" class="col-11">
+							<select class="form-select" id="school_class" name="school_class" aria-label="Default select example">
 
-						<select class="form-select col-11" id="school_class" name="school_class" aria-label="Default select example">
+								{{#if document.schoolClass}}
+								<option value="{{document.schoolClass.id}}">{{document.schoolClass.name}}</option>
+								{{else}}
+								{{#if school_class}}
+								<option value="{{id}}">{{name}}</option>
+								{{else}}
+								<option value="" selected="">Selecione somente se este documento é referente a uma turma específica</option>
+								{{/if}}
+								{{/if}}
 
-							{{#if school_class}}
-							<option value="{{id}}">{{name}}</option>
-							{{else}}
-							<option value="" selected="">Selecione somente se este documento é referente a uma turma específica</option>
-							{{/if}}
+								{{#each schoolClasses}}
 
-							{{#each school_classes}}
+								<option value="{{id}}">{{name}}</option>
 
-							<option value="{{id}}">{{name}}</option>
-
-							{{/each}}
+								{{/each}}
 
 
-						</select> 
+							</select> 
+						</div>
 
 						<div class="col-1">
-							<i class="fas fa-plus-circle" style="font-size: 36px;"></i>
+							<i class="fas fa-plus-circle text-primary link-pointer" style="font-size: 36px;" onclick="changeFieldSchoolClass(this);"></i>
 						</div>
 						
 					</div>
@@ -92,20 +97,25 @@
 									</span>
 									{{/each}}
 								</label>
-								<select class="form-select col-10" id="type" name="type" aria-label="Default select example">
-									{{#if type}}
-									<option value="{{type}}">{{type}}</option>
-									{{else}}
-									<option>Qual o tipo do documento</option>
-									{{/if}}
-									<option value="PPC">PPC</option>
-									<option value="Regulamento de Estágios">Regulamento de Estágios</option>
-									<option value="Regulamento de Horas Complementares">Regulamento de Horas Complementares</option>
-									<option value="Atas de Reuniões">Atas de Reuniões</option>
+								<div id="fieldTypeDoc" class="col-10">
+									<select class="form-select col-10" id="type" name="type" aria-label="Default select example">
+										{{#if document.type}}
+										<option value="{{document.type}}">{{document.type}}</option>
+										{{else}}
+										{{#if type}}
+										<option value="{{type}}">{{type}}</option>
+										{{else}}
+										<option>Qual o tipo do documento</option>
+										{{/if}}
+										{{/if}}
+										{{#each typeDocuments}} 
+										<option value="{{type}}">{{type}}</option>
+										{{/each}}
 
-								</select>
+									</select>
+								</div>
 								<div class="col-1">
-									<i class="fas fa-plus-circle" style="font-size: 36px;"></i>
+									<i class="fas fa-plus-circle text-primary link-pointer" style="font-size: 36px;" onclick="changeFieldTypeDoc(this);"></i>
 								</div>
 							</div>
 						</div>
@@ -119,15 +129,19 @@
 								{{/each}}
 							</label>
 							<select class="form-select" id="state" name="state" aria-label="Default select example">
+								{{#if document.state}}
+								<option value="{{document.state}}">{{document.state}}</option>
+								{{else}}
 								{{#if state}}
 								<option value="{{state}}">{{state}}</option>
 								{{else}}
-								<option>Selecione o status deste documento</option>
+								<option value="">Selecione o status deste documento</option>
+								{{/if}}
 								{{/if}}
 								<option value="Ativo">Ativo</option>
 								<option value="Inativo">Inativo</option>
 								<option value="Cancelado">Cancelado</option>
-							</select>
+							</select required="">
 						</div>
 					</div>
 					<br>

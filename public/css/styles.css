@@ -173,3 +173,34 @@ button.btn-logout {
 .card-user-profile{
 	display: inline-block;
 }
+
+
+.state{
+	border: 1px solid;
+	border-radius: 5px;
+	font-size: 0.8rem;
+	padding: 2px 15px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.state-active{
+	background-color:rgba(13,230,84, 0.5);
+}
+
+.state-cancel{
+	background-color:rgba(191,157,18, 0.5);
+}
+
+.state-inactive{
+	background-color:rgba(241,42,6, 0.5);
+}
+
+.link-pointer{
+	cursor: pointer;
+	transition: 0.7s;
+}
+
+.fa-plus-circle:hover, .fa-minus-circle:hover{
+	color: #3fbd47 !important;
+}
