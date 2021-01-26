@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
 	const serviceDocument = new DocumentServices
 	
 	var documents = await serviceDocument.all(req, res)
+	
 	res.render('users/documents/documents', {documents: documents});
 })
 

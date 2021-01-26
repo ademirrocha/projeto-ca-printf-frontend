@@ -38,6 +38,20 @@
       </h3> 
       <div>{{#if description}} {{trimString description 60}}... {{/if}}</div>
       <div>
+        <div class="card">
+          {{#if type}}
+          
+          Tipo de Documento: <b class="text-info">{{type}}</b>
+
+          <br>
+          {{/if}}
+
+          {{#if schoolClass.name}}
+          Direcionado a Turma: <b class="text-info">{{schoolClass.name}}</b>
+          {{/if}}
+
+        </div>
+
         <form id="download-form_{{id}}" action="{{file.url_download}}" method="POST" style="display: none;" target="_blank">
           <input type="hidden" name="file" value="{{file.key}}">
         </form>
@@ -61,8 +75,8 @@
           <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationDocumentDelete('{{title}}', '{{id}}');" >Excluir</a></button>
 
           {{/if}}
-           <br>
-           <br>
+          <br>
+          <br>
         </div>
 
 
