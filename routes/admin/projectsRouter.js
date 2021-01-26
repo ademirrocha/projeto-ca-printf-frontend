@@ -126,5 +126,26 @@ router.post('/update', auth, isModerator, multer(multerConfig).single('image'), 
 
 })
 
+router.post('/delete', auth, isAdmin, async function(req,res){
+
+	const service = new ProjectServices
+	var deleteRes = await service.delete(req, res)
+	if(deleteRes.status == 401 && deleteRes.errors.message == 'Unauthenticated.'){
+		req.logout()
+		res.redirect('/login')
+
+	}else if(deleteRes.status == 200){
+
+		req.flash('success_msg', 'Projeto removido com sucesso!')
+		res.redirect('/projetos')	
+		
+	}else{
+
+		req.flash('error', 'Erro ao excluir projeto')
+		res.redirect('/projetos')
+	}
+
+})
+
 
 module.exports = router;

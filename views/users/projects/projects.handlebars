@@ -45,6 +45,17 @@
             {{#if (moderatorPermission)}}
             <button class="btn btn-success text-white"><a href="/admin/projetos/editar/{{id}}" >Editar</a></button>
             {{/if}}
+
+            {{#if (adminPermission)}}
+
+            <form id="delete-project-form_{{id}}" action="/admin/projetos/delete" method="POST" style="display: none;">
+              <input type="hidden" name="id" value="{{id}}">
+            </form>
+
+            <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationProjectDelete('{{title}}', '{{id}}');" >Excluir</a></button>
+
+            {{/if}}
+
           </div>
         </div>
       </div>

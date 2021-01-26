@@ -132,6 +132,26 @@ router.post('/update', auth, isModerator, multer(multerConfig).single('file'), a
 
 })
 
+router.post('/delete', auth, isAdmin, async function(req,res){
+
+	const service = new DocumentServices
+	var deleteRes = await service.delete(req, res)
+	if(deleteRes.status == 401 && deleteRes.errors.message == 'Unauthenticated.'){
+		req.logout()
+		res.redirect('/login')
+
+	}else if(deleteRes.status == 200){
+
+		req.flash('success_msg', 'Documento removido com sucesso!')
+		res.redirect('/documentos')	
+		
+	}else{
+
+		req.flash('error', 'Erro ao excluir documento')
+		res.redirect('/documentos')
+	}
+
+})
 
 
 module.exports = router;
