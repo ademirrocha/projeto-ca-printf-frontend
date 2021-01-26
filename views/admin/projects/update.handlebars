@@ -19,7 +19,8 @@
 				{{#if error_msg}}<div class="alert alert-danger center" role="alert">
 					{{error_msg}}
 				</div>{{/if}}
-
+				<i class="required">Campos obrigatórios</i>
+				<hr>
 				<input type="hidden" name="id" value="{{project.id}}">
 
 
@@ -27,7 +28,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<label class="col-12" for="title">
-								Título
+								Título <i class="required"></i>
 								{{#each errors }}
 								<span class="message-text error-text" id="title_error">
 									{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
@@ -38,7 +39,7 @@
 						</div>
 						<div class="col-md-6">
 							<label class="col-12" for="description">
-								Descrição
+								Descrição <i class="required"></i>
 								{{#each errors}}
 								<span class="message-text error-text" id="description_error">
 									{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}

@@ -125,8 +125,6 @@ module.exports = class EventServices {
 		.then(
 			function(response){
 
-				console.log(response)
-
 				if(response.status == 200){
 					result.status = response.status
 					result.data = response.data.data
@@ -135,8 +133,6 @@ module.exports = class EventServices {
 
 			})
 		.catch(error => {
-
-			console.log(error.response)
 
 			if(error.response  && error.response.status != 200){
 

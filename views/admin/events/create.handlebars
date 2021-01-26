@@ -21,11 +21,13 @@
 				{{#if error_msg}} <div class="alert alert-danger center" role="alert"> 
 					{{error_msg}}
 				</div> {{/if}} 
+				<i class="required">Campos obrigatórios</i>
+				<hr>
 				<div class="col-12">
 					<div class="row">
 						<div class="col-md-6">
 							<label class="col-12" for="title">
-								Título
+								Título <i class="required"></i>
 								{{#each errors }}
 								<span class="message-text error-text" id="title_error">
 									{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
@@ -36,7 +38,7 @@
 						</div>
 						<div class="col-md-6">
 							<label  class="col-12" for="description">
-								Descrição
+								Descrição <i class="required"></i>
 								{{#each errors }}
 								<span class="message-text error-text" id="description_error">
 									{{#each this }} {{#if (equals @key 'description')}} {{this}} {{/if}} {{/each}}
@@ -49,7 +51,7 @@
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label class="col-12"  for="initial_date">
-								Data Inicio
+								Data Inicio <i class="required"></i>
 								{{#each errors }}
 								<span class="message-text error-text" id="initial_date_error">
 									{{#each this }} {{#if (equals @key 'initial_date')}} {{this}} {{/if}} {{/each}}
@@ -60,7 +62,7 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<label class="col-12" for="final_date">
-								Data Final
+								Data Final <i class="required"></i>
 								{{#each errors }}
 								<span class="message-text error-text" id="final_date_error">
 									{{#each this }} {{#if (equals @key 'final_date')}} {{this}} {{/if}} {{/each}}
@@ -82,8 +84,11 @@
 						{{#if state}}
 						<option value="{{state}}">{{state}}</option>
 						{{else}}
-						<option>Selecione o status do evento</option>
+						<option value="">Selecione o status do evento</option>
 						{{/if}}
+						<option value="Não Iniciado">Não Iniciado</option>
+						<option value="Em Andamento">Em Andamento</option>
+						<option value="Concluído">Concluído</option>
 						<option value="Ativo">Ativo</option>
 						<option value="Inativo">Inativo</option>
 						<option value="Cancelado">Cancelado</option>

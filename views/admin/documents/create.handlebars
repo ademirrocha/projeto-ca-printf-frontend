@@ -19,11 +19,13 @@
 				{{#if error_msg}}<div class="alert alert-danger center" role="alert">
 					{{error_msg}}
 				</div>{{/if}}
+				<i class="required">Campos obrigatórios</i>
+				<hr>
 				<div class="col-12">
 					<div class="row">
 						<div class="col-md-12">
 							<label class="col-12" for="title">
-								Título do Documento
+								Título do Documento <i class="required"></i>
 								{{#each errors }}
 								<span class="message-text error-text" id="title_error">
 									{{#each this }} {{#if (equals @key 'title')}} {{this}} {{/if}} {{/each}}
@@ -133,7 +135,7 @@
 					<hr>
 					<br>
 					<label class="col-12" for="file">
-						Anexar Documento <i class="fas fa-file-pdf" style="font-size: 24px;"></i>
+						Anexar Documento <i class="fas fa-file-pdf" style="font-size: 24px;"></i><i class="required"></i>
 						{{#each errors}}
 						<span class="message-text error-text" id="file_error">
 							{{#each this }} {{#if (equals @key 'file')}} {{this}} {{/if}} {{/each}}

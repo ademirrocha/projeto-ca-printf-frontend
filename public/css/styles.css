@@ -204,3 +204,9 @@ button.btn-logout {
 .fa-plus-circle:hover, .fa-minus-circle:hover{
 	color: #3fbd47 !important;
 }
+
+
+.required::after{
+    content: '*';
+    color: red;
+}
