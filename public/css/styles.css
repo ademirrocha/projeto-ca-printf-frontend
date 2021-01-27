@@ -17,9 +17,8 @@ button a{
 }
 
 .footer{
-	position: relative;
-	border-top: 20px solid #889399;
-	background: #32202d2b;
+	border-top: 20px solid #43a047;
+	background: #11cc623d;
 	margin-top: 20px;
 	padding: 10px;
 	bottom: 0;
@@ -27,13 +26,13 @@ button a{
 
 footer{
 	position: relative;
-	bottom: 0;
+	bottom: 0 !important;
 	border-top: 1px solid;
 	margin-top: 10px;
 	width: 100%;
 	text-align: center;
 	padding: 20px;
-	background: #000;
+	
 }
 
 .center{

@@ -1,96 +1,95 @@
 <div class="container">
-  <section style="background-image: url('img/mini-profile-bg-02.jpg');">
-    <div class="container-fluid mt-4">
-      <div class="tm-portfolio-name  text-white tm-bg-green mx-auto">
-        <h1 class="card-title h1 text-center">Eventos</h1>
-      </div> 
-      <hr>
-      <p class="lead h2 text-center">Eventos do CA-Printf</p>
-      <!--<a class="btn btn-primary d-grid gap-2 col-2 mx-auto" href="/events" role="button">VoltarInicio</a>-->
+  <h2 class="title col-sm-12">
+    <div class="row">
+      <div class="col-sm float-sm-left">
+        Eventos
+      </div>
     </div>
-  </section>
-  <br>
+    <hr>
+  </h2>
+  <h4 class="center">Eventos do CA-Printf</h4>
+<br>
 
-  {{#if error}}
-  <div class="alert alert-danger center">
-    {{error}}
-  </div>
-  {{/if}}
-  {{#if success_msg}} <div class="alert alert-success center" role="alert">
-    {{success_msg}}
-  </div>{{/if}}
+{{#if error}}
+<div class="alert alert-danger center">
+  {{error}}
+</div>
+{{/if}}
+{{#if success_msg}} <div class="alert alert-success center" role="alert">
+  {{success_msg}}
+</div>{{/if}}
 
-  <div class="row">
-    {{#each events.data}}
+<div class="row">
+  {{#each events.data}}
 
 
-    <div class="col-sm-12 mb-4">
-      <div class="card">
-        <div class="card-body bg-light ">
-          <div class="card-header">
-            {{title}}
+  <div class="col-sm-12 mb-4">
+    <div class="card">
+      <div class="card-body bg-light ">
+        <div class="card-header">
+          {{title}}
 
-            <span class="state 
-            {{#if (equals state 'Ativo')}}state-active{{/if}} 
-            {{#if (equals state 'Cancelado')}}state-cancel{{/if}}
-            {{#if (equals state 'Inativo')}}state-inactive{{/if}}
-            {{#if (equals state 'Não Iniciado')}}state-not-init{{/if}}
-            {{#if (equals state 'Em Andamento')}}state-in-progress{{/if}}
-            {{#if (equals state 'Concluído')}}state-finished{{/if}}
-            ">{{state}} </span>
+          <span class="state 
+          {{#if (equals state 'Ativo')}}state-active{{/if}} 
+          {{#if (equals state 'Cancelado')}}state-cancel{{/if}}
+          {{#if (equals state 'Inativo')}}state-inactive{{/if}}
+          {{#if (equals state 'Não Iniciado')}}state-not-init{{/if}}
+          {{#if (equals state 'Em Andamento')}}state-in-progress{{/if}}
+          {{#if (equals state 'Concluído')}}state-finished{{/if}}
+          ">{{state}} </span>
 
-          </div>
-          <div class="card-body text-success">
-            <h4 class="card-title">{{format_date initial_date 'DD/MM/YYYY'}} a {{format_date final_date 'DD/MM/YYYY'}}</h4>
-            <p class="card-text">{{trimString description 150}}...</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-primary text-white"><a href="/eventos/{{id}}" >Mais Detalhes</a></button>
-            {{#if (moderatorPermission)}}
-            <button class="btn btn-success text-white"><a href="/admin/eventos/editar/{{id}}" >Editar</a></button>
-            {{/if}}
+        </div>
+        <div class="card-body text-success">
+          <h4 class="card-title">{{format_date initial_date 'DD/MM/YYYY'}} a {{format_date final_date 'DD/MM/YYYY'}}</h4>
+          <p class="card-text">{{trimString description 150}}...</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary text-white"><a href="/eventos/{{id}}" >Mais Detalhes</a></button>
+          {{#if (moderatorPermission)}}
+          <button class="btn btn-success text-white"><a href="/admin/eventos/editar/{{id}}" >Editar</a></button>
+          {{/if}}
 
-            {{#if (adminPermission)}}
+          {{#if (adminPermission)}}
 
-            <form id="delete-event-form_{{id}}" action="/admin/eventos/delete" method="POST" style="display: none;">
-              <input type="hidden" name="id" value="{{id}}">
-            </form>
+          <form id="delete-event-form_{{id}}" action="/admin/eventos/delete" method="POST" style="display: none;">
+            <input type="hidden" name="id" value="{{id}}">
+          </form>
 
-            <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationEventDelete('{{title}}', '{{id}}');" >Excluir</a></button>
+          <button type="submit" class="btn btn-danger text-white"><a href="#" onclick="event.preventDefault(); return confirmationEventDelete('{{title}}', '{{id}}');" >Excluir</a></button>
 
-            {{/if}}
-            
-          </div>
+          {{/if}}
+
         </div>
       </div>
     </div>
-
-    {{/each}}
-
-
-
-
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-
-        {{#each events.meta.links}}
-
-        {{#if (equals @index 0)}}
-
-        <li class="page-item {{#if (equals url 'null')}} disabled{{/if}} {{#if active }} active{{/if}}"><a class="page-link" href="{{url}}">{{replace label '&laquo;' '<<'}}</a></li>
-        {{else}}
-
-        {{#if (isInteger label)}}
-        <li class="page-item {{#if (equals url 'null')}} disabled{{/if}} {{#if active }}active{{/if}}"><a class="page-link" {{#if active }}{{/if}} href="{{url}}">{{label}}</a></li>
-        {{else}}
-        <li class="page-item {{#if (equals url 'null')}} disabled{{/if}} {{#if active }}active{{/if}}"><a class="page-link" {{#if active }}{{/if}} href="{{url}}">{{replace label '&raquo;' '>>'}}</a></li>
-        {{/if}}
-        {{/if}}
-
-        {{/each}}
-      </ul>
-    </nav>
-
   </div>
+
+  {{/each}}
+
+
+
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+
+      {{#each events.meta.links}}
+
+      {{#if (equals @index 0)}}
+
+      <li class="page-item {{#if (equals url 'null')}} disabled{{/if}} {{#if active }} active{{/if}}"><a class="page-link" href="{{url}}">{{replace label '&laquo;' '<<'}}</a></li>
+      {{else}}
+
+      {{#if (isInteger label)}}
+      <li class="page-item {{#if (equals url 'null')}} disabled{{/if}} {{#if active }}active{{/if}}"><a class="page-link" {{#if active }}{{/if}} href="{{url}}">{{label}}</a></li>
+      {{else}}
+      <li class="page-item {{#if (equals url 'null')}} disabled{{/if}} {{#if active }}active{{/if}}"><a class="page-link" {{#if active }}{{/if}} href="{{url}}">{{replace label '&raquo;' '>>'}}</a></li>
+      {{/if}}
+      {{/if}}
+
+      {{/each}}
+    </ul>
+  </nav>
+
+</div>
 </div>
 
