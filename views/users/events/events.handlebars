@@ -30,21 +30,14 @@
           <div class="card-header">
             {{title}}
 
-            {{#if (equals state "Ativo")}}
-            <div class="alert alert-success" role="alert"> 
-              {{state}}
-            </div>
-            {{/if}}
-            {{#if (equals state "Inativo")}}
-            <div class="alert alert-warning" role="alert"> 
-              {{state}}
-            </div>
-            {{/if}}
-            {{#if (equals state "Cancelado")}}
-            <div class="alert alert-dander" role="alert"> 
-              {{state}}
-            </div>
-            {{/if}}
+            <span class="state 
+            {{#if (equals state 'Ativo')}}state-active{{/if}} 
+            {{#if (equals state 'Cancelado')}}state-cancel{{/if}}
+            {{#if (equals state 'Inativo')}}state-inactive{{/if}}
+            {{#if (equals state 'Não Iniciado')}}state-not-init{{/if}}
+            {{#if (equals state 'Em Andamento')}}state-in-progress{{/if}}
+            {{#if (equals state 'Concluído')}}state-finished{{/if}}
+            ">{{state}} </span>
 
           </div>
           <div class="card-body text-success">

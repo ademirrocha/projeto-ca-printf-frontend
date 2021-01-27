@@ -196,6 +196,18 @@ button.btn-logout {
 	background-color:rgba(241,42,6, 0.5);
 }
 
+.state-not-init{
+	background-color:rgba(6,74,241, 0.5);
+}
+
+.state-in-progress{
+	background-color:rgba(190,241,6, 0.5);
+}
+
+.state-finished{
+	background-color:rgba(35,195,65, 0.84);
+}
+
 .link-pointer{
 	cursor: pointer;
 	transition: 0.7s;
