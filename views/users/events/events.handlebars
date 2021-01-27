@@ -45,7 +45,7 @@
             <p class="card-text">{{trimString description 150}}...</p>
           </div>
           <div class="card-footer">
-            <button class="btn btn-primary text-white"><a href="/eventos" >Mais Detalhes</a></button>
+            <button class="btn btn-primary text-white"><a href="/eventos/{{id}}" >Mais Detalhes</a></button>
             {{#if (moderatorPermission)}}
             <button class="btn btn-success text-white"><a href="/admin/eventos/editar/{{id}}" >Editar</a></button>
             {{/if}}

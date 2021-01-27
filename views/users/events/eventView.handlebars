@@ -1,0 +1,61 @@
+<div class="container">
+
+  <div class="col-12">
+    <div class="container">
+      <div class="row">
+        <h2 class="title col-sm-12">
+          <div class="row">
+            <div class="col-sm float-sm-left">
+              Evento: {{event.title}} 
+            </div>
+          </div>
+          <hr>
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="container">
+      <h3 class="row">
+        <div class="col-sm ">
+          Status: 
+          <span class="state 
+          {{#if (equals event.state 'Ativo')}}state-active{{/if}} 
+          {{#if (equals event.state 'Cancelado')}}state-cancel{{/if}}
+          {{#if (equals event.state 'Inativo')}}state-inactive{{/if}}
+          {{#if (equals event.state 'Não Iniciado')}}state-not-init{{/if}}
+          {{#if (equals event.state 'Em Andamento')}}state-in-progress{{/if}}
+          {{#if (equals event.state 'Concluído')}}state-finished{{/if}}
+          ">{{event.state}} </span>
+        </div>
+        <div class="col-sm ">
+          {{#if (moderatorPermission)}}
+          <button class="btn btn-success text-white col-sm"><a href="/admin/eventos/editar/{{id}}" >Editar</a></button>
+          {{/if}}
+
+          {{#if (adminPermission)}}
+
+          <form id="delete-event-form_{{id}}" action="/admin/eventos/delete" method="POST" style="display: none;">
+            <input type="hidden" name="id" value="{{id}}">
+          </form>
+
+          <button type="submit" class="btn btn-danger text-white col-sm"><a href="#" onclick="event.preventDefault(); return confirmationEventDelete('{{title}}', '{{id}}');" >Excluir</a></button>
+
+          {{/if}}
+
+        </div>
+
+      </h3>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>Descrição do Evento</h3>
+    <div class="col-sm-12 mb-4">
+    {{{event.description}}}
+    </div>
+
+  </div>
+</div>
+

@@ -10,6 +10,12 @@ router.get('/', async function(req,res){
 })
 
 
+router.get('/:id', async function(req,res){
+	const serviceEvent = new EventServices
+	
+	var event = await serviceEvent.get(req, res)
+	res.render('users/events/eventView', {event: event.data});
+})
 
 
 module.exports = router;

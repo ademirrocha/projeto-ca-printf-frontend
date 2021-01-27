@@ -114,10 +114,10 @@ button.btn-logout {
 }
 
 .card-header {
-    background-color: rgb(9 68 99 / 34%);
-    color: #f5f5dc;
-    font-weight: bold;
-    font-size: 200%;
+	background-color: rgb(9 68 99 / 34%);
+	color: #f5f5dc;
+	font-weight: bold;
+	font-size: 200%;
 }
 
 .form-mail{
@@ -219,6 +219,22 @@ button.btn-logout {
 
 
 .required::after{
-    content: '*';
-    color: red;
+	content: '*';
+	color: red;
+}
+
+
+h2.title{
+	font: 600 25px 'Open Sans', sans-serif;
+	margin: 0;
+	color: #43a047;
+	text-transform: uppercase;
+}
+
+h2.title hr{
+	color: #43a047;
+	background-color: #43a047;
+	height: 5px !important;
+	margin-top: 0px;
+	opacity: 1;
 }
