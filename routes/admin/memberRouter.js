@@ -1,0 +1,6 @@
+const express = require('express')
+const router = express.Router()
+const { auth } = require('../../helpers/auth')
+const { isAdmin, isModerator } = require('../../helpers/isAdmin')
+const EventServices = require('../../services/event/eventServices')
+router.get()

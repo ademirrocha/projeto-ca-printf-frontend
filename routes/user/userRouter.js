@@ -41,7 +41,6 @@ router.get('/curso',function(req,res){
 	res.render('users/course/course');
 })
 
-
 router.get('/descriptionca',function(req,res){
 	res.render('users/course/descriptionca');
 })
@@ -51,8 +50,9 @@ router.get('/descriptiondocentes',function(req,res){
 router.get('/membrosca',function(req,res){
 	res.render('users/course/memberca')
 });
-
-
+router.get('/formmember',function(req,res){
+	res.render('admin/memberca/formmemberca')
+});
 
 
 module.exports = router;
