@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="col-12">
+    <div class="container">
+      <div class="row">
+        <h2 class="title col-sm-12">
+          <div class="row">
+            <div class="col-sm float-sm-left">
+              Projeto: {{project.title}} 
+            </div>
+          </div>
+          <hr>
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="container">
+      <h3 class="row">
+        <div class="col-sm ">
+          Status: 
+          <span class="state 
+          {{#if (equals project.state 'Ativo')}}state-active{{/if}} 
+          {{#if (equals project.state 'Cancelado')}}state-cancel{{/if}}
+          {{#if (equals project.state 'Inativo')}}state-inactive{{/if}}
+          {{#if (equals project.state 'Não Iniciado')}}state-not-init{{/if}}
+          {{#if (equals project.state 'Em Andamento')}}state-in-progress{{/if}}
+          {{#if (equals project.state 'Concluído')}}state-finished{{/if}}
+          ">{{project.state}} </span>
+        </div>
+        <div class="col-sm ">
+          {{#if (moderatorPermission)}}
+          <button class="btn btn-success text-white col-sm"><a href="/admin/projetos/editar/{{id}}" >Editar</a></button>
+          {{/if}}
+
+          {{#if (adminPermission)}}
+
+          <form id="delete-project-form_{{id}}" action="/admin/projetos/delete" method="POST" style="display: none;">
+            <input type="hidden" name="id" value="{{id}}">
+          </form>
+
+          <button type="submit" class="btn btn-danger text-white col-sm"><a href="#" onclick="event.preventDefault(); return confirmationProjectDelete('{{project.title}}', '{{project.id}}');" >Excluir</a></button>
+
+          {{/if}}
+
+        </div>
+
+      </h3>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row center">
+    <img src='{{project.image.url}}' class="img-fluid">
+  </div>
+  <div class="row">
+    <h3>Descrição do Projeto</h3>
+    <div class="col-sm-12 mb-4">
+    {{{project.description}}}
+    </div>
+
+  </div>
+</div>
+

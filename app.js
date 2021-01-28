@@ -14,6 +14,7 @@ const projectsRouter = require('./routes/user/projectsRouter')
 const adminProjectsRouter = require('./routes/admin/projectsRouter')
 const documentsRouter = require('./routes/user/documentsRouter')
 const adminDocumentsRouter = require('./routes/admin/documentsRouter')
+const searchRouter = require('./routes/user/searchRouter')
 
 const path = require('path')
 const morgan = require('morgan')
@@ -84,6 +85,7 @@ app.use(
 //Routes
 app.use('/', userRouter)
 app.use('/', authRouter)
+app.use('/search', searchRouter)
 app.use('/eventos', eventsRouter)
 app.use('/admin/eventos', adminEventsRouter)
 app.use('/projetos', projectsRouter)

@@ -99,3 +99,45 @@ function changeFieldTypeDoc($this){
 	
 }
 
+
+
+function search(){
+	if($('#search_all').val() != ''){
+		window.location.href = '/search/' + $('#search_all').val()
+	}
+
+}
+
+
+$( $('#search_all') ).on('keydown', function(event) {
+
+    if(event.keyCode === 13) {
+
+        search()
+
+    }
+
+});
+
+
+
+
+function openCloseSearchResults($this, div){
+	if($($this).hasClass('fa-plus-circle')){
+
+		$("#" + div).removeAttr('hidden');
+
+		$($this).removeClass('fa-plus-circle')
+		$($this).removeClass('search-pointer-plus')
+		$($this).addClass('fa-minus-circle')
+		$($this).addClass('search-pointer-minus')
+
+	}else{
+		$("#" + div).attr('hidden', 'hidden');
+
+		$($this).removeClass('fa-minus-circle')
+		$($this).removeClass('search-pointer-minus')
+		$($this).addClass('fa-plus-circle')
+		$($this).addClass('search-pointer-plus')
+	}
+}

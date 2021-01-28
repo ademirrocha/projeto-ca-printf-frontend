@@ -28,6 +28,14 @@
         <div class="card-body bg-light ">
           <div class="card-header">
             {{title}}
+            <span class="state 
+          {{#if (equals state 'Ativo')}}state-active{{/if}} 
+          {{#if (equals state 'Cancelado')}}state-cancel{{/if}}
+          {{#if (equals state 'Inativo')}}state-inactive{{/if}}
+          {{#if (equals state 'Não Iniciado')}}state-not-init{{/if}}
+          {{#if (equals state 'Em Andamento')}}state-in-progress{{/if}}
+          {{#if (equals state 'Concluído')}}state-finished{{/if}}
+          ">{{state}} </span>
           </div>
           <div class="card-body text-success">
             <p class="card-text">{{trimString description 150}}...</p>
@@ -40,7 +48,7 @@
 
           <hr>
           <div class="card-footer">
-            <button class="btn btn-primary text-white"><a href="/events" >Mais Detalhes</a></button>
+            <button class="btn btn-primary text-white"><a href="/projetos/{{id}}" >Mais Detalhes</a></button>
             {{#if (moderatorPermission)}}
             <button class="btn btn-success text-white"><a href="/admin/projetos/editar/{{id}}" >Editar</a></button>
             {{/if}}

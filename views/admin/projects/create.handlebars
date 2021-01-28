@@ -48,7 +48,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<label class="col-12" for="title">
 								Imagem
 								{{#each errors }}
@@ -60,11 +60,31 @@
 							<input type="file" class="form-control" id="image" name="image" value="{{image}}">
 						</div>
 					</div>
-					
+					<label  class="col-12" for="state">
+						Status
+						{{#each errors }}
+						<span class="message-text error-text" id="state_error">
+							{{#each this }} {{#if (equals @key 'state')}} {{this}} {{/if}} {{/each}}
+						</span>
+						{{/each}}
+					</label>
+					<select class="form-select" id="state" name="state" aria-label="Default select example"  required="">
+						{{#if state}}
+						<option value="{{state}}">{{state}}</option>
+						{{else}}
+						<option value="">Selecione o status do projeto</option>
+						{{/if}}
+						<option value="Não Iniciado">Não Iniciado</option>
+						<option value="Em Andamento">Em Andamento</option>
+						<option value="Concluído">Concluído</option>
+						<option value="Ativo">Ativo</option>
+						<option value="Inativo">Inativo</option>
+						<option value="Cancelado">Cancelado</option>
+					</select>
 					<hr class="mt-4">
 					<div class="row">
 						<div class="col-md-6 mb-1">
-							<button class="btn btn-outline-primary col-12 btn-lg shadow-none">Salvar</button>
+							<button class="btn btn-primary col-12 btn-lg shadow-none">Salvar</button>
 						</div>
 					</div>
 				</div>

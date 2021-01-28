@@ -11,4 +11,12 @@ router.get('/', async function(req,res){
 	res.render('users/projects/projects', {projects: projects});
 })
 
+router.get('/:id', async function(req,res){
+	const serviceProject = new ProjectServices
+	
+	var project = await serviceProject.get(req, res)
+	
+	res.render('users/projects/projectView', {project: project.data});
+})
+
 module.exports = router;

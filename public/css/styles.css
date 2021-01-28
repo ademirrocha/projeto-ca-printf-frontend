@@ -212,8 +212,47 @@ button.btn-logout {
 	transition: 0.7s;
 }
 
-.fa-plus-circle:hover, .fa-minus-circle:hover{
+.link-pointer:hover{
 	color: #3fbd47 !important;
+}
+
+.link-pointer-search{
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.link-pointer-search:hover{
+	color: #26629e !important;
+}
+
+.search-pointer-minus:hover:after{
+	content: 'Mostrar Menos';
+	color: #01021d85;
+	font-size: 1.3rem;
+	position: absolute;
+	border: 1px solid;
+	border-radius: 5px;
+	font-size: 0.8rem;
+	padding: 6px 20px;
+	margin-left: -10px;
+	margin-top: -15px;
+	font-weight: bold;
+	z-index: 9999;
+}
+
+.search-pointer-plus:hover:after{
+	content: 'Mostrar Mais';
+	color: #01021d85;
+	font-size: 1.3rem;
+	position: absolute;
+	border: 1px solid;
+	border-radius: 5px;
+	font-size: 0.8rem;
+	padding: 6px 20px;
+	margin-left: -10px;
+	margin-top: -15px;
+	font-weight: bold;
+	z-index: 9999;
 }
 
 
@@ -236,4 +275,9 @@ h2.title hr{
 	height: 5px !important;
 	margin-top: 0px;
 	opacity: 1;
+}
+
+
+.image-projec{
+	width: 60%;
 }
