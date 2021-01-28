@@ -15,11 +15,11 @@ router.get('/:search', async (req, res) => {
 			//return res.render('users/search/search', {search: searcheds, error_search: 'Lamentamos, mas não temos nenhum resultado para "'+ req.params.search +'"'} );
 		
 		//}else{
-			return res.render('users/search/search', {searcheds: searcheds.data, success_search: "Encontramos " + parseInt(searcheds.data.documents.length + searcheds.data.events.length + searcheds.data.projects.length) + ' resultado para "'+ req.params.search +'"'} );
+			return res.render('users/search/search', {searcheds: searcheds.data, success_search: "Encontramos " + parseInt(searcheds.data.documents.length + searcheds.data.events.length + searcheds.data.projects.length) + ' resultado para "'+ req.params.search +'"', search: req.params.search} );
 		//}
 	}
 
-	return res.render('users/search/search', {searcheds: searcheds.data, error_search: 'Lamentamos, mas não temos nenhum resultado para "'+ req.params.search +'"'} );
+	return res.render('users/search/search', {searcheds: searcheds.data, error_search: 'Lamentamos, mas não temos nenhum resultado para "'+ req.params.search +'"', search: req.params.search} );
 		
 })
 
