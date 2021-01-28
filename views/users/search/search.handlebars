@@ -33,7 +33,7 @@
           <i class="fas text-dark link-pointer-search col-sm-2  {{#if (equals searcheds.documents.length 0)}} fa-plus-circle search-pointer-plus {{else}} fa-minus-circle search-pointer-minus {{/if}}" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultDocuments');"></i>
         </div>
       </div>
-      <div id="searchResultDocuments" {{#if (equals searcheds.projects.length 0)}} hidden="hidden" {{/if}}>
+      <div id="searchResultDocuments" {{#if (equals searcheds.documents.length 0)}} hidden="hidden" {{/if}}>
        {{#each searcheds.documents}}
        <div class="row">
         <h3> 
@@ -199,7 +199,7 @@
       <i class="fas text-dark link-pointer-search col-sm-2  {{#if (equals searcheds.events.length 0)}} fa-plus-circle search-pointer-plus {{else}} fa-minus-circle search-pointer-minus {{/if}}" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultEvents');"></i>
     </div>
   </div>
-  <div id="searchResultEvents" {{#if (equals searcheds.projects.length 0)}} hidden="hidden" {{/if}}>
+  <div id="searchResultEvents" {{#if (equals searcheds.events.length 0)}} hidden="hidden" {{/if}}>
    {{#each searcheds.events}}
    <div class="row">
     <h3> 
