@@ -30,10 +30,10 @@
       <div class="card-header">
         <div class="row">
           <h4 class="col-sm-10">Documentos - <span class="state"> Mostrando {{searcheds.documents.length}} resultados</span></h4>
-          <i class="fas fa-minus-circle text-dark link-pointer-search col-sm-2 search-pointer-minus" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultDocuments');"></i>
+          <i class="fas text-dark link-pointer-search col-sm-2  {{#if (equals searcheds.documents.length 0)}} fa-plus-circle search-pointer-plus {{else}} fa-minus-circle search-pointer-minus {{/if}}" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultDocuments');"></i>
         </div>
       </div>
-      <div id="searchResultDocuments">
+      <div id="searchResultDocuments" {{#if (equals searcheds.projects.length 0)}} hidden="hidden" {{/if}}>
        {{#each searcheds.documents}}
        <div class="row">
         <h3> 
@@ -122,10 +122,10 @@
   <div class="card-header">
     <div class="row">
       <h4 class="col-sm-10">Projetos - <span class="state"> Mostrando {{searcheds.projects.length}} resultados</span></h4>
-      <i class="fas fa-minus-circle text-dark link-pointer-search col-sm-2 search-pointer-minus" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultProjects');"></i>
+      <i class="fas text-dark link-pointer-search col-sm-2 {{#if (equals searcheds.projects.length 0)}} fa-plus-circle search-pointer-plus {{else}} fa-minus-circle search-pointer-minus {{/if}}" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultProjects');"></i>
     </div>
   </div>
-  <div id="searchResultProjects">
+  <div id="searchResultProjects" {{#if (equals searcheds.projects.length 0)}} hidden="hidden" {{/if}}>
    {{#each searcheds.projects}}
    <div class="row">
     <h3> 
@@ -196,10 +196,10 @@
   <div class="card-header">
     <div class="row">
       <h4 class="col-sm-10">Eventos - <span class="state"> Mostrando {{searcheds.events.length}} resultados</span></h4>
-      <i class="fas fa-minus-circle text-dark link-pointer-search col-sm-2 search-pointer-minus" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultEvents');"></i>
+      <i class="fas text-dark link-pointer-search col-sm-2  {{#if (equals searcheds.events.length 0)}} fa-plus-circle search-pointer-plus {{else}} fa-minus-circle search-pointer-minus {{/if}}" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultEvents');"></i>
     </div>
   </div>
-  <div id="searchResultEvents">
+  <div id="searchResultEvents" {{#if (equals searcheds.projects.length 0)}} hidden="hidden" {{/if}}>
    {{#each searcheds.events}}
    <div class="row">
     <h3> 
