@@ -129,7 +129,7 @@
    {{#each searcheds.projects}}
    <div class="row">
     <h3> 
-      <img src="{{image.url}}" width="40px"> 
+      <img src="{{image.url}}" class="img-thumbnail"> 
       <a class="default-link" href="/projetos/{{id}}">{{title}}</a>
       <span class="state">Tipo: Projeto</span>
       {{#if state}}
@@ -195,7 +195,7 @@
 <div class="card mt-2">
   <div class="card-header">
     <div class="row">
-      <h4 class="col-sm-10">Eventos - <span class="state"> Mostrando {{searcheds.projects.length}} resultados</span></h4>
+      <h4 class="col-sm-10">Eventos - <span class="state"> Mostrando {{searcheds.events.length}} resultados</span></h4>
       <i class="fas fa-minus-circle text-dark link-pointer-search col-sm-2 search-pointer-minus" style="font-size: 36px;" onclick="openCloseSearchResults(this, 'searchResultEvents');"></i>
     </div>
   </div>
