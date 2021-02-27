@@ -1,22 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const { isAdmin, isModerator } = require('../../helpers/isAdmin')
-const { auth } = require('../../helpers/auth')
-const EventServices = require('../../services/event/eventServices')
-const ProjectServices = require('../../services/project/projectServices')
-const DocumentServices = require('../../services/document/documentServices')
-
-const multer = require('multer')
+//const { isAdmin, isModerator } = require('../../helpers/isAdmin')
+//const { auth } = require('../../helpers/auth')
+//const AdminServices = require('../../services/admin/adminServices')
 
 
+/*
+router.get('/centro-academico/membros/editar',function(req,res){
+	res.render('admin/memberca/formmemberca')
+});
 
-
-router.get('/', auth, isModerator, (req, res) => {
+router.post('/academic-center/members/update', (req, res) => {
 	res.send('Page Principal Adimin')
 })
-
-
-
+*/
 
 
 module.exports = router;

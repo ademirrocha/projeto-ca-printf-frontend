@@ -48,12 +48,8 @@ router.get('/curso/docentes/descricao',function(req,res){
 router.get('/centro-academico/descricao',function(req,res){
 	res.render('users/course/descriptionca');
 })
-router.get('/centro-academico/membros',function(req,res){
-	res.render('users/course/memberca')
-});
-router.get('/centro-academico/membros/cadastro',function(req,res){
-	res.render('admin/memberca/formmemberca')
-});
+
+
 
 
 module.exports = router;
