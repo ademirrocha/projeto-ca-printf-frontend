@@ -121,6 +121,9 @@
 	.menu-buttons{
 	 	width: 10rem;
 	}
+	.navbar-brand {
+		font-size: 4.25rem;
+	}
 
 }
 .tm-portfolio-item{
