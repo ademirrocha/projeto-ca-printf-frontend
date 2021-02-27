@@ -6,7 +6,7 @@ const constructMembers = (data) => {
         
         result[data[prop].role] = data[prop].name
     }
-    console.log(result)
+    
     return result
 }
 

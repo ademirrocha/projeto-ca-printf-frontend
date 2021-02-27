@@ -8,7 +8,11 @@
 		<hr>
 		
 	</h2>
-  <h4 class="center">Membros Do Centro Academico 2021 {{members.president}} <a href="/admin/centro-academico/membros/editar" class=" col-sm"><button class="btn btn-primary">Editar</button></a>
+  <h4 class="center">
+	  Membros Do Centro Academico 2021 
+	  {{#if (adminPermission)}} 
+	  	<a href="/admin/centro-academico/membros/editar" class=" col-sm"><button class="btn btn-primary">Editar</button></a>
+	{{/if}}
   </h4>
    <br>
     {{#if error}}
