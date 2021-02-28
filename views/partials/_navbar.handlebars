@@ -1,6 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Third navbar example">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="/">Home</a>
+    
+    <div id="li_search_two"  class="field-search " style="list-style:none;">
+        <a >
+          <div class="input-group mx-auto">
+            <input class="form-control py-1 input-search" type="search" placeholder="Pesquisar..." id="search_all_two" name="search_all" value="{{search}}">
+            <span class="input-group-append">
+              <button class="btn btn-outline-primary rounded-right btn-search" type="button" onclick="search();">
+                <i class="fas fa-search"></i>
+              </button>
+            </span>
+          </div>
+      </a>
+      </div>
+      
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,11 +42,21 @@
       <li class="nav-item">
         <a class="nav-link " href="/centro-academico/descricao">Centro Acadêmico</a>
       </li>
-
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li id="li_search" class="field-search">
+        <a >
+          <div class="input-group mx-auto">
+            <input class="form-control py-1 input-search" type="search" placeholder="Pesquisar..." id="search_all" name="search_all" value="{{search}}">
+            <span class="input-group-append">
+              <button class="btn btn-outline-primary rounded-right btn-search" type="button" onclick="search();">
+                <i class="fas fa-search"></i>
+              </button>
+            </span>
+          </div>
+      </a>
+      </li>
     {{#if user}}
-
-    <ul class="nav navbar-nav navbar-right" id="dataUserMenu">
       <li class="nav-item dropdown">
         <a class="nav-link  dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><span id='nameUser_menu'>{{user.name}}</span> <img id='imageUser_menu' src="/img/default-user.png" ></a>
         <ul class="dropdown-menu" aria-labelledby="dropdown03">
@@ -46,18 +70,11 @@
           {{/if}}
         </ul> 
       </li>
-    </ul> 
-
     {{else}}
-
-    <ul class="nav navbar-nav navbar-right ul-butons-menu" id="signUpMenu">
       <li><a class="dropdown-item menu-buttons login" href="/login">LOGIN</a></li>
       <li><a class="dropdown-item menu-buttons register" href="/cadastro">CADASTRO</a></li>
-
-    </ul>
-
     {{/if}}
-
+    </ul>
     
 
   </div>
@@ -66,14 +83,7 @@
 
 
 <div class="container">
-  <div class="input-group my-4 col-6 mx-auto">
-    <input class="form-control py-2 border-right-0 border" type="search" placeholder="Pesquisar..." id="search_all" name="search_all" value="{{search}}">
-    <span class="input-group-append">
-      <button class="btn btn-outline-primary rounded-right" type="button" onclick="search();">
-        <i class="fas fa-search"></i>
-      </button>
-    </span>
-  </div>
+  
   {{#if (moderatorPermission)}}
 
   <a href="/admin/eventos/novo" class=" col-sm-4"><button class="btn btn-primary">Cadastrar Evento</button></a>

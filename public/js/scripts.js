@@ -102,9 +102,20 @@ function changeFieldTypeDoc($this){
 
 
 function search(){
-	if($('#search_all').val() != ''){
-		window.location.href = '/search/' + $('#search_all').val()
+
+	if($('#search_all_two').is(":visible")){
+		if($('#search_all').val() != ''){
+			window.location.href = '/search/' + $('#search_all_two').val()
+		}
+	}else{
+		if($('#search_all').val() != ''){
+			window.location.href = '/search/' + $('#search_all').val()
+		}
 	}
+
+	
+
+	//search_all_two
 
 }
 
