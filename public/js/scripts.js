@@ -152,3 +152,7 @@ function openCloseSearchResults($this, div){
 		$($this).addClass('search-pointer-plus')
 	}
 }
+
+if(window.location.pathname.includes('/login') || window.location.pathname.includes('/cadastro')){
+	$('nav.navbar').remove()
+}

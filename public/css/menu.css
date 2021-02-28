@@ -128,12 +128,20 @@
 	}
 
 }
+@media (max-width: 462px) {
+	.btn-search{
+		display: none;
+
+	}
+}
 
 @media (max-width: 419px) {
 	.navbar-brand{
 	 	width: 100% !important;
 		 text-align: center;
-
+	}
+	.btn-search{
+		display: block;
 	}
 }
 
@@ -160,8 +168,7 @@
 
 @media (max-width: 345px) {
 	.btn-search{
-	 	display: none;
-
+		display: none;
 	}
 }
 
