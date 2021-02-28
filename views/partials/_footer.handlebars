@@ -1,35 +1,46 @@
 <!-- row -->
-<footer class="footer">
-  <div class="container">
-    <p class="container text-center">
+<div class="container shadow-none p-3 mb-5 bg-light rounded">
+  <p class="container text-center">
     Links importantes
-    </p>
-    <p>
-      <a href="/curso" class="card-link btn btn-outline-primary" style="text-decoration:none">Sobre o Curso Bacharel em Sistemas de Informações</a>   | 
-      <a href="/curso/fundamentos" class="card-link btn btn-outline-primary" style="text-decoration:none">Fundamentos do Curso</a> | 
-      <a href="/curso/docentes/descricao" class="card-link btn btn-outline-primary" style="text-decoration:none">Sobre o Docentes Do Curso</a>  
-      <br>
-      <a href="/centro-academico/descricao" class="card-link" style="text-decoration:none">Sobre o Centro Acadêmico - CA Printf</a> | 
-      <a href="/centro-academico/membros" class="card-link" style="text-decoration:none">Membros do Centro Acadêmico</a> 
-      
-      <br>
-      <br> 
-      <a href="https://www.ifnmg.edu.br/arinos" class="card-link" target="_blank" style="text-decoration:none;">IFNMG - Campus Arinos</a> | 
-      <a href="https://www.facebook.com/CAPrintf" class="card-link" target="_blank" style="text-decoration:none;">Facebook</a> | 
-      <a href="https://www.instagram.com/caprintf.ifnmg/" class="card-link" target="_blank" style="text-decoration:none">Instagram</a>
-             
-    </p>
-  </div>
-  <hr>
+  </p>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a href="/curso" class="nav-link active" style="text-decoration:none">Sobre o Curso Bacharel em Sistemas de Informações</a>
+    </li>
+    <li class="nav-item">
+      <a href="/curso/fundamentos" class="nav-link active" style="text-decoration:none">Fundamentos do Curso</a>
+    </li> 
+    <li class="nav-item">
+      <a href="/curso/docentes/descricao" class="nav-link active" style="text-decoration:none">Sobre o Docentes Do Curso</a>  
+    </li>
+    <li class="nav-item">
+      <a href="/centro-academico/descricao" class="nav-link active" style="text-decoration:none">Sobre o Centro Acadêmico - CA Printf</a>
+    </li>
+    <li class="nav-item">
+      <a href="/centro-academico/membros" class="nav-link active" style="text-decoration:none">Membros do Centro Acadêmico</a> 
+    </li>
+    <li class="nav-item">
+      <a href="https://www.ifnmg.edu.br/arinos" class="nav-link active" target="_blank" style="text-decoration:none;">IFNMG - Campus Arinos</a>
+    </li>
+    <li class="nav-item">
+      <a href="https://www.facebook.com/CAPrintf" class="nav-link active" target="_blank" style="text-decoration:none;">Facebook</a>
+    </li>
+    <li class="nav-item">
+      <a href="https://www.instagram.com/caprintf.ifnmg/" class="nav-link active" target="_blank" style="text-decoration:none">Instagram</a>   
+    </li>   
+  </ul>
+</div>
+<hr class="my-4">
+<footer class="col-12 bg-dark">
   <p class="container text-center">
     Todos os direitos reservados &copy; By Fábrica de Software 
-    | <a href="https://www.linkedin.com/in/ademir-rocha-926900ba" class="single-link" target="_blank">Ademir Rocha</a> | <a href="https://github.com/Paulo2991" class="single-link" target="_blank">Paulo Vaz</a> 
+    | <a href="https://www.linkedin.com/in/ademir-rocha-926900ba" class="single-link btn btn-success" target="_blank">Ademir Rocha</a>   <a href="https://github.com/Paulo2991" class="single-link btn btn-success" target="_blank">Paulo Vaz</a> 
   </p>
   <p class="container text-center">
     Centro Acadêmico do Curso Bacharelado em Sistemas de Informações - <span id="year"></span>
   </p>
   <script>
-    document.getElementById("year").innerHTML = new Date().getFullYear();
-</script>
+  document.getElementById("year").innerHTML = new Date().getFullYear();
+  </script>
   
 </footer>
