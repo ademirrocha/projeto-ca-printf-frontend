@@ -1,64 +1,63 @@
 <div class="container">
 	<h2 class="title col-sm-12 center">
 		<div class="row">
-		<div class="col-sm float-sm-left text-center">
-			Membros do Centro Acadêmico 
-		</div>
+			<div class="col-sm float-sm-left text-center">
+				Membros do Centro Acadêmico 
+			</div>
 		</div>
 		<hr>
 	</h2>
-  <h4 class="center">
-	  Membros Do Centro Academico 2021 
-	  {{#if (adminPermission)}} 
-	  	<a href="/admin/centro-academico/membros/editar" class=" col-sm"><button class="btn btn-primary">Editar</button></a>
+	<h4 class="center">
+		Membros Do Centro Academico 2021 
+		{{#if (adminPermission)}} 
+		<a href="/admin/centro-academico/membros/editar" class=" col-sm"><button class="btn btn-primary">Editar</button></a>
+		{{/if}}
+	</h4>
+	<br>
+	{{#if error}}
+	<div class="alert alert-danger center">
+		{{error}}
+	</div>
 	{{/if}}
-  </h4>
-   <br>
-    {{#if error}}
-  		<div class="alert alert-danger center">
-    		{{error}}
-  		</div>
-  	{{/if}}
-  	{{#if success_msg}} 
-		<div class="alert alert-success center" role="alert">
-    		{{success_msg}}
-  		</div>
+	{{#if success_msg}} 
+	<div class="alert alert-success center" role="alert">
+		{{success_msg}}
+	</div>
 	{{/if}}
-		<main role="main" class="accordion card my-4" id="accordionExample">
-			<div class="shadow-none p-3 mb-5 bg-light rounded mx-auto col-md-10 card-body" id="accordion">
-				<div class="col-12">
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="presidente">Presidente</label>
-							<div class="form-control bg-light"> {{members.president}} </div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="vicepresidente">Vice Presidente</label>
-							<div class="form-control bg-light"> {{members.vice_president}} </div>
-						</div>
+	<main role="main" class="accordion card my-4" id="accordionExample">
+		<div class="shadow-none p-3 mb-5 bg-light rounded mx-auto col-md-10 card-body" id="accordion">
+			<div class="col-12">
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label for="presidente">Presidente</label>
+						<div class="form-control bg-light"> {{members.president}} </div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="secretario">Secretario</label>
-							<div class="form-control bg-light"> {{members.secretary}} </div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="tesoureiro">Tesoureiro</label>
-							<div class="form-control bg-light"> {{members.treasurer}} </div>
-						</div>
+					<div class="col-md-6 mb-3">
+						<label for="vicepresidente">Vice Presidente</label>
+						<div class="form-control bg-light"> {{members.vice_president}} </div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="coordenadordecomunicacao">Coordenador De Comunicação</label>
-							<div class="form-control bg-light"> {{members.communication_coordinator}} </div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="coordenadordeeventos">Coordenador De Eventos</label>
-							<div class="form-control bg-light"> {{members.events_coordinator}} </div>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label for="secretario">Secretario</label>
+						<div class="form-control bg-light"> {{members.secretary}} </div>
 					</div>
-					
+					<div class="col-md-6 mb-3">
+						<label for="tesoureiro">Tesoureiro</label>
+						<div class="form-control bg-light"> {{members.treasurer}} </div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label for="coordenadordecomunicacao">Coordenador De Comunicação</label>
+						<div class="form-control bg-light"> {{members.communication_coordinator}} </div>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label for="coordenadordeeventos">Coordenador De Eventos</label>
+						<div class="form-control bg-light"> {{members.events_coordinator}} </div>
+					</div>
 				</div>
 			</div>
-		</main>
-	</div>
+		</div>
+	</main>
+</div>

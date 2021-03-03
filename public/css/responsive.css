@@ -32,11 +32,18 @@
 
 
 @media (max-width: 503px) {
-	
+	p{
+		width:70rem;
+		top:200px;
+		
+		display:grid;
+	}
 }
 
 @media (max-width: 471px) {
-	
+	p{
+		font-size: 12px;
+	}
 	
 }
 
@@ -47,10 +54,19 @@
 
 @media (max-width: 407px) {
 	
-
+	p{
+        font-size: 7px;
+    }
 }
 
 @media (max-width: 375px) {
-	
+	.tm-portfolio-description{
+		width:1000rem;
+		top:250px;
+	}
+	 p{
+        font-size: 9px;
+    }
 }
+
 
