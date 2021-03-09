@@ -17,6 +17,8 @@ const adminDocumentsRouter = require('./routes/admin/documentsRouter')
 const searchRouter = require('./routes/user/searchRouter')
 const academicCenterRouter = require('./routes/user/academicCenterRouter')
 const adminAcademicCenterRouter = require('./routes/admin/academicCenterRouter')
+const adminContentTextRouter = require('./routes/admin/contentTextRouter')
+
 const path = require('path')
 const morgan = require('morgan')
 
@@ -95,7 +97,7 @@ app.use('/projetos', projectsRouter)
 app.use('/admin/projetos', adminProjectsRouter)
 app.use('/documentos', documentsRouter)
 app.use('/admin/documentos', adminDocumentsRouter)
-
+app.use('/admin/content', adminContentTextRouter)
 
 
 //Others

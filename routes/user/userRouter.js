@@ -3,10 +3,14 @@ const express = require('express')
 const router = express.Router()
 const { auth } = require('../../helpers/auth')
 const UserServices = require('../../services/user/userServices')
+const ContentTextServices = require('../../services/contentText/contentTextServices')
 
-
-router.get('/', (req, res) => {
-	res.render('users/index')
+router.get('/', async (req, res) => {
+	req.params.contents = ['title_content_index', 'text_content_index']
+	
+	const serviceContentText = new ContentTextServices
+	var contentTexts = await serviceContentText.all(req, res)
+	res.render('users/index', {contentTexts: contentTexts.contexts})
 })
 
 router.get('/perfil', auth, (req, res) => {
