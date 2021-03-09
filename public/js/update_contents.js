@@ -56,3 +56,25 @@ async function createForm(input, oldText, content){
 
     
 }
+
+function highlight_editable(){
+    if($('#highlight_editable').is(':checked') ){
+        
+        let color = 0;
+        $('.editable').each(function(i, obj) {
+            $(obj).addClass('color' + color)
+            color++
+            if(color > 4){
+                color = 0
+            }
+
+        });
+    }else{
+        $('.editable').removeClass('color0 color1 color2 color3 color4')
+    }
+}
+
+
+$('#highlight_editable').click(function() {
+    highlight_editable()
+});

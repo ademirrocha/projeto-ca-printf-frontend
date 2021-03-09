@@ -6,7 +6,12 @@ const UserServices = require('../../services/user/userServices')
 const ContentTextServices = require('../../services/contentText/contentTextServices')
 
 router.get('/', async (req, res) => {
-	req.params.contents = ['title_content_index', 'text_content_index']
+	req.params.contents = [
+		'title_content_index', 
+		'text_content_index',
+		'index_title_brand',
+		'index_body_brand'
+	]
 	
 	const serviceContentText = new ContentTextServices
 	var contentTexts = await serviceContentText.all(req, res)

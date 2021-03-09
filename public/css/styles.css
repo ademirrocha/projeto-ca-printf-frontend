@@ -295,3 +295,62 @@ p{
 	font:"Arial";
 	display:grid;
 }
+
+.nav-option-right{
+	position: fixed;
+	width: 400px;
+	height: 40px;
+	right: -350px;
+	top: 40%;
+	padding-left: 50px;
+	background-color: #8ca01d;
+	border-radius: 0 30px 30px 0;
+}
+
+.nav-option-right:hover{
+	right: -50px;
+}
+
+.nav-option-right:before {
+	/* content necessário para a criação de um elemento vazio */
+	content: "";
+	width: 0;
+	height: 0;
+	top: -5px;
+	/* position: absolute para manipularmos a posição da seta */
+	position: absolute;
+	/* Right com valor negativo para ele ficar para fora do balão de dialogo */
+	left: -15px;
+	/* E aqui o truque com as bordas */
+	/* 50px é a metade da altura do elemento, assim temos uma seta da mesma altura que nosso elemento */
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+	border-right: 25px solid #8ca01d;
+	border-radius: 50%;
+  }
+
+
+.editable{
+	cursor: pointer;
+}
+
+.color0{
+	background-color: #277e8185;
+}
+
+.color1{
+	background-color: #065c2385;
+}
+
+.color2{
+	background-color: #535c0685;
+}
+
+.color3{
+	background-color: #170c7285;
+}
+
+.color4{
+	background-color: #e44f1485;
+}
+
