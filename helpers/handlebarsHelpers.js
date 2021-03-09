@@ -63,6 +63,10 @@ module.exports = {
 			return decodeURIComponent(text.replace(index, replaced));
 		})
 
+		Handlebars.registerHelper('decodeURIComponent', function (text) {
+			return new Handlebars.SafeString(text);
+		})
+
 
 		Handlebars.registerHelper('moderatorPermission', function(){
 			let isAdmin = false
