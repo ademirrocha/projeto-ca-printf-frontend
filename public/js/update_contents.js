@@ -1,8 +1,8 @@
 async function editContent($this, content, type = 'input_text'){
     oldText = $('#' + content).html();
     var up = await createForm(type, oldText, content)
-    console.log(up.value )
-    $('#' + content).html(up.value.contentTexts[content])
+    if(up.value)
+      $('#' + content).html(up.value.contentTexts[content])
 
     //$($this).html('Cancelar')
 
@@ -14,7 +14,7 @@ async function createForm(input, oldText, content){
         input: input,
         inputValue: oldText,
         inputAttributes: {
-            autocapitalize: 'on'
+            autocapitalize: 'off',
         },
         showCancelButton: true,
         confirmButtonText: 'Salvar',

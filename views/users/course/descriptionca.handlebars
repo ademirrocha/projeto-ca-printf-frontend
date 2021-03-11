@@ -7,12 +7,14 @@
     </div>
     <hr>
   </h2>
-  <h4 class="center">Objetivos do Centro Acadêmico</h4>
+  <h4 class="center">
+    <span id="ca_title" class="editable color0" title="Clique Para Editar" onclick="editContent(this, 'ca_title', 'text');">{{#if contentTexts.ca_title }}{{decodeURIComponent contentTexts.ca_title}}{{else}}Objetivos do Centro Acadêmico{{/if}}</span>
+    </h4>
    <br>
 	<div class="tm-portfolio-description d-inline-block p-8 top-100 start-100">
 		<br>
 		<p class="d-inline-block p-8 text-center mx-auto top-150 start-250 centro-academico">
-			O Centro Acadêmico tem por objetivo fazer a união ntre discentes e docentes, com intuito de ajudar ambos a ter um relacionamento saudavel entre todas as partes. Fazendo um beneficio tanto para o melhoramento do curso como para proximos academicos que vão ingressar no mesmo, para ter uma boa estabilidade de como é o curso,como é suas caracteristicas e planejamento.
+			<span id="ca_body" class="editable color1" body="Clique Para Editar" onclick="editContent(this, 'ca_body', 'textarea');">{{#if contentTexts.ca_body }}{{decodeURIComponent contentTexts.ca_body}}{{else}}O Centro Acadêmico tem por objetivo fazer a união ntre discentes e docentes, com intuito de ajudar ambos a ter um relacionamento saudavel entre todas as partes. Fazendo um beneficio tanto para o melhoramento do curso como para proximos academicos que vão ingressar no mesmo, para ter uma boa estabilidade de como é o curso,como é suas caracteristicas e planejamento.{{/if}}</span>
 		</p>
 		<hr>
 		<p>
