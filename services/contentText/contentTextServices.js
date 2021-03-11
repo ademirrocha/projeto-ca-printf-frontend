@@ -11,7 +11,6 @@ const constructResponse = (data) => {
         }
     }
 
-    console.log('result', result)
     return result
 }
 
@@ -28,8 +27,10 @@ module.exports = class ContentTextServices {
 
 		var result = {}
 		const api = res.locals.api
-        //console.log(api)
-		await api.get('content-text')
+        
+		await api.get('content-text',{
+			params: req.params
+		})
 		.then(
 			function(response){
                

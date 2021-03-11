@@ -7,7 +7,9 @@
     </div>
     <hr>
   </h2>
-  <h4 class="center">Aqui você encontra documentação relacionado ao curso de Bacharelado em Sistemas de Informação do IFNMG - Campus Arinos</h4>
+  <h4 class="center">
+    <span id="documents_title" class="editable color1" title="Clique Para Editar" onclick="editContent(this, 'documents_title', 'text');">{{#if contentTexts.documents_title }}{{decodeURIComponent contentTexts.documents_title}}{{else}}Aqui você encontra documentação relacionado ao curso de Bacharelado em Sistemas de Informação do IFNMG - Campus Arinos{{/if}}</span>
+  </h4>
   <br>
 
   {{#if error}}

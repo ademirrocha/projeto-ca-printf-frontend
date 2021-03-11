@@ -7,7 +7,9 @@
     </div>
     <hr>
   </h2>
-  <h4 class="center">Eventos do CA-Printf</h4>
+  <h4 class="center">
+    <span id="events_title" class="editable color1" title="Clique Para Editar" onclick="editContent(this, 'events_title', 'text');">{{#if contentTexts.events_title }}{{decodeURIComponent contentTexts.events_title}}{{else}}Eventos do CA-Printf{{/if}}</span>
+  </h4>
 <br>
 
 {{#if error}}
