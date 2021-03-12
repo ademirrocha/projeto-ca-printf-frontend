@@ -2,14 +2,18 @@ const express = require('express')
 const router = express.Router()
 
 const DocumentServices = require('../../services/document/documentServices')
+const ContentTextServices = require('../../services/contentText/contentTextServices')
 
 router.get('/', async (req, res) => {
 
 	const serviceDocument = new DocumentServices
-	
+	const serviceContentText = new ContentTextServices
 	var documents = await serviceDocument.all(req, res)
+	req.params.contents = 'documents_title'
 	
-	res.render('users/documents/documents', {documents: documents});
+	var contentTexts = await serviceContentText.all(req, res)
+	
+	res.render('users/documents/documents', {documents: documents, contentTexts: contentTexts.contexts});
 })
 
 

@@ -7,7 +7,9 @@
     </div>
     <hr>
   </h2>
-  <h4 class="center">O Centro Acadêmico Precisa armazenar seus projetos em lugares que possam divulgar e fortalecer o IFNMG - Campus Arinos</h4>
+  <h4 class="center">
+    <span id="projects_title" class="editable color1" title="Clique Para Editar" onclick="editContent(this, 'projects_title', 'text');">{{#if contentTexts.projects_title }}{{decodeURIComponent contentTexts.projects_title}}{{else}}O Centro Acadêmico Precisa armazenar seus projetos em lugares que possam divulgar e fortalecer o IFNMG - Campus Arinos{{/if}}</span>
+  </h4>
   <br>
 
   {{#if error}}

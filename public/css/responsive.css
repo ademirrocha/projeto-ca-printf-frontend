@@ -18,9 +18,7 @@
 		width: 80%;
 		left: 10%;
 	}
-	p{
-		font-family:8rem;
-	}
+	
 
 }
 
@@ -30,36 +28,26 @@
 	.if{
 		display: none;
 	}
-	p{
-		font-family:7rem;
-	}
+	
 }
 
 
 @media (max-width: 503px) {
-	p{
-		font-size:6rem;
-	}
+	
 }
 
 @media (max-width: 471px) {
-	p{
-		font-size:5rem;
-	}
+	
 	
 }
 
 @media (max-width: 439px) {
-	p{
-		font-size:4rem;
-	}
+	
 }
 
 @media (max-width: 407px) {
 	
-	p{
-        font-size: 3rem;
-    }
+	
 }
 
 @media (max-width: 375px) {
@@ -67,9 +55,12 @@
 		width:1000rem;
 		top:250px;
 	}
-	 p{
-        font-size:2rem;
-    }
+	 
 }
+@media (max-width: 575.98px) {
+	
+}
+/*Small devices (landscape phones, 576px and up)*/
+
 
 
