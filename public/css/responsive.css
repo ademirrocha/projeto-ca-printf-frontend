@@ -10,7 +10,6 @@
 }
 
 @media (max-width: 815px) {
-	
 }
 
 @media (max-width: 795px) {
@@ -18,6 +17,9 @@
 	#form-modal{
 		width: 80%;
 		left: 10%;
+	}
+	p{
+		font-family:8rem;
 	}
 
 }
@@ -28,34 +30,35 @@
 	.if{
 		display: none;
 	}
+	p{
+		font-family:7rem;
+	}
 }
 
 
 @media (max-width: 503px) {
 	p{
-		width:70rem;
-		top:200px;
-		
-		display:grid;
+		font-size:6rem;
 	}
 }
 
 @media (max-width: 471px) {
 	p{
-		font-size: 12px;
+		font-size:5rem;
 	}
 	
 }
 
 @media (max-width: 439px) {
-	
-
+	p{
+		font-size:4rem;
+	}
 }
 
 @media (max-width: 407px) {
 	
 	p{
-        font-size: 7px;
+        font-size: 3rem;
     }
 }
 
@@ -65,7 +68,7 @@
 		top:250px;
 	}
 	 p{
-        font-size: 9px;
+        font-size:2rem;
     }
 }
 
