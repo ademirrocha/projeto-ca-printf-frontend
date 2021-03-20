@@ -117,7 +117,7 @@ async function createForm(input, oldText, content, error = ''){
 
 function highlight_editable(){
     if($('#highlight_editable').is(':checked') ){
-        
+        localStorage.setItem('highlight_editable', true)
         let color = 0;
         $('.editable').each(function(i, obj) {
             $(obj).addClass('color' + color)
@@ -129,6 +129,7 @@ function highlight_editable(){
         });
     }else{
         $('.editable').removeClass('color0 color1 color2 color3 color4')
+        localStorage.setItem('highlight_editable', false)
     }
 }
 
@@ -136,3 +137,12 @@ function highlight_editable(){
 $('#highlight_editable').click(function() {
     highlight_editable()
 });
+
+
+if(localStorage.getItem('highlight_editable') == 'true'){
+  $('#highlight_editable').attr("checked",true)
+}else{
+  $('#highlight_editable').removeAttr("checked")
+}
+
+highlight_editable();

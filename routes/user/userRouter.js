@@ -56,7 +56,8 @@ router.get('/curso/fundamentos',async function(req,res){
 	req.params.contents = [
 		'fundaments_course_card1',
 		'fundaments_course_card2',
-		'fundaments_course_card3'
+		'fundaments_course_card3',
+		'fundamentals_image_parallax_window'
 	]
 	const serviceContentText = new ContentTextServices
 	var contentTexts = await serviceContentText.all(req, res)
