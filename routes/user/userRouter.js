@@ -10,11 +10,13 @@ router.get('/', async (req, res) => {
 		'title_content_index', 
 		'text_content_index',
 		'index_title_brand',
-		'index_body_brand'
+		'index_body_brand',
+		'index_image_parallax_window'
 	]
 	
 	const serviceContentText = new ContentTextServices
 	var contentTexts = await serviceContentText.all(req, res)
+	
 	res.render('users/index', {contentTexts: contentTexts.contexts})
 })
 

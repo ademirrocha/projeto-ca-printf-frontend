@@ -1,13 +1,22 @@
 const constructResponse = (data) => {
     result = {}
-
+	
     if(data.content){
         let index = data.content
-        result[index] = data[index]
+		if(data.type == 'text'){
+			result[index] = data[index]
+		}else{
+			result[index] = data['file']
+		}
+        
     }else{
         for(var prop in data){
             let index = data[prop].content
-            result[index] = data[prop][index]
+			if(data[prop].type == 'text'){
+				result[index] = data[prop][index]
+			}else{
+				result[index] = data[prop]['file']
+			}
         }
     }
 
@@ -110,19 +119,24 @@ module.exports = class ContentTextServices {
 
 
 
-	async update(req, res, file){
+	async update(data){
+		const {req, res, image} = data
 		var result = {}
 		const api = res.locals.api
-		
+		let type = 'text'
+		if(image != null){
+			type = 'image'
+		}
 		await api.post('content-text/edit', {
 			newText: req.body.newText,
             content: req.body.content,
-			type: req.body.type
+			type: type,
+			image: image || null
 		})
 		.then(
 			function(response){
 
-				console.log(response)
+				
 				if(response.status == 200){
 					result.status = response.status
 					result.contexts = constructResponse(response.data.data)
@@ -131,6 +145,7 @@ module.exports = class ContentTextServices {
 			})
 		.catch(error => {
 
+			
 			if(error.response  && error.response.status != 200){
 
 				result.status = error.response.status

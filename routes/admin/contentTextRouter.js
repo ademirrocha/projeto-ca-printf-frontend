@@ -4,14 +4,38 @@ const { isAdmin } = require('../../helpers/isAdmin')
 const { auth } = require('../../helpers/auth')
 
 const ContentTextServices = require('../../services/contentText/contentTextServices')
+const multer = require('multer')
+const multerConfig = require("../../config/multer");
 
-router.post('/edit', async (req, res) => {
+router.post('/edit', multer(multerConfig).single('image'), async (req, res) => {
+
+	var image = null
+
+	if(req.file != undefined ){
+
+		const { originalname: originalname, mimetype, size, key, local } = req.file;
+
+		image = {
+			originalname,
+			mimetype,
+			size,
+			key,
+			url: req.file.url || req.file.location,
+			local: local
+		}
+	}
+
 
 	const serviceContentText = new ContentTextServices
+	const data = {req: req, res: res, image: image}
+	var contentTexts = await serviceContentText.update(data)
+    
+	if(contentTexts.status == 200){
+		return res.json({contentTexts: contentTexts.contexts})
+	}else{
+		return res.json({errors: contentTexts.errors})
+	}
 	
-	var contentTexts = await serviceContentText.update(req, res)
-    console.log('contentTexts' , contentTexts)
-	res.json({contentTexts: contentTexts.contexts})
 })
 
 module.exports = router;

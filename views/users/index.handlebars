@@ -2,8 +2,8 @@
 <div class="container">
   <div id="cc" onclick="closeNavbarTogglere();"></div>
 
-  <section id="tmWelcome" class="parallax-window" data-parallax="scroll" data-image-src="/img/mini-profile-bg-01.jpg">
-
+  <section id="tmWelcome" class="parallax-window" data-parallax="scroll" data-image-src={{#if contentTexts.index_image_parallax_window.url }}{{contentTexts.index_image_parallax_window.url}}{{else}}"/img/mini-profile-bg-01.jpg"{{/if}}>
+    <div class=" editable color0 editable_image" title="Clique Para Editar" onclick="editContent(this, 'index_image_parallax_window', 'image');">Editar Imagem</div>
     <div class="container-fluid tm-brand-container-outer">
       <div class="row">
         <div class="col-12">
