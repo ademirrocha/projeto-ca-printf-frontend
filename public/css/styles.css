@@ -295,11 +295,7 @@ h2.title hr{
 	width:70rem;
 	top:200px;
 }
-p{
-	font-size:20px;
-	font:"Arial";
-	display:grid;
-}
+
 
 .nav-option-right{
 	position: fixed;
@@ -340,6 +336,10 @@ p{
 	height: 3rem;
 	text-align: center;
 	top: 10px;
+}
+
+a{
+	text-decoration:none;
 }
 
 .editable{

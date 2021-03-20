@@ -10,7 +10,6 @@
 }
 
 @media (max-width: 815px) {
-	
 }
 
 @media (max-width: 795px) {
@@ -19,6 +18,7 @@
 		width: 80%;
 		left: 10%;
 	}
+	
 
 }
 
@@ -28,35 +28,26 @@
 	.if{
 		display: none;
 	}
+	
 }
 
 
 @media (max-width: 503px) {
-	p{
-		width:70rem;
-		top:200px;
-		
-		display:grid;
-	}
+	
 }
 
 @media (max-width: 471px) {
-	p{
-		font-size: 12px;
-	}
+	
 	
 }
 
 @media (max-width: 439px) {
 	
-
 }
 
 @media (max-width: 407px) {
 	
-	p{
-        font-size: 7px;
-    }
+	
 }
 
 @media (max-width: 375px) {
@@ -64,9 +55,12 @@
 		width:1000rem;
 		top:250px;
 	}
-	 p{
-        font-size: 9px;
-    }
+	 
 }
+@media (max-width: 575.98px) {
+	
+}
+/*Small devices (landscape phones, 576px and up)*/
+
 
 
