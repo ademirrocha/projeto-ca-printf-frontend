@@ -295,8 +295,6 @@ h2.title hr{
 	width:70rem;
 	top:200px;
 }
-
-
 .nav-option-right{
 	position: fixed;
 	width: 400px;
@@ -343,4 +341,3 @@ a{
 	text-align: right !important;
 	font-size: small;
 }
-
