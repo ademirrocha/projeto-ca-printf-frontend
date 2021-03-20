@@ -10,6 +10,9 @@
 }
 
 @media (max-width: 815px) {
+	.footer-extra-links span::after{
+		content: " | ";
+	}
 }
 
 @media (max-width: 795px) {

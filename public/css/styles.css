@@ -338,3 +338,9 @@ a{
 .link-footer{
  color: #f8f9fa40;
 }
+
+.footer-extra-links{
+	text-align: right !important;
+	font-size: small;
+}
+

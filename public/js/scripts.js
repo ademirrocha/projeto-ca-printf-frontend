@@ -156,3 +156,23 @@ function openCloseSearchResults($this, div){
 if(window.location.pathname.includes('/login') || window.location.pathname.includes('/cadastro')){
 	$('nav.navbar').remove()
 }
+
+function resize(){
+	var $containerWidth = $(window).width();
+	
+    if ($containerWidth <= 815) {
+		
+        $('.footer-extra-links span').removeClass('nav-link')
+    }
+    if ($containerWidth > 816) {
+        $('.footer-extra-links span').addClass('nav-link')
+    }
+}
+
+$(document).ready(function () {
+    resize()
+});
+
+$(window).resize(function(){
+	resize()
+})
