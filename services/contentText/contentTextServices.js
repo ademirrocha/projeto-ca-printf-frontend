@@ -124,15 +124,16 @@ module.exports = class ContentTextServices {
 		var result = {}
 		const api = res.locals.api
 		let type = 'text'
-		if(image != null){
-			type = 'image'
-		}
-		await api.post('content-text/edit', {
+		let params = {
 			newText: req.body.newText,
             content: req.body.content,
 			type: type,
-			image: image || null
-		})
+		}
+		if(image != null){
+			params.type = 'image'
+			params.image = image
+		}
+		await api.post('content-text/edit', params)
 		.then(
 			function(response){
 

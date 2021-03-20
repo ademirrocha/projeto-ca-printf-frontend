@@ -36,7 +36,9 @@ async function sendContexts(form, input, newText, content){
           Swal.fire({
             html: "<span class='success-text'>Conteúdo salvo com sucesso</span>"
           }).then(( ) => {
-            window.location.href = '' + window.location.pathname
+            if(input == 'image'){
+              window.location.href = '' + window.location.pathname
+            }
           })
         }else{
 

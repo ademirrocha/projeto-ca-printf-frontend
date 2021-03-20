@@ -17,6 +17,10 @@
 	<link rel="stylesheet" type="text/css" href="/css/cards.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+	{{#if (adminPermission)}}
+  		<link rel="stylesheet" type="text/css" href="/css/update-contexts.css">
+	{{/if}}
+
 </head>
 <body>
 	
@@ -24,12 +28,13 @@
 	<div id="app">
 
 		{{{body}}}
-
+		{{#if (adminPermission)}}
 		<div class="nav-option-right">
 			<label>
 				<input type="checkbox" id="highlight_editable" class="form-check-input " checked="true"> Destacar Conteúdos Editáveis
 			</label>
 		</div>
+		{{/if}}
 		
 	</div>
 
@@ -42,8 +47,9 @@
 	<script src="/js/scripts.js"></script>
 	{{#if (adminPermission)}}
 	<script src="/js/admin.js"></script>
-	{{/if}}
 	<script src="/js/update_contents.js"></script>
+	{{/if}}
+	
 
 
 	<script>

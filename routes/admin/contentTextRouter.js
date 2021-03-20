@@ -7,7 +7,7 @@ const ContentTextServices = require('../../services/contentText/contentTextServi
 const multer = require('multer')
 const multerConfig = require("../../config/multer");
 
-router.post('/edit', multer(multerConfig).single('image'), async (req, res) => {
+router.post('/edit', auth, isAdmin, multer(multerConfig).single('image'), async (req, res) => {
 
 	var image = null
 
