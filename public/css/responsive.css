@@ -67,6 +67,7 @@
 	hr{
 		max-width:33rem;
 	}
+
 	
 }
 
@@ -96,6 +97,10 @@
 	.tm-portfolio-description{
 		width:1000rem;
 		top:250px;
+		margin-top:90px;
+	}
+	.tm-portfolio-description p{
+		display:none;
 	}
 }
 @media (max-width: 575.98px) {
