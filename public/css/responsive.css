@@ -90,17 +90,18 @@
 }
 
 @media (max-width: 407px) {
-	
+
 }
 
 @media (max-width: 375px) {
-	.tm-portfolio-description{
-		width:1000rem;
+	.centro-academico{
+		width:24rem;
 		top:250px;
 		margin-top:90px;
 	}
-	.tm-portfolio-description p{
-		display:none;
+	 .navbar{
+		width:38rem;
+		top:2px;
 	}
 }
 @media (max-width: 575.98px) {
