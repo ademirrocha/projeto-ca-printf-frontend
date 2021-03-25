@@ -11,6 +11,9 @@
 		width: 60%;
 		left: 20%;
 	}
+	.if{
+		display: none;
+	}
 	p{
 		max-width:45rem;
 	}
@@ -58,9 +61,6 @@
 
 @media (max-width: 760px) {
 	
-	.if{
-		display: none;
-	}
 	p{
 		max-width:33rem;
 	}
@@ -94,13 +94,8 @@
 }
 
 @media (max-width: 375px) {
-	.centro-academico{
-		width:24rem;
-		top:250px;
-		margin-top:90px;
-	}
+	
 	 .navbar{
-		width:38rem;
 		top:2px;
 	}
 }
