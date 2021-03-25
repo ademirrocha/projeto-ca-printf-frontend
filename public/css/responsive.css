@@ -63,6 +63,7 @@
 	}
 	p{
 		max-width:33rem;
+		text-align:center;
 	}
 	hr{
 		max-width:33rem;
@@ -75,6 +76,7 @@
 @media (max-width: 503px) {
 	p{
 		max-width:30rem;
+		align-items:center;
 	}
 	hr{
 		max-width:30rem;
@@ -95,22 +97,36 @@
 
 @media (max-width: 375px) {
 	.centro-academico{
-		width:24rem;
+		width:1000rem;
 		top:250px;
-		margin-top:90px;
 	}
 	 .navbar{
-		width:38rem;
-		top:2px;
+		width:45rem;
+	}
+	.links-importantes{
+		width:45rem;
+	}
+	.rodape{
+		width:45rem;
+	}
+	h2.title{
+		text-align:center;
+		width:650px;
+	}
+	h4.center{
+		text-align:center;
+		width:650px;
 	}
 }
 @media (max-width: 575.98px) {
 	p{
-		max-width:27rem;
+		max-width:38rem;
+		text-align:justify;
 	}
 	hr{
 		max-width:27rem;
 	}
+	
 }
 /*Small devices (landscape phones, 576px and up)*/
 
