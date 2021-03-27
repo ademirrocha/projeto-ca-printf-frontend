@@ -276,50 +276,8 @@
 }
 
 @media (max-width: 375px) {
-	.centro-academico{
-		width:42rem;
-		top:250px;
-	}
-	.curso{
-		width:1000rem;
-		top:250px;
-	}
-	.descricao-docentes{
-		width:42rem;
-		top:250px;
-	}
-	 .navbar{
-		width:45rem;
-		top:2px;
-	}
-	.links-importantes{
-		width:45rem;
-	}
-	.rodape{
-		width:45rem;
-	}
-	h2.title{
-		text-align:center;
-		width:650px;
-		font-family:"Arial","Helvetica",sans-serif;
-		font-size:40px;
-	}
-	h4.center{
-		text-align:center;
-		width:650px;
-		font-family:"Arial","Helvetica",sans-serif;
-		font-size:40px;
+	
 }
-	p{
-		width:50rem;
-		text-align:center;
-		font-family:"Arial","Helvetica",sans-serif;
-		font-size:40px;
-	}
-	button{
-		padding:10px 0;
-		align-items:center;
-	}
 @media (max-width: 575.98px) {
 	.centro-academico{
 		width:42rem;
