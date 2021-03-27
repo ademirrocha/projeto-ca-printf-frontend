@@ -292,8 +292,12 @@ h2.title hr{
 	text-decoration: none;
 }
 .centro-academico{
+<<<<<<< HEAD
 	width:1200px;
 	top:250px;
+=======
+	top:200px;
+>>>>>>> fd7f3c7ab5eed557a67fd46dfde452371b6109b5
 }
 .nav-option-right{
 	position: fixed;
@@ -341,3 +345,12 @@ a{
 	text-align: right !important;
 	font-size: small;
 }
+.curso{
+	width:1000px;
+	top:250px;
+}
+.curso p{
+	width:70rem;
+	top:150px;
+}
+

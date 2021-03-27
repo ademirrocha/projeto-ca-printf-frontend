@@ -76,9 +76,7 @@
 
 @media (max-width: 845px) {
 
-	.tm-welcome-left{
-		max-width: 80%;
-	}
+	
 	.card{
 		max-width: 49rem;
 	}

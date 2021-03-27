@@ -11,6 +11,9 @@
 		width: 60%;
 		left: 20%;
 	}
+	.if{
+		display: none;
+	}
 	p{
 		max-width:45rem;
 	}
@@ -58,12 +61,16 @@
 
 @media (max-width: 760px) {
 	
-	.if{
-		display: none;
-	}
 	p{
-		max-width:33rem;
+		max-width:70rem;
 		text-align:center;
+		font-size:18px;
+		font-family:"Arial" "Helvetica" sans-serif;
+		padding:10px 0 10px;
+	}
+	button{
+		padding:10px 0;
+		align-items:center;
 	}
 	hr{
 		max-width:33rem;
@@ -74,34 +81,21 @@
 
 
 @media (max-width: 503px) {
-	p{
-		max-width:30rem;
-		align-items:center;
-	}
-	hr{
-		max-width:30rem;
-	}
-}
-
-@media (max-width: 471px) {
-
-}
-
-@media (max-width: 439px) {
-
-}
-
-@media (max-width: 407px) {
-
-}
-
-@media (max-width: 375px) {
 	.centro-academico{
+		width:42rem;
+		top:250px;
+	}
+	.curso{
 		width:1000rem;
+		top:250px;
+	}
+	.descricao-docentes{
+		width:42rem;
 		top:250px;
 	}
 	 .navbar{
 		width:45rem;
+		top:2px;
 	}
 	.links-importantes{
 		width:45rem;
@@ -116,12 +110,264 @@
 	h4.center{
 		text-align:center;
 		width:650px;
+}
+	button{
+		padding:10px 0;
+		align-items:center;
+}
+	a{
+		font-size:30px;
+		align-items:center;
+}
+	p{
+		width:42rem;
+		text-align:center;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:25px;
+	}
+	hr{
+		max-width:30rem;
 	}
 }
-@media (max-width: 575.98px) {
+	button{
+		padding:10px 0;
+		align-items:center;
+	}
+@media (max-width: 471px) {
+	.centro-academico{
+		width:42rem;
+		top:250px;
+	}
+	.curso{
+		width:42rem;
+		top:250px;
+	}
+	.descricao-docentes{
+		width:42rem;
+		top:250px;
+	}
+	 .navbar{
+		width:53rem;
+		top:2px;
+	}
+	.links-importantes{
+		width:53rem;
+	}
+	.rodape{
+		width:53rem;
+	}
+	h2.title{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	h4.center{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+}
 	p{
-		max-width:38rem;
-		text-align:justify;
+		width:50rem;
+		text-align:center;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	button{
+		padding:10px 0;
+		align-items:center;
+	}
+}
+}
+
+@media (max-width: 439px) {
+	.centro-academico{
+		width:42rem;
+		top:250px;
+	}
+	.curso{
+		width:1000rem;
+		top:250px;
+	}
+	.descricao-docentes{
+		width:42rem;
+		top:250px;
+	}
+	 .navbar{
+		width:53rem;
+		top:2px;
+	}
+	.links-importantes{
+		width:53rem;
+	}
+	.rodape{
+		width:53rem;
+	}
+	h2.title{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	h4.center{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+}
+	p{
+		width:50rem;
+		text-align:center;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	button{
+		padding:10px 0;
+		align-items:center;
+	}
+}
+
+@media (max-width: 407px) {
+	.centro-academico{
+		width:42rem;
+		top:250px;
+	}
+	.curso{
+		width:1000rem;
+		top:250px;
+	}
+	.descricao-docentes{
+		width:42rem;
+		top:250px;
+	}
+	 .navbar{
+		width:45rem;
+		top:2px;
+	}
+	.links-importantes{
+		width:45rem;
+	}
+	.rodape{
+		width:45rem;
+	}
+	h2.title{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	h4.center{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+}
+	p{
+		width:50rem;
+		text-align:center;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	button{
+		padding:10px 0;
+		align-items:center;
+	}
+}
+
+@media (max-width: 375px) {
+	.centro-academico{
+		width:42rem;
+		top:250px;
+	}
+	.curso{
+		width:1000rem;
+		top:250px;
+	}
+	.descricao-docentes{
+		width:42rem;
+		top:250px;
+	}
+	 .navbar{
+		width:45rem;
+		top:2px;
+	}
+	.links-importantes{
+		width:45rem;
+	}
+	.rodape{
+		width:45rem;
+	}
+	h2.title{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	h4.center{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+}
+	p{
+		width:50rem;
+		text-align:center;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	button{
+		padding:10px 0;
+		align-items:center;
+	}
+@media (max-width: 575.98px) {
+	.centro-academico{
+		width:42rem;
+		top:250px;
+	}
+	.curso{
+		width:42rem;
+		top:250px;
+	}
+	.descricao-docentes{
+		width:42rem;
+		top:250px;
+	}
+	 .navbar{
+		width:45rem;
+		top:2px;
+	}
+	.links-importantes{
+		width:45rem;
+	}
+	.rodape{
+		width:45rem;
+	}
+	h2.title{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+	}
+	h4.center{
+		text-align:center;
+		width:650px;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:40px;
+}
+	a{
+		font-size:30px;
+		align-items:center;
+	}
+	button{
+		padding:10px 0;
+		align-items:center;
+	}
+	p{
+		width:40rem;
+		text-align:center;
+		font-family:"Arial","Helvetica",sans-serif;
+		font-size:25px;
 	}
 	hr{
 		max-width:27rem;
