@@ -277,63 +277,10 @@
 
 @media (max-width: 375px) {
 	
-<<<<<<< HEAD
+
 }
 @media (max-width: 575.98px) {
-	.centro-academico{
-		width:42rem;
-		top:250px;
-	}
-	.curso{
-		width:42rem;
-		top:250px;
-	}
-	.descricao-docentes{
-		width:42rem;
-		top:250px;
-	}
-	 .navbar{
-		width:45rem;
-=======
-	 .navbar{
->>>>>>> fd7f3c7ab5eed557a67fd46dfde452371b6109b5
-		top:2px;
-	}
-	.links-importantes{
-		width:45rem;
-	}
-	.rodape{
-		width:45rem;
-	}
-	h2.title{
-		text-align:center;
-		width:650px;
-		font-family:"Arial","Helvetica",sans-serif;
-		font-size:40px;
-	}
-	h4.center{
-		text-align:center;
-		width:650px;
-		font-family:"Arial","Helvetica",sans-serif;
-		font-size:40px;
-}
-	a{
-		font-size:30px;
-		align-items:center;
-	}
-	button{
-		padding:10px 0;
-		align-items:center;
-	}
-	p{
-		width:40rem;
-		text-align:center;
-		font-family:"Arial","Helvetica",sans-serif;
-		font-size:25px;
-	}
-	hr{
-		max-width:27rem;
-	}
+	
 	
 }
 /*Small devices (landscape phones, 576px and up)*/
