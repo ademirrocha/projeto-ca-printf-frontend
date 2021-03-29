@@ -277,6 +277,7 @@
 
 @media (max-width: 375px) {
 	
+<<<<<<< HEAD
 }
 @media (max-width: 575.98px) {
 	.centro-academico{
@@ -293,6 +294,9 @@
 	}
 	 .navbar{
 		width:45rem;
+=======
+	 .navbar{
+>>>>>>> fd7f3c7ab5eed557a67fd46dfde452371b6109b5
 		top:2px;
 	}
 	.links-importantes{
